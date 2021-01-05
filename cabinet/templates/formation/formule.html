@@ -1,0 +1,109 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block active_formation_formule %}
+active
+{% endblock %}
+
+{% block section %}
+{% endblock %}
+
+{% block main %}
+  <main id="main">
+
+    <!-- ======= Breadcrumbs ======= -->
+    <section id="breadcrumbs" class="breadcrumbs">
+      <div class="container">
+
+        <div class="d-flex justify-content-between align-items-center">
+          <h2>Formations</h2>
+          <ol>
+            <li><a href="index.html">Acceuil</a></li>
+              <li><a href="{% url 'expertise' %}">Formations</a> &nbsp;/ &nbsp;Formule</li>
+          </ol>
+        </div>
+
+      </div>
+    </section><!-- End Breadcrumbs -->
+
+    <!-- ======= Blog Section ======= -->
+    <section id="blog" class="blog">
+      <div class="container">
+
+        <div class="row">
+
+          <div class="col-lg-8 entries">
+
+            <article class="entry" data-aos="fade-up">
+
+              <div class="entry-img">
+                <img src="{% static 'cabinet/assets/img/photo-1509125602259-dc019b0b874f.jfif' %}" alt="" class="img-fluid">
+              </div>
+
+              <h2 style="font-size:20px" class="entry-title">
+                <a href="javascript:void(0)">LES QUATRE POSTURES DU MANAGER: EQUIPIER, ENTRAINEUR, ARBITRE, COACH </a>
+              </h2>
+
+              <div class="text-center">
+                <span style="font-weight:500;font-size:20px;font-style:italic">
+                  « Si la solution n’est pas de travailler plus dur, <br>plus vite et plus malin, quelle est-elle donc ? »
+                  <br>
+                </span>
+                <marquee><span style="color:#3f48cc;font-weight:700;font-style:italic">Stephen R. Covey</span></marquee>
+              </div>
+
+              <br>
+              <div class="entry-content">
+                <p style="line-height:33px">
+                  Aujourd’hui, contrairement aux pratiques les plus répandues, les experts les plus aguerries
+                  dans le domaine du management et du leadership s’accordent sur le fait que la solution n’est pas
+                  de travailler plus dur plus vite et plus malin. Deux questions d’importance capitale devraient
+                  être la préoccupation majeure de tout manager orienté vers plus de performances:
+
+                </p>
+                <ul style="font-weight:600; line-height:30px">
+                    <li><a style="color:black;text-decoration:none" href="javascript:void(0)">Quels sont les facteurs les plus décisifs qui entravent des résultats plus prometteurs ?</a></li>
+                    <li><a style="color:black;text-decoration:none" href="javascript:void(0)">Quels sont les instruments et moyens les plus rentables qui pourraient orienter les ressources humaines vers plus de productivité ?</a></li>
+                </ul>
+                <p style="line-height:35px">
+                  Ces deux questions d’un grand intérêt trouveront réponses à travers <a href="">six (06) modules</a>
+                  qui seront développés au cours de cette formation. <a href="">Voir plus</a>.
+                </p>
+                <p style="line-height:35px">
+                  <a href="" title="Télécharger notre plaquette d'inscription ensuite vous la remplissez et pour finir vous nous l'envoyer par mail. Le mail se trouve au bas de la page">
+                    Inscrivez-vous à la formation
+                    <span class="bx bx-chevron-right"></span>
+                  </a>
+                  <br>
+                  Rejoignez-nous en atelier inter structure <a href="{% url 'calendrier' %}" title="lien vers la page du calendrier">(date prochaine de la formation)</a>,
+                  intra structure <a href="" title="lien vers un formulaire de demande de diagnostique gratuit">(sur diagnostique)</a>
+                </p>
+              </div>
+
+            </article>
+
+          </div><!-- End blog entries list -->
+
+          <div class="col-lg-4">
+
+            <div class="sidebar" data-aos="fade-left">
+
+              <h3 class="sidebar-title">Formations</h3>
+              <div class="sidebar-item categories">
+                <ul>
+                  <li><a href="{% url 'formule' %}">Formule</a></li>
+                  <li><a href="{% url 'calendrier' %}">Calendrier</a></li>
+                </ul>
+              </div><!-- End sidebar categories-->
+
+            </div><!-- End sidebar -->
+
+          </div><!-- End blog sidebar -->
+
+        </div>
+
+      </div>
+    </section><!-- End Blog Section -->
+
+  </main><!-- End #main -->
+{% endblock %}

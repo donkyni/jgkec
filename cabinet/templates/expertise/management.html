@@ -1,0 +1,107 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block active_expertise_management %}
+active
+{% endblock %}
+
+{% block section %}
+{% endblock %}
+
+{% block main %}
+  <main id="main">
+
+    <!-- ======= Breadcrumbs ======= -->
+    <section id="breadcrumbs" class="breadcrumbs">
+      <div class="container">
+
+        <div class="d-flex justify-content-between align-items-center">
+          <h2>Expertises</h2>
+          <ol>
+            <li><a href="index.html">Acceuil</a></li>
+              <li><a href="{% url 'expertise' %}">Expertises</a> &nbsp;/ &nbsp;Appui au management des organisations</li>
+          </ol>
+        </div>
+
+      </div>
+    </section><!-- End Breadcrumbs -->
+
+    <!-- ======= Blog Section ======= -->
+    <section id="blog" class="blog">
+      <div class="container">
+
+        <div class="row">
+
+          <div class="col-lg-8 entries">
+
+            <article class="entry" data-aos="fade-up">
+
+              <div class="entry-img">
+                <img style="width:730px" src="{% static 'cabinet/assets/img/management.jpg' %}" alt="" class="img-fluid">
+              </div>
+
+              <h2 class="entry-title">
+                <a href="javascript:void(0)">APPUI AU MANAGEMENT DES ORGANISATIONS</a>
+              </h2>
+
+              <div class="entry-content">
+                <p style="line-height:30px">
+                    Nous définissons et concevons de programmes de formation sur mesure, pour l’amélioration
+                    des performances des organisations.
+                    Nous disposons d’un programme de formation des formateurs dans le domaine de management.
+                    Pour assurer l’amélioration continue des performances en entreprise, nous déroulons un atelier
+                    de formation sur les quatre postures du Manager.
+
+                </p>
+                <ul style="font-weight:600; line-height:35px">
+                    <li><a style="color:black;text-decoration:none" href="javascript:void(0)">Teambulding, renforcements de capacités</a></li>
+                    <li><a style="color:black;text-decoration:none" href="javascript:void(0)">Audit organisationnel</a></li>
+                    <li><a style="color:black;text-decoration:none" href="javascript:void(0)">Appui à la mise en œuvre des meilleurs systèmes de gestion et d’organisation (ISO…)</a></li>
+                    <li><a style="color:black;text-decoration:none" href="javascript:void(0)">
+                        Offre de services d'assistance technique aux entreprises publiques et privées, aux administrations publiques et privées (ministères, association et autres institutions)</a>
+                    </li>
+                    <li><a style="color:black;text-decoration:none" href="javascript:void(0)">Evaluation d'opportunités d'investissement, élaboration de plans d’affaires/d'action, développement et mise en place de structures organisationnelles et de systèmes de gestion)</a></li>
+                    <li><a style="color:black;text-decoration:none" href="javascript:void(0)">Réalisation d’études sectorielles de projet orientées vers l'élaboration de stratégies de développement, l'identification de vecteurs de croissance et d'opportunités d'investissement</a></li>
+                    <li><a style="color:black;text-decoration:none" href="javascript:void(0)">Réalisation d’études de marchés et de faisabilité pour le dimensionnement des projets de création et d’extension d’entreprises (plans d’affaires)</a></li>
+                    <li><a style="color:black;text-decoration:none" href="javascript:void(0)">Diagnostics d'entreprises et d’institutions publiques et privées et élaboration de plans de restructuration</a></li>
+                    <li><a style="color:black;text-decoration:none" href="javascript:void(0)">Evaluation de projets et programmes de développement</a></li>
+                    <li><a style="color:black;text-decoration:none" href="javascript:void(0)">Diagnostics de la gestion des infrastructures communales</a></li>
+                    <li><a style="color:black;text-decoration:none" href="javascript:void(0)">Elaboration de Plans Stratégiques</a></li>
+                    <li><a style="color:black;text-decoration:none" href="javascript:void(0)">Elaboration de Manuels de Procédure</a></li>
+                </ul>
+                <div class="read-more">
+                  <a href="{% url 'calendrier' %}" style="background-color:#000">Voir nos formations</a>
+                </div>
+              </div>
+
+            </article>
+
+          </div><!-- End blog entries list -->
+
+          <div class="col-lg-4">
+
+            <div class="sidebar" data-aos="fade-left">
+
+              <h3 class="sidebar-title">EXPERTISES</h3>
+              <div class="sidebar-item categories">
+                <ul>
+                  <li><a href="{% url 'ingenierie' %}">Ingénierie de la formation </a></li>
+                  <li><a href="{% url 'management' %}">Appui au management des organisations </a></li>
+                  <li><a href="{% url 'finance' %}">Faciliation d'accès aux financements et aux marchés </a></li>
+                  <li><a href="{% url 'developpement' %}">Décentralisation / Dévéloppement économique local </a></li>
+                  <li><a href="{% url 'insertion' %}">Insertion professionelle / Emploi des jeunes </a></li>
+                </ul>
+
+              </div><!-- End sidebar categories-->
+
+            </div><!-- End sidebar -->
+
+          </div><!-- End blog sidebar -->
+
+        </div>
+
+      </div>
+    </section><!-- End Blog Section -->
+
+  </main><!-- End #main -->
+{% endblock %}

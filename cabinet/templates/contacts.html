@@ -1,0 +1,122 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block active_contact %}
+active
+{% endblock %}
+
+{% block section %}
+<!-- ======= Breadcrumbs ======= -->
+    <section id="breadcrumbs" class="breadcrumbs">
+      <div class="container">
+
+        <div class="d-flex justify-content-between align-items-center">
+          <h2>Contact</h2>
+          <ol>
+            <li><a href="{% url 'acceuil' %}">Acceuil</a></li>
+            <li>Contact</li>
+          </ol>
+        </div>
+
+      </div>
+    </section>
+<!-- End Breadcrumbs -->
+{% endblock %}
+
+{% block main %}
+<!-- ======= Contact Section ======= -->
+    <div class="map-section">
+        <iframe style="border:0; width: 100%; height: 350px;" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3966.4979551355505!2d1.1929351147393035!3d6.197842095513202!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x10215860ddf7a953%3A0x8b5e7df0a07262be!2sRue%20317%20AGP%2C%20Lom%C3%A9!5e0!3m2!1sen!2stg!4v1609240967719!5m2!1sen!2stg" frameborder="0" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+    </div>
+
+    <section id="contact" class="contact">
+      <div class="container">
+
+        <div class="row justify-content-center" data-aos="fade-up">
+
+          <div class="col-lg-10">
+
+            <div class="info-wrap">
+              <div class="row">
+                <div class="col-lg-4 info">
+                  <i class="icofont-google-map"></i>
+                  <h4>Adresse:</h4>
+                  <p>Agbalepedo<br>317 rue de la Liberté, AGP</p>
+                </div>
+
+                <div class="col-lg-4 info mt-4 mt-lg-0">
+                  <i class="icofont-envelope"></i>
+                  <h4>Email:</h4>
+                  <p>jgkec@yahoo.fr<br><a href="http://www.jgkec.com">www.jgkec.com</a></p>
+                </div>
+
+                <div class="col-lg-4 info mt-4 mt-lg-0">
+                  <i class="icofont-phone"></i>
+                  <h4>Téléphones:</h4>
+                  <p>+228 22 25 39 87 <br>+228 99 67 76 01<br>+228 92 41 95 49</p>
+                </div>
+              </div>
+              <br><br>
+
+              <div class="row">
+                <div class="col-lg-4 info">
+                  <i class="icofont-home"></i>
+                  <h4>No. D'enrégistrement :</h4>
+                  <p>RCM: TG-LOM 2013 A 6046/TG-LOME 2016 B 40,</p>
+                </div>
+
+                <div class="col-lg-4 info mt-4 mt-lg-0">
+                  <i class="icofont-home"></i>
+                  <h4>NIF</h4>
+                  <p>1000614225, CNSS: 31918</p>
+                </div>
+
+                <div class="col-lg-4 info mt-4 mt-lg-0">
+                  <i class="icofont-user"></i>
+                  <h4>Représentant</h4>
+                  <p><b>Docteur Jean-Gaspard KOMINA</b> <br><br><span style="font-weight:700">Date de création</span> : 2013</p>
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+
+        <div class="row mt-5 justify-content-center" data-aos="fade-up">
+          <div class="col-lg-10">
+            <form action="forms/contact.php" method="post" role="form" class="php-email-form">
+              <div class="form-row">
+                <div class="col-md-6 form-group">
+                  <input type="text" name="name" class="form-control" id="name" placeholder="Votre Nom" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
+                  <div class="validate"></div>
+                </div>
+                <div class="col-md-6 form-group">
+                  <input type="email" class="form-control" name="email" id="email" placeholder="Votre Mail" data-rule="email" data-msg="Please enter a valid email" />
+                  <div class="validate"></div>
+                </div>
+              </div>
+              <div class="form-group">
+                <input type="text" class="form-control" name="subject" id="subject" placeholder="Sujet" data-rule="minlen:4" data-msg="Please enter at least 8 chars of subject" />
+                <div class="validate"></div>
+              </div>
+              <div class="form-group">
+                <textarea class="form-control" name="message" rows="5" data-rule="required" data-msg="Please write something for us" placeholder="Message"></textarea>
+                <div class="validate"></div>
+              </div>
+              <div class="mb-3">
+                <div class="loading">Loading</div>
+                <div class="error-message"></div>
+                <div class="sent-message">Your message has been sent. Thank you!</div>
+              </div>
+              <div class="text-center"><button type="submit">Envoyer le message</button></div>
+            </form>
+          </div>
+
+        </div>
+
+      </div>
+    </section><!-- End Contact Section -->
+
+  </main><!-- End #main -->
+{% endblock %}

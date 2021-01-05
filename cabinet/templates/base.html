@@ -1,0 +1,373 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+  {% block head %}
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>Cabinet JGK-EC</title>
+  <meta content="" name="description">
+  <meta content="" name="keywords">
+
+  <!-- Favicons -->
+  <link href="{% static 'cabinet/assets/img/favicon.png' %}" rel="icon">
+  <link href="{% static 'cabinet/assets/img/apple-touch-icon.png' %}" rel="apple-touch-icon">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Roboto:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="{% static 'cabinet/assets/vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+  <link href="{% static 'cabinet/assets/vendor/icofont/icofont.min.css' %}" rel="stylesheet">
+  <link href="{% static 'cabinet/assets/vendor/boxicons/css/boxicons.min.css' %}" rel="stylesheet">
+  <link href="{% static 'cabinet/assets/vendor/animate.css/animate.min.css' %}" rel="stylesheet">
+  <link href="{% static 'cabinet/assets/vendor/venobox/venobox.css' %}" rel="stylesheet">
+  <link href="{% static 'cabinet/assets/vendor/owl.carousel/assets/owl.carousel.min.css' %}" rel="stylesheet">
+  <link href="{% static 'cabinet/assets/vendor/aos/aos.css' %}" rel="stylesheet">
+  <link href="{% static 'cabinet/assets/vendor/remixicon/remixicon.css' %}" rel="stylesheet">
+
+
+  <!-- Template Main CSS File -->
+  <link href="{% static 'cabinet/assets/css/style.css' %}" rel="stylesheet">
+  {% endblock %}
+</head>
+
+<body>
+  {% block header %}
+  <!-- ======= Header ======= -->
+  <header id="header" class="fixed-top">
+    <div class="container d-flex align-items-center">
+
+      <h1 style="background: url('{% static 'cabinet/assets/img/jgk.jpg' %}');background-size: cover;" class="logo mr-auto"><a style="opacity:0" href="{% url 'acceuil' %}"><span>JGK</span>EC</a></h1>
+      <!-- Uncomment below if you prefer to use an image logo -->
+      <!-- <a href="index.html" class="logo mr-auto"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
+
+      <nav class="nav-menu d-none d-lg-block">
+        <ul>
+          <li class="{% block active_acceuil %}{% endblock %}"><a href="{% url 'acceuil' %}">Acceuil</a></li>
+
+          <li class="drop-down {% block active_formation %}{% endblock %}"><a href="javascript:void(0)">Formations</a>
+            <ul>
+              <li class="{% block active_formation_formule %}{% endblock %}"><a href="{% url 'formule' %}">Formule</a></li>
+              <li class="{% block active_formation_calender %}{% endblock %} drop-down"><a href="javascript:void(0)">Calendrier</a>
+                <ul>
+                  <li><a href="{% url 'calendrier' %}">Atelier en présentiel</a></li>
+                  <li><a href="{% url 'calendrier' %}">Webinaire via Réunion Zoom planifié</a></li>
+                </ul>
+              </li>
+            </ul>
+          </li>
+          <li class="drop-down {% block active_expertise %}{% endblock %}"><a href="{% url 'expertise' %}">Expertises</a>
+            <ul>
+              <li class="{% block active_expertise_ingenierie %}{% endblock %}"><a href="{% url 'ingenierie' %}">Ingénierie de la formation</a></li>
+              <li class="{% block active_expertise_management %}{% endblock %}"><a href="{% url 'management' %}">Appui au management des organisations</a></li>
+              <li class="{% block active_expertise_finance %}{% endblock %}"><a href="{% url 'finance' %}">Facilitation d'accès aux financements et aux marchés</a></li>
+              <li class="{% block active_expertise_developpement %}{% endblock %}"><a href="{% url 'developpement' %}">Décentralisation / Dévéloppement économique local</a></li>
+              <li class="{% block active_expertise_insertion %}{% endblock %}"><a href="{% url 'insertion' %}">Insertion professionnelle / Emploi des jeunes</a></li>
+            </ul>
+          </li>
+
+          <li class="{% block active_ref %}{% endblock %}"><a href="{% url 'acceuil' %}#clients">Références</a></li>
+          <li class="{% block active_contact %}{% endblock %}"><a href="{% url 'contacts' %}">Contact</a></li>
+
+        </ul>
+      </nav><!-- .nav-menu -->
+
+    </div>
+  </header><!-- End Header -->
+  {% endblock %}
+
+  {% block section %}
+  <!-- ======= Hero Section ======= -->
+  <section id="hero">
+    <div id="heroCarousel" class="carousel slide carousel-fade" data-ride="carousel">
+
+      <div class="carousel-inner" role="listbox">
+
+        <!-- Slide 1 -->
+        <div class="carousel-item active" style="background-image: url({% static 'cabinet/assets/img/acceuil3.jpg' %});">
+          <div class="carousel-container">
+            <div class="carousel-content animate__animated animate__fadeInUp">
+              <h2>Qui sommes-nous ?</h2>
+              <p style="font-weight:500;line-height:30px">JGK ENTREPRISES & CONSULTING s’est assigné pour missions la prestation des services de formations, de conseil et d'assistance
+                  technique dans le but de contribuer à l’amélioration des performances des individus et des organisations.
+              </p>
+              <div class="text-center"><a href="{% url 'expertise' %}" class="btn-get-started">Voir plus</a></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Slide 2 -->
+        <div class="carousel-item" style="background-image: url({% static 'cabinet/assets/img/acceuil4.jpg' %});">
+          <div class="carousel-container">
+            <div class="carousel-content animate__animated animate__fadeInUp">
+              <h2>Notre expertise</h2>
+              <p style="font-weight:500;line-height:30px">
+                Pour la réalisation de nos missions, nous mettons à contribution une équipe de consultants hautement qualifiés.
+                Nous disposons en effet d’un important répertoire d’experts nationaux et internationaux possédant des
+                d’expériences multiples et variées.
+              </p>
+              <div class="text-center"><a href="{% url 'expertise' %}" class="btn-get-started">Voir plus</a></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Slide 3 -->
+        <div class="carousel-item" style="background-image: url({% static 'cabinet/assets/img/acceuil.jpg' %});">
+          <div class="carousel-container">
+            <div class="carousel-content animate__animated animate__fadeInUp">
+              <h2 style="font-size:25px">Les <span style="text-transform:lowercase">QUATRE POSTURES DU MANAGER: EQUIPIER, ENTRAINEUR, ARBITRE, COACH.</span></h2>
+              <p style="text-align:center;line-height:30px">
+                <i style="font-size:18px">« Si la solution n’est pas de travailler plus dur,
+                    plus vite et plus malin, quelle est-elle donc ? »
+                </i>
+                <br>
+                <b>Stephen R. Covey</b>
+              </p>
+              <div class="text-center"><a href="{% url 'calendrier' %}" class="btn-get-started">Prochaines formations</a></div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <a class="carousel-control-prev" href="#heroCarousel" role="button" data-slide="prev">
+        <span class="carousel-control-prev-icon icofont-simple-left" aria-hidden="true"></span>
+        <span class="sr-only">Previous</span>
+      </a>
+
+      <a class="carousel-control-next" href="#heroCarousel" role="button" data-slide="next">
+        <span class="carousel-control-next-icon icofont-simple-right" aria-hidden="true"></span>
+        <span class="sr-only">Next</span>
+      </a>
+
+      <ol class="carousel-indicators" id="hero-carousel-indicators"></ol>
+
+    </div>
+  </section><!-- End Hero -->
+  {% endblock %}
+
+  {% block main %}
+  <main id="main">
+
+    <!-- ======= About Us Section ======= -->
+    <section id="about-us" class="about-us">
+      <div class="container" data-aos="fade-up">
+
+        <div class="section-title">
+          <h2>Formations à venir</strong></h2>
+        </div>
+
+        <div class="row content">
+          <div class="col-lg-6" data-aos="fade-right">
+            <h2 style="font-size:30px"><a href="{% url 'calendrier' %}" style="color:#4d4643">Atelier en présenciel</a></h2>
+            <h3>Rejoignez-nous en atelier les 07, 08 et 09 Avril 2021 à l'hôtel 2 Février de Lomé. </h3>
+            <h3 class="entry-title" style="color:black">
+                <a href="javascript:void(0)" style="color:black"> <span>Thème:
+                  <span style="font-style:italic">Les quatre postures du manager: équipier, entraineur, arbitre, coach.</span>
+                <a style="font-style:italic" href="{% url 'calendrier' %}">Voir plus</a>
+                </span></a>
+            </h3>
+          </div>
+          <div class="col-lg-6 pt-4 pt-lg-0" data-aos="fade-left">
+            <h2 style="font-size:30px"><a href="{% url 'calendrier' %}" style="color:#4d4643">Webinaire via Réunion Zoom</a></h2>
+            <h3>Participer au Webinaire via Zoom planifié du 28 au 30 Juillet 2021. </h3>
+            <h3 class="entry-title" style="color:black">
+                <a href="javascript:void(0)" style="color:black"> <span>Thème:
+                  <span style="font-style:italic">Les quatre postures du manager: équipier, entraineur, arbitre, coach.</span>
+                <a style="font-style:italic" href="{% url 'calendrier' %}">Voir plus</a>
+                </span></a>
+            </h3>
+          </div>
+        </div>
+
+      </div>
+    </section><!-- End About Us Section -->
+
+    <!-- ======= Our Clients Section ======= -->
+    <section id="clients" class="clients">
+      <div class="container" data-aos="fade-up">
+
+        <div class="section-title">
+          <h2>Ils nous ont fait confiance</h2>
+        </div>
+
+        <div class="row no-gutters clients-wrap clearfix" data-aos="fade-up">
+
+          <div class="col-lg-4 col-md-4 col-6">
+            <div class="client-logo">
+              <img style="height:180px; width:400px" src="{% static 'cabinet/assets/img/logo-paeij-sp3.jpg' %}" class="img-fluid" alt="">
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-4 col-6">
+            <div class="client-logo">
+              <img style="height:100px; width:1(0px" src="{% static 'cabinet/assets/img/Logo_ANPE_Togo.png' %}" class="img-fluid" alt="">
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-4 col-6">
+            <div class="client-logo">
+              <img style="height:300px; width:300px" src="{% static 'cabinet/assets/img/nipped.png' %}" class="img-fluid" alt="">
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-4 col-6">
+            <div class="client-logo">
+              <img style="height:250px; width:250px" src="{% static 'cabinet/assets/img/ogar.jpg' %}" class="img-fluid" alt="">
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-4 col-6">
+            <div class="client-logo">
+              <img style="height:160px; width:200px" src="{% static 'cabinet/assets/img/sge.png' %}" class="img-fluid" alt="">
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-4 col-6">
+            <div class="client-logo">
+              <img style="height:80px; width:200px" src="{% static 'cabinet/assets/img/sodigaz.png' %}" class="img-fluid" alt="">
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-4 col-6">
+            <div class="client-logo">
+              <img style="height:90px; width:170px" src="{% static 'cabinet/assets/img/ism-adonai.png' %}" class="img-fluid" alt="">
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-4 col-6">
+            <div class="client-logo">
+              <img style="height:70px; width:170px" src="{% static 'cabinet/assets/img/lafic.png' %}" class="img-fluid" alt="">
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-4 col-6">
+            <div class="client-logo">
+              <img style="height:90px; width:170px" src="{% static 'cabinet/assets/img/ism-adonai.png' %}" class="img-fluid" alt="">
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-4 col-6">
+            <div class="client-logo">
+              <img style="height:250px; width:250px" src="{% static 'cabinet/assets/img/cfbt.png' %}" class="img-fluid" alt="">
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-4 col-6">
+            <div class="client-logo">
+              <img style="height:150px; width:400px" src="{% static 'cabinet/assets/img/diwa.jpg' %}" class="img-fluid" alt="">
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-4 col-6">
+            <div class="client-logo">
+              <img style="height:160px; width:160px" src="{% static 'cabinet/assets/img/ires-rdec.jfif' %}" class="img-fluid" alt="">
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-4 col-6">
+            <div class="client-logo">
+              <img style="height:120px; width:180px" src="{% static 'cabinet/assets/img/sotoplat.jpg' %}" class="img-fluid" alt="">
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-4 col-6">
+            <div class="client-logo">
+              <img style="height:100px; width:180px" src="{% static 'cabinet/assets/img/transam.png' %}" class="img-fluid" alt="">
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-4 col-6">
+            <div class="client-logo">
+              <img style="height:90px; width:200px" src="{% static 'cabinet/assets/img/umat.png' %}" class="img-fluid" alt="">
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section><!-- End Our Clients Section -->
+
+  </main><!-- End #main -->
+  {% endblock %}
+
+  {% block footer%}
+  <!-- ======= Footer ======= -->
+  <footer id="footer">
+
+    <div class="footer-top">
+      <div class="container">
+        <div class="row">
+
+          <div class="col-lg-3 col-md-6 footer-contact">
+            <h3>JGK-EC</h3>
+            <p>
+              Agbalepedo <br>
+              317 rue de la Liberté, AGP<br><br>
+              <strong>Téléphones: <br></strong> +228 22 25 39 87  <br> +228 99 67 76 01   <br> +228 92 41 95 49
+              <br><br>
+              <strong>Email:</strong> jgkec@yahoo.fr<br>
+            </p>
+          </div>
+
+          <div class="col-lg-2 col-md-6 footer-links">
+            <h4>Formations</h4>
+            <ul>
+              <li><i class="bx bx-chevron-right"></i> <a href="{% url 'formule' %}">Formule</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="{% url 'calendrier' %}">Calendrier</a></li>
+            </ul>
+          </div>
+
+          <div class="col-lg-3 col-md-6 footer-links">
+            <h4>Expertises</h4>
+            <ul>
+              <li><i class="bx bx-chevron-right"></i> <a href="{% url 'ingenierie' %}">Ingénierie de la formation</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="{% url 'management' %}">Appui au management des organisations</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="{% url 'finance' %}">Facilitation d’accès aux financements et aux marchés</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="{% url 'developpement' %}">Décentralisation / Dévéloppement économique local</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="{% url 'insertion' %}">Insertion professionnelle / Emploi des jeunes</a></li>
+            </ul>
+          </div>
+
+          <div class="col-lg-4 col-md-6 footer-newsletter">
+            <h4>Newsletter</h4>
+            <p>Abonnez-vous à notre Newsletter</p>
+            <form action="" method="post">
+              <input type="email" name="email"><input type="submit" value="Soumettre">
+            </form>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <div class="container d-md-flex py-4">
+
+      <div class="mr-md-auto text-center text-md-left">
+        <div class="copyright">
+          &copy; Copyright <strong><span>JGK-EC</span></strong>. All Rights Reserved
+        </div>
+        <div class="credits">
+          <!-- All the links in the footer should remain intact. -->
+          <!-- You can delete the links only if you purchased the pro version. -->
+          <!-- Licensing information: https://bootstrapmade.com/license/ -->
+          <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/company-free-html-bootstrap-template/ -->
+          Create by <a href="http://wara-africa.com/">JGK-EC</a>
+        </div>
+      </div>
+    </div>
+  </footer><!-- End Footer -->
+  {% endblock %}
+
+  <a href="#" class="back-to-top"><i class="icofont-simple-up"></i></a>
+
+  {% block javascript %}
+  <!-- Vendor JS Files -->
+  <script src="{% static 'cabinet/assets/vendor/jquery/jquery.min.js' %}"></script>
+  <script src="{% static 'cabinet/assets/vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+  <script src="{% static 'cabinet/assets/vendor/jquery.easing/jquery.easing.min.js' %}"></script>
+  <script src="{% static 'cabinet/assets/vendor/php-email-form/validate.js' %}"></script>
+  <script src="{% static 'cabinet/assets/vendor/jquery-sticky/jquery.sticky.js' %}"></script>
+  <script src="{% static 'cabinet/assets/vendor/isotope-layout/isotope.pkgd.min.js' %}"></script>
+  <script src="{% static 'cabinet/assets/vendor/venobox/venobox.min.js' %}"></script>
+  <script src="{% static 'cabinet/assets/vendor/waypoints/jquery.waypoints.min.js' %}"></script>
+  <script src="{% static 'cabinet/assets/vendor/owl.carousel/owl.carousel.min.js' %}"></script>
+  <script src="{% static 'cabinet/assets/vendor/aos/aos.js' %}"></script>
+
+  <!-- Template Main JS File -->
+  <script src="{% static 'cabinet/assets/js/main.js' %}"></script>
+  {% endblock %}
+
+</body>
+
+</html>

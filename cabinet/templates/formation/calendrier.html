@@ -1,0 +1,168 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block active_formation_calender %}
+active
+{% endblock %}
+
+{% block section %}
+{% endblock %}
+
+{% block main %}
+  <main id="main">
+    <section id="breadcrumbs" class="breadcrumbs">
+      <div class="container">
+
+        <div class="d-flex justify-content-between align-items-center">
+          <h2>Formations</h2>
+          <ol>
+            <li><a href="index.html">Acceuil</a></li>
+              <li><a href="{% url 'calendrier' %}">Formations</a> &nbsp;/ &nbsp;Calendrier</li>
+          </ol>
+        </div>
+
+      </div>
+    </section>
+    <section id="blog" class="blog">
+      <div class="container">
+        <div class="section-title">
+            <h2>CALENDRIER DE FORMATIONS</h2>
+        </div>
+        <div class="row">
+          <div class="col-lg-8 entries">
+            <article class="entry" data-aos="fade-up">
+                <section id="faq" class="faq section-bg">
+                  <div class="container" data-aos="fade-up">
+                      <h2>Atelier en présentiel</h2>
+                      <br>
+                      <h2 style="font-size:22px" class="entry-title">
+                          <a href="javascript:void(0)"><span style="text-decoration:underline">Thème</span> :</a>
+                      </h2>
+                      <h2 class="entry-title" style="text-align:center;font-style:italic;font-size:25px">
+                          <a style="margin-left: 50px;" href="javascript:void(0)"> <span>Les quatre postures du manager: équipier, entraineur, arbitre, coach.</span></a>
+                      </h2>
+                      <br>
+                      <div class="entry-content">
+                        <p style="line-height:33px;font-style:italic">
+                            <span style="text-decoration:underline">Dates</span> : <span style="font-weight: 600;">Les 07, 08 et 09 Avril 2021</span>
+                            <br>
+                            <span style="text-decoration:underline">Lieu</span> : <span style="font-weight: 600;">Hôtel 2 février Lomé – Togo</span>
+                            <br>
+                            <span style="text-decoration:underline">Coût de la formation</span> : <span style="font-weight: 600;">450000 XOF</span>
+                        </p>
+                      </div>
+                      <div class="faq-list">
+                          <ul>
+                            <li data-aos="fade-up" data-aos-delay="100">
+                                <a data-toggle="collapse" href="#faq-list-2" class="collapsed">
+                                    Voir les modules de formations
+                                    <i class="bx bx-chevron-down icon-show"></i>
+                                    <i class="bx bx-chevron-up icon-close"></i>
+                                </a>
+                              <div id="faq-list-2" class="collapse" data-parent=".faq-list">
+                                  <div class="sidebar-item categories">
+                                    <ul style="font-weight:600; line-height:30px">
+                                        <li><a style="color:black;text-decoration:none" href="javascript:void(0)">Module 1 : Concept du pouvoir axé sur les principes et les valeurs</a></li>
+                                        <li><a style="color:black;text-decoration:none" href="javascript:void(0)">Module 2: Approche gagnant/gagnant et énoncé de mission</a></li>
+                                        <li><a style="color:black;text-decoration:none" href="javascript:void(0)">Module 3 : Délégation et contrôle hiérarchique</a></li>
+                                        <li><a style="color:black;text-decoration:none" href="javascript:void(0)">Module 4: Gestion des priorités</a></li>
+                                        <li><a style="color:black;text-decoration:none" href="javascript:void(0)">Module 5 : Prévention et gestion des conflits</a></li>
+                                        <li><a style="color:black;text-decoration:none" href="javascript:void(0)">Module 6 : Fenêtre de JOHARI et leadership</a></li>
+                                    </ul>
+                                  </div>
+                              </div>
+                            </li>
+                          </ul>
+                      </div>
+                      <div class="entry-content">
+                        <p style="line-height:33px;font-style:italic">
+                            <a href="" style="text-decoration:underline">
+                                Télécharger la plaquette de présentation
+                            </a>
+                            <br>
+                            <a href="" style="text-decoration:underline">
+                                Pour postuler à la formation téléchargez le formulaire d’inscription.
+                            </a>
+                        </p>
+                      </div>
+                  </div>
+                </section>
+            </article>
+
+            <article class="entry" data-aos="fade-up">
+                <section id="faq" class="faq section-bg">
+                  <div class="container" data-aos="fade-up">
+                      <h2>Webinaire via Réunion Zoom planifié</h2>
+                      <br>
+                      <h2 style="font-size:22px" class="entry-title">
+                          <a href="javascript:void(0)"><span style="text-decoration:underline">Thème</span> :</a>
+                      </h2>
+                      <h2 class="entry-title" style="text-align:center;font-style:italic;font-size:25px">
+                          <a style="margin-left: 50px;" href="javascript:void(0)"> <span>Les quatre postures du manager: équipier, entraineur, arbitre, coach.</span></a>
+                      </h2>
+                      <br>
+                      <div class="entry-content">
+                        <p style="line-height:33px;font-style:italic">
+                            <span style="text-decoration:underline">Dates</span> : <span style="font-weight: 600;">Les 28, 29 et 30 Juillet 2021</span>
+                            <br>
+                            <span style="text-decoration:underline">Coût de la formation</span> : <span style="font-weight: 600;">200000 XOF</span>
+                        </p>
+                      </div>
+                      <div class="faq-list">
+                          <ul>
+                            <li data-aos="fade-up" data-aos-delay="100">
+                                <a data-toggle="collapse" href="#faq-list-3" class="collapsed">
+                                    Voir les modules de formations
+                                    <i class="bx bx-chevron-down icon-show"></i>
+                                    <i class="bx bx-chevron-up icon-close"></i>
+                                </a>
+                              <div id="faq-list-3" class="collapse" data-parent=".faq-list">
+                                  <div class="sidebar-item categories">
+                                    <ul style="font-weight:600; line-height:30px">
+                                        <li><a style="color:black;text-decoration:none" href="javascript:void(0)">Module 1 : Concept du pouvoir axé sur les principes et les valeurs</a></li>
+                                        <li><a style="color:black;text-decoration:none" href="javascript:void(0)">Module 2: Approche gagnant/gagnant et énoncé de mission</a></li>
+                                        <li><a style="color:black;text-decoration:none" href="javascript:void(0)">Module 3 : Délégation et contrôle hiérarchique</a></li>
+                                        <li><a style="color:black;text-decoration:none" href="javascript:void(0)">Module 4: Gestion des priorités</a></li>
+                                        <li><a style="color:black;text-decoration:none" href="javascript:void(0)">Module 5 : Prévention et gestion des conflits</a></li>
+                                        <li><a style="color:black;text-decoration:none" href="javascript:void(0)">Module 6 : Fenêtre de JOHARI et leadership</a></li>
+                                    </ul>
+                                  </div>
+                              </div>
+                            </li>
+                          </ul>
+                      </div>
+                      <div class="entry-content">
+                        <p style="line-height:33px;font-style:italic">
+                            <a href="" style="text-decoration:underline">
+                                Télécharger la plaquette de présentation
+                            </a>
+                            <br>
+                            <a href="" style="text-decoration:underline">
+                                Pour postuler à la formation téléchargez le formulaire d’inscription.
+                            </a>
+                        </p>
+                      </div>
+                  </div>
+                </section>
+            </article>
+          </div>
+          <div class="col-lg-4">
+
+            <div class="sidebar" data-aos="fade-left">
+
+              <h3 class="sidebar-title">Formations</h3>
+              <div class="sidebar-item categories">
+                <ul>
+                  <li><a href="{% url 'formule' %}">Formule</a></li>
+                  <li><a href="{% url 'calendrier' %}">Calendrier</a></li>
+                </ul>
+              </div><!-- End sidebar categories-->
+
+            </div><!-- End sidebar -->
+
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+{% endblock %}
