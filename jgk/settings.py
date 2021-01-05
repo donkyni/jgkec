@@ -122,8 +122,8 @@ STATICFILES_DIR = (
         BASE_DIR / 'static'
 )
 
-# STATIC_ROOT = os.path.join(BASE_DIR, 'static')
-STATIC_ROOT = "/var/www/html/django/jgk/static/"
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+# STATIC_ROOT = "/var/www/html/django/jgk/static/"
 
 MEDIA_URL = '/fichier_static/'
 
