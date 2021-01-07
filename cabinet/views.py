@@ -54,15 +54,22 @@ def formule(request):
     saveurl3 = "/fichier_static/3_Formulaire%20d'inscription%2004%20postures_t5nyz9Q.pdf"
     savename3 = "3_Formulaire d'inscription 04 postures"
 
-    # /fichier_static/2_Formulaire%20d'inscription%2004%20postures_2wI9KF5.pdf => 2_Formulaire d'inscription 04 postures
-    # /fichier_static/3_Formulaire%20d'inscription%2004%20postures_t5nyz9Q.pdf => 3_Formulaire d'inscription 04 postures
-    print(fileurl, filename)
     return render(request, 'formation/formule.html', locals())
 
 
 def calendrier(request):
+    saveurl = "/fichier_static/2_Formulaire%20d'inscription%2004%20postures_2wI9KF5.pdf"
+    savename = "2_Formulaire d'inscription 04 postures"
+    saveurl3 = "/fichier_static/3_Formulaire%20d'inscription%2004%20postures_t5nyz9Q.pdf"
+    savename3 = "3_Formulaire d'inscription 04 postures"
+
     return render(request, 'formation/calendrier.html', locals())
 
 
 def calendrier2(request):
+    saveurl = "/fichier_static/2_Formulaire%20d'inscription%2004%20postures_2wI9KF5.pdf"
+    savename = "2_Formulaire d'inscription 04 postures"
+    saveurl3 = "/fichier_static/3_Formulaire%20d'inscription%2004%20postures_t5nyz9Q.pdf"
+    savename3 = "3_Formulaire d'inscription 04 postures"
+
     return render(request, 'formation/calendrier2.html', locals())

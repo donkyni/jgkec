@@ -77,14 +77,17 @@ active
                           </ul>
                       </div>
                       <div class="entry-content">
-                        <p style="line-height:33px;font-style:italic">
-                            <a href="" style="text-decoration:underline">
-                                Télécharger la plaquette de présentation
-                            </a>
-                            <br>
-                            <a href="" style="text-decoration:underline">
-                                Pour postuler à la formation téléchargez le formulaire d’inscription.
-                            </a>
+                        <p style="line-height:33px">
+                          <div style="cursor:pointer;color:#3f48cc; font-style:italic" onclick='downloaD("{{saveurl}}", "{{savename}}")' title="Télécharger notre plaquette d'inscription ensuite vous la remplissez et pour finir vous nous l'envoyer par mail. Le mail se trouve au bas de la page">
+                            Par ici pour l'inscription à la formation en présentiel<span class="bx bx-chevron-right"></span>
+                          </div>
+                          <br>
+                          <div style="cursor:pointer;color:#3f48cc; font-style:italic" onclick='downloaD("{{saveurl3}}", "{{savename3}}")' title="Télécharger notre plaquette d'inscription ensuite vous la remplissez et pour finir vous nous l'envoyer par mail. Le mail se trouve au bas de la page">
+                            Par là pour l'inscription à la formation en ligne<span class="bx bx-chevron-right"></span>
+                          </div>
+                          <br>
+                          Rejoignez-nous en atelier inter structure <a href="{% url 'calendrier' %}" title="lien vers la page du calendrier">(date prochaine de la formation)</a>,
+                          intra structure <a href="{% url 'formule' %}#contact" title="Contacter nous directement grâce aux numéro figurant en bas de la page">(sur demande)</a>
                         </p>
                       </div>
                   </div>
@@ -110,4 +113,32 @@ active
       </div>
     </section>
   </main>
+{% endblock %}
+
+
+{% block javascript %}
+<script>
+    function downloaD(url, name) {
+        fetch(url).then(async (res) => {
+           const dFile = await res.blob();
+           var blobURL = window.URL && window.URL.createObject.URL ? window.URL.createObjectURL(dFile) : window.webkitURL.createObjectURL(dFile);
+           var tempLink = document.createElement("a");
+           tempLink.style.display = "none";
+           tempLink.href = "blobURL";
+           tempLink.setAttribute("download", name);
+
+           if (typeof tempLink.download === "undefined") {
+                tempLink.setAttribute("target", "_blank");
+           }
+
+           document.body.appendChild(tempLink);
+           tempLink.click();
+
+           setTimeout(function () {
+                document.body.removeChild(tempLink);
+                window.URL.revokeObjectURL(blobURL);
+           }, 200);
+        });
+    }
+</script>
 {% endblock %}
