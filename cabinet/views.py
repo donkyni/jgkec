@@ -1,3 +1,4 @@
+from django.core.files.storage import FileSystemStorage
 from django.shortcuts import render
 
 
@@ -38,6 +39,24 @@ def formation(request):
 
 
 def formule(request):
+    fileurl = " "
+    filename = " "
+    if request.method == 'POST':
+        f = request.FILES['file']
+        fs = FileSystemStorage()
+        filename, ext = str(f).split('.')
+        file = fs.save(str(f), f)
+        fileurl = fs.url(file)
+        size = fs.size(file)
+
+    saveurl = "/fichier_static/2_Formulaire%20d'inscription%2004%20postures_2wI9KF5.pdf"
+    savename = "2_Formulaire d'inscription 04 postures"
+    saveurl3 = "/fichier_static/3_Formulaire%20d'inscription%2004%20postures_t5nyz9Q.pdf"
+    savename3 = "3_Formulaire d'inscription 04 postures"
+
+    # /fichier_static/2_Formulaire%20d'inscription%2004%20postures_2wI9KF5.pdf => 2_Formulaire d'inscription 04 postures
+    # /fichier_static/3_Formulaire%20d'inscription%2004%20postures_t5nyz9Q.pdf => 3_Formulaire d'inscription 04 postures
+    print(fileurl, filename)
     return render(request, 'formation/formule.html', locals())
 
 
