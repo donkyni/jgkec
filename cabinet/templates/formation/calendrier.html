@@ -80,13 +80,13 @@ active
                       </div>
                       <div class="entry-content">
                         <p style="line-height:33px; font-style:italic">
-                          <div style="cursor:pointer;color:#3f48cc; font-style:italic" onclick='downloaD("{{saveurl}}", "{{savename}}")' title="Remplissez et signez le formulaire d'inscription après l'avoir téléchargé et nous le renvoyer par E-mail: jgkec@yahoo.fr">
-                            Par ici pour l'inscription à la formation en présentiel<span class="bx bx-chevron-right"></span>
+                          <div style="cursor:pointer;color:#3f48cc; font-style:italic" onclick='downloaD("{{saveurl}}", "{{savename}}")'>
+                            S'inscrire à la formation en présentiel<span class="bx bx-chevron-right"></span>
                           </div>
                           <br>
-                          <div style="cursor:pointer;color:#3f48cc; font-style:italic" onclick='downloaD("{{saveurl3}}", "{{savename3}}")' title="Remplissez et signez le formulaire d'inscription après l'avoir téléchargé et nous le renvoyer par E-mail: jgkec@yahoo.fr">
-                            Par là pour l'inscription à la formation en ligne<span class="bx bx-chevron-right"></span>
-                          </div>
+                          <a href="{% url 'calendrier2' %}" style="cursor:pointer;color:#3f48cc; font-style:italic">
+                            S'inscrire à la formation en ligne<span class="bx bx-chevron-right"></span>
+                          </a>
                           <br>
                           Rejoignez-nous en atelier inter structure <a href="{% url 'calendrier' %}" title="lien vers la page du calendrier">(date prochaine de la formation)</a>,
                           intra structure <a href="{% url 'formule' %}#contact" title="Contacter nous directement grâce aux numéro figurant en bas de la page">(sur demande)</a>

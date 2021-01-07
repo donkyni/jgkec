@@ -78,13 +78,13 @@ active
                       </div>
                       <div class="entry-content">
                         <p style="line-height:33px">
-                          <div style="cursor:pointer;color:#3f48cc; font-style:italic" onclick='downloaD("{{saveurl}}", "{{savename}}")' title="Télécharger notre plaquette d'inscription ensuite vous la remplissez et pour finir vous nous l'envoyer par mail. Le mail se trouve au bas de la page">
-                            Par ici pour l'inscription à la formation en présentiel<span class="bx bx-chevron-right"></span>
+                          <div style="cursor:pointer;color:#3f48cc; font-style:italic" onclick='downloaD("{{saveurl3}}", "{{savename3}}")'>
+                            S'inscrire à la formation en ligne<span class="bx bx-chevron-right"></span>
                           </div>
                           <br>
-                          <div style="cursor:pointer;color:#3f48cc; font-style:italic" onclick='downloaD("{{saveurl3}}", "{{savename3}}")' title="Télécharger notre plaquette d'inscription ensuite vous la remplissez et pour finir vous nous l'envoyer par mail. Le mail se trouve au bas de la page">
-                            Par là pour l'inscription à la formation en ligne<span class="bx bx-chevron-right"></span>
-                          </div>
+                          <a href="{% url 'calendrier' %}" style="cursor:pointer;color:#3f48cc; font-style:italic">
+                            S'inscrire à la formation en présentiel<span class="bx bx-chevron-right"></span>
+                          </a>
                           <br>
                           Rejoignez-nous en atelier inter structure <a href="{% url 'calendrier' %}" title="lien vers la page du calendrier">(date prochaine de la formation)</a>,
                           intra structure <a href="{% url 'formule' %}#contact" title="Contacter nous directement grâce aux numéro figurant en bas de la page">(sur demande)</a>
