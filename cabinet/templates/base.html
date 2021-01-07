@@ -351,7 +351,7 @@
 
   <a href="#" class="back-to-top"><i class="icofont-simple-up"></i></a>
 
-  {% block javascript %}
+  {% block javascript %}{% endblock %}
   <!-- Vendor JS Files -->
   <script src="{% static 'cabinet/assets/vendor/jquery/jquery.min.js' %}"></script>
   <script src="{% static 'cabinet/assets/vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
@@ -366,7 +366,6 @@
 
   <!-- Template Main JS File -->
   <script src="{% static 'cabinet/assets/js/main.js' %}"></script>
-  {% endblock %}
 
 </body>
 
