@@ -43,3 +43,7 @@ def formule(request):
 
 def calendrier(request):
     return render(request, 'formation/calendrier.html', locals())
+
+
+def calendrier2(request):
+    return render(request, 'formation/calendrier2.html', locals())
