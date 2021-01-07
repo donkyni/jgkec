@@ -311,12 +311,6 @@ active
                       </li>
                     </ul>
                 </div>
-                <form method="POST" enctype="multipart/form-data">
-                    {% csrf_token %}
-                    <input type="file" name="file" id="file">
-                    <button type="submit">Upload</button>
-                </form>
-                  <a href="{{fileurl}}">{{filename}}</a>
                 <p style="line-height:35px">
                   <div style="cursor:pointer;color:#3f48cc;" onclick='downloaD("{{saveurl}}", "{{savename}}")' title="Télécharger notre plaquette d'inscription ensuite vous la remplissez et pour finir vous nous l'envoyer par mail. Le mail se trouve au bas de la page">
                     Par ici pour l'inscription à la formation en présentiel<span class="bx bx-chevron-right"></span>
