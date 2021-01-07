@@ -5,6 +5,60 @@
 active
 {% endblock %}
 
+{% block head %}
+
+.picto-item {
+    position: relative;  /*les .picto-item deviennent référents*/
+}
+
+.picto-item:hover:after,
+.picto-item:focus:after {
+    content: attr(aria-label);  /* on affiche aria-label */
+    position: absolute;
+    top: -2.4em;
+    left: 50%;
+    transform: translateX(-50%); /* on centre horizontalement  */
+    z-index: 1; /* pour s'afficher au dessus des éléments en position relative */
+    white-space: nowrap;  /* on interdit le retour à la ligne*/
+    padding: 5px 14px;
+    background: #413219;
+    color: #fff;
+    border-radius: 4px;
+    font-size: 1.2rem;
+}
+
+[aria-label]:hover:before,
+[aria-label]:focus:before {
+    content: "▼";
+    position: absolute;
+    top: -1em;
+    left: 50%;
+    transform: translateX(-50%); /* on centre horizontalement  */
+    font-size: 20px;
+    color: #413219;
+}
+
+/* pas de contour durant le :focus */
+[aria-label]:focus {
+    outline: none;
+}
+
+.picto-item {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 .2em;
+    width: 1.2em;
+    height: 1.2em;
+    color: #413219;
+    background: #e1d3bd;
+    font-size: 3rem;
+    text-align: center;
+    text-decoration: none;
+}
+
+{% endblock %}
+
 {% block section %}
 {% endblock %}
 
@@ -312,11 +366,11 @@ active
                     </ul>
                 </div>
                 <p style="line-height:35px">
-                  <div style="cursor:pointer;color:#3f48cc;" onclick='downloaD("{{saveurl}}", "{{savename}}")' title="Télécharger notre plaquette d'inscription ensuite vous la remplissez et pour finir vous nous l'envoyer par mail. Le mail se trouve au bas de la page">
+                  <div style="cursor:help;color:#3f48cc;font-style:italic" onclick='downloaD("{{saveurl}}", "{{savename}}")' class="picto-item" aria-label="Remplissez et signez le formulaire d'inscription après l'avoir téléchargé et nous le renvoyer par E-mail: jgkec@yahoo.fr">
                     Par ici pour l'inscription à la formation en présentiel<span class="bx bx-chevron-right"></span>
                   </div>
                   <br>
-                  <div style="cursor:pointer;color:#3f48cc;" onclick='downloaD("{{saveurl3}}", "{{savename3}}")' title="Télécharger notre plaquette d'inscription ensuite vous la remplissez et pour finir vous nous l'envoyer par mail. Le mail se trouve au bas de la page">
+                  <div style="cursor:help;color:#3f48cc;font-style:italic" onclick='downloaD("{{saveurl3}}", "{{savename3}}")' class="picto-item">
                     Par là pour l'inscription à la formation en ligne<span class="bx bx-chevron-right"></span>
                   </div>
                   <br>
