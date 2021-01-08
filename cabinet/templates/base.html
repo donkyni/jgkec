@@ -59,7 +59,7 @@
               </li>
             </ul>
           </li>
-          <li class="drop-down {% block active_expertise %}{% endblock %}"><a href="{% url 'expertise' %}">Expertises</a>
+          <li class="drop-down {% block active_expertise %}{% endblock %}"><a href="{% url 'expertise' %}">Nos Expertises</a>
             <ul>
               <li class="{% block active_expertise_ingenierie %}{% endblock %}"><a href="{% url 'ingenierie' %}">Ingénierie de la formation</a></li>
               <li class="{% block active_expertise_management %}{% endblock %}"><a href="{% url 'management' %}">Appui au management des organisations</a></li>
@@ -103,7 +103,7 @@
         <div class="carousel-item" style="background-image: url({% static 'cabinet/assets/img/acceuil4.jpg' %});">
           <div class="carousel-container">
             <div class="carousel-content animate__animated animate__fadeInUp">
-              <h2>Notre expertise</h2>
+              <h2>Nos expertises</h2>
               <p style="font-weight:500;line-height:30px">
                 Pour la réalisation de nos missions, nous mettons à contribution une équipe de consultants hautement qualifiés.
                 Nous disposons en effet d’un important répertoire d’experts nationaux et internationaux possédant des
@@ -118,15 +118,12 @@
         <div class="carousel-item" style="background-image: url({% static 'cabinet/assets/img/acceuil.jpg' %});">
           <div class="carousel-container">
             <div class="carousel-content animate__animated animate__fadeInUp">
-              <h2 style="font-size:25px">Les <span style="text-transform:lowercase">QUATRE POSTURES DU MANAGER: EQUIPIER, ENTRAINEUR, ARBITRE, COACH.</span></h2>
-              <p style="text-align:center;line-height:30px">
-                <i style="font-size:18px">« Si la solution n’est pas de travailler plus dur,
-                    plus vite et plus malin, quelle est-elle donc ? »
-                </i>
+              <h2><span>Prochaines formations</span></h2>
+              <p  style="font-weight:500;line-height:30px;font-size:25px">
+                <i>Les quatre postures du manager: equipier, entraineur, arbitre, coach.</i>
                 <br>
-                <b>Stephen R. Covey</b>
               </p>
-              <div class="text-center"><a href="{% url 'calendrier' %}" class="btn-get-started">Prochaines formations</a></div>
+              <div class="text-center"><a href="{% url 'calendrier' %}" class="btn-get-started">Voir plus</a></div>
             </div>
           </div>
         </div>
