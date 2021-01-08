@@ -71,50 +71,50 @@ active
           <div class="col-lg-4 entries">
             <article class="entry" data-aos="fade-up">
               <div class="entry-img">
-                <img src="{% static 'cabinet/assets/img/ingenierie.jpg' %}" alt="" class="img-fluid">
+                <a href="{% url 'ingenierie' %}"><img style="width:350px;height:235px;" src="{% static 'cabinet/assets/img/ingenierie.jpg' %}" alt="" class="img-fluid"></a>
               </div>
-              <h3 style="font-size:20px" class="entry-title">
-                <a href="javascript:void(0)">INGENIERIE DE LA FORMATION</a>
+              <h3 style="text-align:center;font-size:15px" class="entry-title">
+                <a href="{% url 'ingenierie' %}">INGENIERIE DE LA FORMATION <span style="opacity:0">&nbsp;INGENIERIE DE LA FORMATION</span></a>
               </h3>
             </article>
           </div>
           <div class="col-lg-4 entries">
             <article class="entry" data-aos="fade-up">
               <div class="entry-img">
-                <img src="{% static 'cabinet/assets/img/management.jpg' %}" alt="" class="img-fluid">
+                <a href="{% url 'management' %}"><img style="width:350px;height:235px;" src="{% static 'cabinet/assets/img/management.jpg' %}" alt="" class="img-fluid"></a>
               </div>
-              <h3 style="font-size:15px" class="entry-title">
-                <a href="javascript:void(0)">APPUI AU MANAGEMENT DES ORGANISATIONS</a>
+              <h3 style="text-align:center;font-size:15px" class="entry-title">
+                <a href="{% url 'management' %}">APPUI AU MANAGEMENT DES ORGANISATIONS</a>
               </h3>
             </article>
           </div>
           <div class="col-lg-4 entries">
             <article class="entry" data-aos="fade-up">
               <div class="entry-img">
-                <img src="{% static 'cabinet/assets/img/photo-1462556791646-c201b8241a94 (1).jfif' %}" alt="" class="img-fluid">
+                <a href="{% url 'finance' %}"><img style="width:350px;height:235px;" src="{% static 'cabinet/assets/img/photo-1462556791646-c201b8241a94 (1).jfif' %}" alt="" class="img-fluid"></a>
               </div>
-              <h3 style="font-size:15px" class="entry-title">
-                <a href="javascript:void(0)">FACILITATION D’ACCES AUX FINANCEMENTS ET AUX MARCHES</a>
+              <h3 style="text-align:center;font-size:15px" class="entry-title">
+                <a href="{% url 'finance' %}">FACILITATION D’ACCES AUX FINANCEMENTS ET AUX MARCHES</a>
               </h3>
             </article>
           </div>
           <div class="col-lg-4 entries">
             <article class="entry" data-aos="fade-up">
               <div class="entry-img">
-                <img src="{% static 'cabinet/assets/img/5371hr_-592x296-1476455405.jpg' %}" alt="" class="img-fluid">
+                <a href="{% url 'developpement' %}"><img style="width:350px;height:235px;" src="{% static 'cabinet/assets/img/5371hr_-592x296-1476455405.jpg' %}" alt="" class="img-fluid"></a>
               </div>
-              <h3 style="font-size:16px" class="entry-title">
-                <a href="javascript:void(0)">DECENTRALISATION / DEVELOPPEMENT ECONOMIQUE LOCAL</a>
+              <h3 style="text-align:center;font-size:15px" class="entry-title">
+                <a href="{% url 'developpement' %}">DECENTRALISATION / DEVELOPPEMENT ECONOMIQUE LOCAL</a>
               </h3>
             </article>
           </div>
           <div class="col-lg-4 entries">
             <article class="entry" data-aos="fade-up">
               <div class="entry-img">
-                <img src="{% static 'cabinet/assets/img/insertion.png' %}" alt="" class="img-fluid">
+                <a href="{% url 'insertion' %}"><img style="width:350px;height:235px;" src="{% static 'cabinet/assets/img/insertion.png' %}" alt="" class="img-fluid"></a>
               </div>
-              <h3 style="font-size:15px" class="entry-title">
-                <a href="javascript:void(0)">INSERTION PROFESSIONNELLE / EMPLOI DES JEUNES</a>
+              <h3 style="text-align:center;font-size:15px" class="entry-title">
+                <a href="{% url 'insertion' %}">INSERTION PROFESSIONNELLE / EMPLOI DES JEUNES</a>
               </h3>
             </article>
           </div>
@@ -122,7 +122,7 @@ active
         </div>
       </div>
     </section><!-- End Blog Section -->
-    
+
 
   </main><!-- End #main -->
 {% endblock %}
