@@ -51,6 +51,8 @@ def formule(request):
 
     saveurl = "/fichier_static/2_Formulaire%20d'inscription%2004%20postures_2wI9KF5.pdf"
     savename = "2_Formulaire d'inscription 04 postures"
+    saveurl2 = "/fichier_static/Donald-Pr%C3%A9sentation%20Programme%20DIAMOND.pdf"
+    savename2 = "Plaquette de présentation"
     saveurl3 = "/fichier_static/3_Formulaire%20d'inscription%2004%20postures_t5nyz9Q.pdf"
     savename3 = "3_Formulaire d'inscription 04 postures"
 

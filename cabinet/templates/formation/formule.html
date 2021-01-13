@@ -311,13 +311,25 @@ active
                       </li>
                     </ul>
                 </div>
+                <!--
+                  <form action="" method="post" enctype="multipart/form-data">
+                      {% csrf_token %}
+                      <input type="file" name="file" id="file">
+                      <button type="submit">Upload</button>
+                  </form>
+                  <a href="{{fileurl}}">{{filename}}</a>
+                -->
                 <p style="line-height:35px">
+                  <div style="cursor:help;color:#3f48cc;font-style:italic" onclick='downloaD("{{saveurl2}}", "{{savename3}}")' class="picto-item" aria-label="Remplissez et signez le formulaire d'inscription après l'avoir téléchargé et nous le renvoyer par E-mail: jgkec@yahoo.fr">
+                    Télécharger notre plaquette de présentation<span class="bx bx-chevron-right"></span>
+                  </div>
+                  <br>
                   <div style="cursor:help;color:#3f48cc;font-style:italic" onclick='downloaD("{{saveurl}}", "{{savename}}")' class="picto-item" aria-label="Remplissez et signez le formulaire d'inscription après l'avoir téléchargé et nous le renvoyer par E-mail: jgkec@yahoo.fr">
-                    Par ici pour l'inscription à la formation en présentiel<span class="bx bx-chevron-right"></span>
+                    Inscrivez-vous à la formation en présentiel<span class="bx bx-chevron-right"></span>
                   </div>
                   <br>
                   <div style="cursor:help;color:#3f48cc;font-style:italic" onclick='downloaD("{{saveurl3}}", "{{savename3}}")' class="picto-item">
-                    Par là pour l'inscription à la formation en ligne<span class="bx bx-chevron-right"></span>
+                    Inscrivez-vous à la formation en ligne<span class="bx bx-chevron-right"></span>
                   </div>
                   <br>
                   Rejoignez-nous en atelier inter structure <a href="{% url 'calendrier' %}" title="lien vers la page du calendrier">(date prochaine de la formation)</a>,
