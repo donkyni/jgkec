@@ -48,18 +48,18 @@
         <ul>
           <li class="{% block active_acceuil %}{% endblock %}"><a href="{% url 'acceuil' %}">Acceuil</a></li>
 
-          <li class="drop-down {% block active_formation %}{% endblock %}"><a href="javascript:void(0)">Formations</a>
+          <li class="drop-down {% block active_formation %}{% endblock %}"><a href="javascript:void(0)">Programmes</a>
             <ul>
-              <li class="{% block active_formation_formule %}{% endblock %}"><a href="{% url 'formule' %}">Formule</a></li>
+              <li class="{% block active_formation_formule %}{% endblock %}"><a href="{% url 'formule' %}">Programme DIAMOND</a></li>
               <li class="{% block active_formation_calender %}{% endblock %} drop-down"><a href="javascript:void(0)">Calendrier</a>
                 <ul>
                   <li><a href="{% url 'calendrier' %}">Atelier en présentiel</a></li>
-                  <li><a href="{% url 'calendrier2' %}">Formation par vidéo conférence</a></li>
+                  <li><a href="{% url 'calendrier2' %}">Atelier virtuel</a></li>
                 </ul>
               </li>
             </ul>
           </li>
-          <li class="drop-down {% block active_expertise %}{% endblock %}"><a href="{% url 'expertise' %}">Nos Expertises</a>
+          <li class="drop-down {% block active_expertise %}{% endblock %}"><a href="{% url 'expertise' %}">Notre Expertise</a>
             <ul>
               <li class="{% block active_expertise_ingenierie %}{% endblock %}"><a href="{% url 'ingenierie' %}">Ingénierie de la formation</a></li>
               <li class="{% block active_expertise_management %}{% endblock %}"><a href="{% url 'management' %}">Appui au management des organisations</a></li>
@@ -100,10 +100,10 @@
         </div>
 
         <!-- Slide 2 -->
-        <div class="carousel-item" style="background-image: url({% static 'cabinet/assets/img/acceuil4.jpg' %});">
+        <div class="carousel-item" style="background-image: url({% static 'cabinet/assets/img/slide_2.jpeg' %});">
           <div class="carousel-container">
             <div class="carousel-content animate__animated animate__fadeInUp">
-              <h2>Nos expertises</h2>
+              <h2>Notre expertise</h2>
               <p style="font-weight:500;line-height:30px">
                 Pour la réalisation de nos missions, nous mettons à contribution une équipe de consultants hautement qualifiés.
                 Nous disposons en effet d’un important répertoire d’experts nationaux et internationaux possédant des
@@ -115,7 +115,7 @@
         </div>
 
         <!-- Slide 3 -->
-        <div class="carousel-item" style="background-image: url({% static 'cabinet/assets/img/acceuil.jpg' %});">
+        <div class="carousel-item" style="background-image: url({% static 'cabinet/assets/img/slide_3.jpeg' %});">
           <div class="carousel-container">
             <div class="carousel-content animate__animated animate__fadeInUp">
               <h2><span>Prochaines formations</span></h2>
@@ -169,7 +169,7 @@
             </h3>
           </div>
           <div class="col-lg-6 pt-4 pt-lg-0" style="padding-left:20px" data-aos="fade-left">
-            <h2 style="font-size:30px"><a href="{% url 'calendrier2' %}" style="color:#4d4643">Formation par vidéo conférence</a></h2>
+            <h2 style="font-size:30px"><a href="{% url 'calendrier2' %}" style="color:#4d4643">Atelier virtuel</a></h2>
             <h3><a style="color:#4D4643" href="{% url 'calendrier2' %}">Participer au Webinaire via Zoom planifié du 28 au 30 Juillet 2021. </a></h3>
             <h3 class="entry-title" style="color:black">
                 <a href="{% url 'calendrier2' %}" style="color:black"> <span>Thème:
