@@ -34,9 +34,7 @@ active
         <div class="row content">
           <div style="padding-right:70px" class="col-lg-6" data-aos="fade-right">
             <h2>JGK ENTREPRISES & CONSULTING </h2>
-            <p style="text-align:justify" ><span>JGK ENTREPRISES & CONSULTING s’est assigné pour missions la prestation des services de formations,
-                de conseil et d'assistance technique dans le but de contribuer à l’amélioration des performances
-              des individus et des organisations.</span>
+            <p style="text-align:justify" ><span>JGK ENTREPRISES & CONSULTING s’est assigné pour mission d’améliorer des vies en habilitant les personnes et les organisations.</span>
             </p>
             <p style="text-align:justify" class="font-italic">
                 <span>Pour la réalisation de nos missions, nous mettons à contribution une équipe de consultants hautement qualifiés.
@@ -50,11 +48,12 @@ active
             </h3>
 
             <ul style="font-weight:700">
-                <li><i class="ri-check-double-line"></i> <a style="color:black;text-decoration:none" href="{% url 'ingenierie' %}">Ingénierie de la formation </a></li>
-                <li><i class="ri-check-double-line"></i> <a style="color:black;text-decoration:none" href="{% url 'management' %}">Appui au management des organisations</a></li>
-                <li><i class="ri-check-double-line"></i> <a style="color:black;text-decoration:none" href="{% url 'finance' %}">Facilitation d’accès aux financements et aux marchés</a></li>
-                <li><i class="ri-check-double-line"></i> <a style="color:black;text-decoration:none" href="{% url 'developpement' %}">Décentralisation / Dévéloppement économique local</a></li>
-                <li><i class="ri-check-double-line"></i> <a style="color:black;text-decoration:none" href="{% url 'insertion' %}">Insertion professionnelle / Emploi des jeunes</a></li>
+              <li><i class="ri-check-double-line"></i> <a style="color:black;text-decoration:none" href="{% url 'management' %}">Renforcement des capacités techniques et managériales</a></li>
+              <li><i class="ri-check-double-line"></i> <a style="color:black;text-decoration:none" href="{% url 'ingenierie' %}">Ingénierie de la formation </a></li>
+              <li><i class="ri-check-double-line"></i> <a style="color:black;text-decoration:none" href="{% url 'insertion' %}">Etudes socio-économiques</a></li>
+              <li><i class="ri-check-double-line"></i> <a style="color:black;text-decoration:none" href="{% url 'finance' %}">Facilitation d’accès aux financements</a></li>
+              <li><i class="ri-check-double-line"></i> <a style="color:black;text-decoration:none" href="{% url 'insertion' %}">Restructuration et reprise d’entreprises</a></li>
+              <li><i class="ri-check-double-line"></i> <a style="color:black;text-decoration:none" href="{% url 'insertion' %}">Insertion professionnelle des jeunes</a></li>
             </ul>
           </div>
         </div>
@@ -71,20 +70,30 @@ active
           <div class="col-lg-4 entries">
             <article class="entry" data-aos="fade-up">
               <div class="entry-img">
-                <a href="{% url 'ingenierie' %}"><img style="width:350px;height:235px;" src="{% static 'cabinet/assets/img/ingenierie.jpg' %}" alt="" class="img-fluid"></a>
+                <a href="{% url 'management' %}"><img style="width:350px;height:235px;" src="{% static 'cabinet/assets/img/management.jpg' %}" alt="" class="img-fluid"></a>
               </div>
               <h3 style="text-align:center;font-size:15px" class="entry-title">
-                <a href="{% url 'ingenierie' %}">INGENIERIE DE LA FORMATION <span style="opacity:0">&nbsp;INGENIERIE DE LA FORMATION</span></a>
+                <a href="{% url 'management' %}">Renforcement des capacités techniques et managériales</a>
               </h3>
             </article>
           </div>
           <div class="col-lg-4 entries">
             <article class="entry" data-aos="fade-up">
               <div class="entry-img">
-                <a href="{% url 'management' %}"><img style="width:350px;height:235px;" src="{% static 'cabinet/assets/img/management.jpg' %}" alt="" class="img-fluid"></a>
+                <a href="{% url 'ingenierie' %}"><img style="width:350px;height:235px;" src="{% static 'cabinet/assets/img/ingenierie.jpg' %}" alt="" class="img-fluid"></a>
               </div>
               <h3 style="text-align:center;font-size:15px" class="entry-title">
-                <a href="{% url 'management' %}">APPUI AU MANAGEMENT DES ORGANISATIONS</a>
+                <a href="{% url 'ingenierie' %}">INGENIERIE DE LA FORMATION <br><span style="opacity:0">&nbsp;</span></a>
+              </h3>
+            </article>
+          </div>
+          <div class="col-lg-4 entries">
+            <article class="entry" data-aos="fade-up">
+              <div class="entry-img">
+                <a href="{% url 'etude' %}"><img style="width:350px;height:235px;" src="{% static 'cabinet/assets/img/5371hr_-592x296-1476455405.jpg' %}" alt="" class="img-fluid"></a>
+              </div>
+              <h3 style="text-align:center;font-size:15px;text-transform:uppercase" class="entry-title">
+                <a href="{% url 'etude' %}">Etudes socio-économiques <br><span style="opacity:0">&nbsp;</span></a>
               </h3>
             </article>
           </div>
@@ -94,17 +103,17 @@ active
                 <a href="{% url 'finance' %}"><img style="width:350px;height:235px;" src="{% static 'cabinet/assets/img/photo-1462556791646-c201b8241a94 (1).jfif' %}" alt="" class="img-fluid"></a>
               </div>
               <h3 style="text-align:center;font-size:15px" class="entry-title">
-                <a href="{% url 'finance' %}">FACILITATION D’ACCES AUX FINANCEMENTS ET AUX MARCHES</a>
+                <a href="{% url 'finance' %}">FACILITATION D’ACCES AUX FINANCEMENTS</a>
               </h3>
             </article>
           </div>
           <div class="col-lg-4 entries">
             <article class="entry" data-aos="fade-up">
               <div class="entry-img">
-                <a href="{% url 'developpement' %}"><img style="width:350px;height:235px;" src="{% static 'cabinet/assets/img/5371hr_-592x296-1476455405.jpg' %}" alt="" class="img-fluid"></a>
+                <a href="{% url 'reprise' %}"><img style="width:350px;height:235px;" src="{% static 'cabinet/assets/img/reprise.jpg' %}" alt="" class="img-fluid"></a>
               </div>
-              <h3 style="text-align:center;font-size:15px" class="entry-title">
-                <a href="{% url 'developpement' %}">DECENTRALISATION / DEVELOPPEMENT ECONOMIQUE LOCAL</a>
+              <h3 style="text-align:center;font-size:15px;text-transform:uppercase" class="entry-title">
+                <a href="{% url 'reprise' %}">Restructuration et reprise d’entreprises</a>
               </h3>
             </article>
           </div>

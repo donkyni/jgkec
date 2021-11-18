@@ -26,8 +26,18 @@ def finance(request):
     return render(request, 'expertise/financement.html', locals())
 
 
+"""
 def developpement(request):
     return render(request, 'expertise/developpement.html', locals())
+"""
+
+
+def reprise(request):
+    return render(request, 'expertise/reprise.html', locals())
+
+
+def etude(request):
+    return render(request, 'expertise/etude.html', locals())
 
 
 def insertion(request):

@@ -62,11 +62,12 @@
           </li>
           <li class="drop-down {% block active_expertise %}{% endblock %}"><a href="{% url 'expertise' %}">Notre Expertise</a>
             <ul>
+              <li class="{% block active_expertise_management %}{% endblock %}"><a href="{% url 'management' %}">Renforcement des capacités techniques et managériales</a></li>
               <li class="{% block active_expertise_ingenierie %}{% endblock %}"><a href="{% url 'ingenierie' %}">Ingénierie de la formation</a></li>
-              <li class="{% block active_expertise_management %}{% endblock %}"><a href="{% url 'management' %}">Appui au management des organisations</a></li>
-              <li class="{% block active_expertise_finance %}{% endblock %}"><a href="{% url 'finance' %}">Facilitation d'accès aux financements et aux marchés</a></li>
-              <li class="{% block active_expertise_developpement %}{% endblock %}"><a href="{% url 'developpement' %}">Décentralisation / Dévéloppement économique local</a></li>
-              <li class="{% block active_expertise_insertion %}{% endblock %}"><a href="{% url 'insertion' %}">Insertion professionnelle / Emploi des jeunes</a></li>
+              <li class="{% block active_expertise_etude %}{% endblock %}"><a href="{% url 'etude' %}">Etudes socio-économiquesn</a></li>
+              <li class="{% block active_expertise_finance %}{% endblock %}"><a href="{% url 'finance' %}">Facilitation d'accès aux financements</a></li>
+              <li class="{% block active_expertise_reprise %}{% endblock %}"><a href="{% url 'reprise' %}">Restructuration et reprise d’entreprises</a></li>
+              <li class="{% block active_expertise_insertion %}{% endblock %}"><a href="{% url 'insertion' %}">Insertion professionnelle des jeunes</a></li>
             </ul>
           </li>
 
@@ -93,8 +94,7 @@
           <div class="carousel-container">
             <div class="carousel-content animate__animated animate__fadeInUp">
               <h2>Qui sommes-nous ?</h2>
-              <p style="font-weight:500;line-height:30px">JGK ENTREPRISES & CONSULTING s’est assigné pour missions la prestation des services de formations, de conseil et d'assistance
-                  technique dans le but de contribuer à l’amélioration des performances des individus et des organisations.
+              <p style="font-weight:500;line-height:30px">JGK ENTREPRISES & CONSULTING s’est assigné pour mission d’améliorer des vies en habilitant les personnes et les organisations.
               </p>
               <div class="text-center"><a href="{% url 'expertise' %}" class="btn-get-started">Voir plus</a></div>
             </div>
@@ -156,7 +156,7 @@
       <div class="container" data-aos="fade-up">
 
         <div class="section-title">
-          <h2>Formations à venir></strong</h2>
+          <h2>Formations à venir</h2>
         </div>
 
         <div class="row content">
@@ -290,9 +290,8 @@
           <div class="col-lg-3 col-md-6 footer-contact">
             <h3>JGK-EC</h3>
             <p>
-              Agbalepedo <br>
-              317 rue de la Liberté, AGP<br><br>
-              <strong id="contact">Téléphones: <br></strong> +228 22 25 39 87  <br> +228 99 67 76 01   <br> +228 92 41 95 49
+              Agoè Logopé <br><br>
+              <strong id="contact">Téléphones: <br></strong> +228 22 25 39 87  <br> +228 96 03 99 72   <br> +228 92 41 95 49
               <br><br>
               <strong>Email:</strong> jgkec@yahoo.fr<br>
               <strong style="opacity:0">Email:</strong> info@jgkec.fr<br>
@@ -310,11 +309,12 @@
           <div class="col-lg-3 col-md-6 footer-links">
             <h4>Expertises</h4>
             <ul>
+              <li><i class="bx bx-chevron-right"></i> <a href="{% url 'management' %}">Renforcement des capacités techniques et managériales</a></li>
               <li><i class="bx bx-chevron-right"></i> <a href="{% url 'ingenierie' %}">Ingénierie de la formation</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="{% url 'management' %}">Appui au management des organisations</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="{% url 'etude' %}">Etudes socio-économiques</a></li>
               <li><i class="bx bx-chevron-right"></i> <a href="{% url 'finance' %}">Facilitation d’accès aux financements et aux marchés</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="{% url 'developpement' %}">Décentralisation / Dévéloppement économique local</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="{% url 'insertion' %}">Insertion professionnelle / Emploi des jeunes</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="{% url 'reprise' %}">Restructuration et reprise d’entreprises</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="{% url 'insertion' %}">Insertion professionnelle des jeunes</a></li>
             </ul>
           </div>
 

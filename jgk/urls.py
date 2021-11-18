@@ -18,8 +18,8 @@ from django.conf.urls.static import static
 from django.contrib import admin
 from django.urls import path
 
-from cabinet.views import acceuil, contacts, expertise, ingenierie, management, finance, developpement, insertion, \
-    formation, formule, calendrier, calendrier2, sondage
+from cabinet.views import acceuil, contacts, expertise, ingenierie, management, finance, insertion, \
+    formation, formule, calendrier, calendrier2, sondage, reprise, etude
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -29,7 +29,8 @@ urlpatterns = [
     path('ingenierie/', ingenierie, name="ingenierie"),
     path('management/', management, name="management"),
     path('finance/', finance, name="finance"),
-    path('developpement', developpement, name="developpement"),
+    path('reprise/', reprise, name="reprise"),
+    path('etude', etude, name="etude"),
     path('insertion/', insertion, name="insertion"),
     path('formation/', formation, name="formation"),
     path('formule/', formule, name="formule"),
