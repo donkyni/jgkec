@@ -13,7 +13,8 @@
   <meta content="" name="keywords">
 
   <!-- Favicons -->
-  <link href="{% static 'cabinet/assets/img/favicon.png' %}" rel="icon">
+  <!-- <link href="{% static 'cabinet/assets/img/favicon.png' %}" rel="icon"> -->
+  <link href="{% static 'cabinet/assets/img/jgk.jpg' %}" rel="icon">
   <link href="{% static 'cabinet/assets/img/apple-touch-icon.png' %}" rel="apple-touch-icon">
 
   <!-- Google Fonts -->
@@ -71,6 +72,7 @@
 
           <li class="{% block active_ref %}{% endblock %}"><a href="{% url 'acceuil' %}#clients">NOS REFERENCES</a></li>
           <li class="{% block active_contact %}{% endblock %}"><a href="{% url 'contacts' %}">Contact</a></li>
+          <li class="{% block active_sondage %}{% endblock %}"><a href="{% url 'sondage' %}">Sondage</a></li>
 
         </ul>
       </nav><!-- .nav-menu -->

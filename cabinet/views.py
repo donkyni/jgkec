@@ -75,3 +75,7 @@ def calendrier2(request):
     savename3 = "3_Formulaire d'inscription 04 postures"
 
     return render(request, 'formation/calendrier2.html', locals())
+
+
+def sondage(requst):
+    return render(requst, 'sondage/sondage.html', locals())
