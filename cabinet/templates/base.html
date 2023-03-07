@@ -48,7 +48,18 @@
       <nav class="nav-menu d-none d-lg-block">
         <ul>
           <li class="{% block active_acceuil %}{% endblock %}"><a href="{% url 'acceuil' %}">Acceuil</a></li>
+          <li class="{% block active_nosolutions %}{% endblock %}"><a href="#">Nos solutions</a></li>
+          <li class="{% block active_articles %}{% endblock %}"><a href="{% url 'acceuil' %}">Articles</a></li>
+          <li class="{% block active_activites %}{% endblock %}"><a href="{% url 'acceuil' %}">Activités</a></li>
+          <li class="{% block active_apropos %}{% endblock %}"><a href="{% url 'acceuil' %}">A propos</a></li>
+          <li class="{% block active_feedback %}{% endblock %}"><a href="{% url 'acceuil' %}">Feedback</a></li>
+          <li class="{% block active_contacteznous %}{% endblock %}"><a href="{% url 'acceuil' %}">Contactez nous</a></li>
 
+
+
+          <!-- START OLD DESIGN -->
+
+          <!--
           <li class="drop-down {% block active_formation %}{% endblock %}"><a href="javascript:void(0)">Programmes</a>
             <ul>
               <li class="{% block active_formation_formule %}{% endblock %}"><a href="{% url 'formule' %}">Programme DIAMOND</a></li>
@@ -74,6 +85,9 @@
           <li class="{% block active_ref %}{% endblock %}"><a href="{% url 'acceuil' %}#clients">Nos Références</a></li>
           <li class="{% block active_contact %}{% endblock %}"><a href="{% url 'contacts' %}">Contact</a></li>
           <li class="{% block active_sondage %}{% endblock %}"><a href="{% url 'sondage' %}">Sondage</a></li>
+          -->
+
+          <!-- STOP OLD DESIGN -->
 
         </ul>
       </nav><!-- .nav-menu -->
@@ -93,9 +107,17 @@
         <div class="carousel-item active" style="background-image: url({% static 'cabinet/assets/img/acceuil3.jpg' %});">
           <div class="carousel-container">
             <div class="carousel-content animate__animated animate__fadeInUp">
+
               <h2>Qui sommes-nous ?</h2>
-              <p style="font-weight:500;line-height:30px">JGK ENTREPRISES & CONSULTING s’est assigné pour mission d’améliorer des vies en habilitant les personnes et les organisations.
+
+              <p style="font-weight:500;line-height:30px;text-align:justify">
+                JGK Entreprises & Consulting (JGK-EC) est une entreprise qui évolue dans l'appui-conseil aux organisations de tout genre :
+                entreprises, administrations publiques et privés.
+                <br> <!-- retour a la ligne -->
+                <br> <!-- retour a la ligne -->
+                Elle évolue dans le renforcement des capacités techniques et managériales ainsi que dans la facilitation d'accès au financement.
               </p>
+
               <div class="text-center"><a href="{% url 'expertise' %}" class="btn-get-started">Voir plus</a></div>
             </div>
           </div>
@@ -152,6 +174,42 @@
   <main id="main">
 
     <!-- ======= About Us Section ======= -->
+
+    <section id="about-us" class="about-us" style="background-color:#D1D5D8">
+      <div class="container" data-aos="fade-up">
+        <div class="">
+          <h2 style="font-weight:700;color:#02000D">Notre mission : </h2>
+          <p style="color:#02000D;font-size:20px;font-weight:600;font-style:italic">
+            Améliorer les vies en habilitant les personnes et les organisations
+          </p>
+          <br><br><br><br>
+        </div>
+
+        <div class="row content">
+          <div class="container" style="position:relative;background-color:#fff;border:none;margin:100px 100px 0px 100px;padding:120px 50px 15px 50px;border-radius:40px">
+
+            <p style="padding-top:5px;text-align:center;font-size:18px">
+              Booster la <i>productivité</i> de votre équipe avec le <b>programme Diamond</b>.
+            </p>
+            <p style="text-align:center">
+              <span style="background-color:#2C82C9;color:#fff;font-style:italic;padding:3px 6px 3px 6px">
+                En savoir plus
+              </span>
+            </p>
+          </div>
+          <div class="container" style="top:30%;position:absolute;text-align:center">
+              <img
+                  style="width:50%;height:250px;background-position:center top; background-repeat:no-repeat;size:cover"
+                  src="{% static 'cabinet/assets/img/OIP.jpg' %}"
+                  alt="images">
+            </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- End About Us Section -->
+
+    <!-- OLD SECTION
     <section id="about-us" class="about-us">
       <div class="container" data-aos="fade-up">
 
@@ -183,9 +241,75 @@
         </div>
 
       </div>
-    </section><!-- End About Us Section -->
+    </section>
+    -->
+
+    <!-- End About Us Section -->
+
+    <section id="clients" class="clients"
+             style="background-image:url('{% static 'cabinet/assets/img/unsplash.jpg' %}'); background-size:cover;background-position:center">
+      <div class="container" data-aos="fade-up">
+
+        <br><br>
+        <div class="section-title" style="font-style:italic;color:#fff">
+          <h2>Nos solutions</h2>
+        </div>
+        <br><br><br><br>
+
+        <div class="row  clearfix" data-aos="fade-up">
+          <div class="col-lg-6 col-md-6 col-12">
+            <p style="text-align:center;color:#fff;font-weight:600;font-style:italic;border:5px solid #fff;padding:5px;border-radius:15px">
+              <span>
+                Renforcement des capacités techniques et managériales
+              </span>
+            </p>
+            <div style="color:#fff;font-weight:600;border:5px solid #fff;padding:5px;border-radius:15px;">
+              <br><br><br>
+              <ul style="text-align:left;list-style-size:50px;">
+                <li style="font-size:18px">
+                  Programme DIAMOND
+                </li>
+                <br>
+                <li style="font-size:18px">
+                  Formations inter et intra-entreprises
+                </li>
+              </ul>
+              <br><br><br>
+            </div>
+          </div>
+          <div class="col-lg-6 col-md-6 col-12">
+            <p style="text-align:center;color:#fff;font-weight:600;font-style:italic;border:5px solid #fff;padding:5px;border-radius:15px">
+              <span>
+                Facilitation d'accès au financement
+              </span>
+            </p>
+            <div style="color:#fff;font-weight:600;border:5px solid #fff;padding:5px;border-radius:15px;">
+              <br>
+              <ul style="text-align:left;list-style-size:50px;">
+                <br>
+                <li style="font-size:18px">
+                  Etudes de marchés
+                </li>
+                <br>
+                <li style="font-size:18px">
+                  Business plans
+                </li>
+                <br>
+                <li style="font-size:18px">
+                  Accompagnement dans la recherche de financement
+                </li>
+              </ul>
+              <br><br>
+            </div>
+            <br><br><br>
+          </div>
+        </div>
+
+      </div>
+    </section>
 
     <!-- ======= Our Clients Section ======= -->
+    <!--
     <section id="clients" class="clients">
       <div class="container" data-aos="fade-up">
 
@@ -279,7 +403,9 @@
         </div>
 
       </div>
-    </section><!-- End Our Clients Section -->
+    </section>
+    -->
+    <!-- End Our Clients Section -->
 
   </main><!-- End #main -->
   {% endblock %}
