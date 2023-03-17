@@ -87,5 +87,29 @@ def calendrier2(request):
     return render(request, 'formation/calendrier2.html', locals())
 
 
-def sondage(requst):
-    return render(requst, 'sondage/sondage.html', locals())
+def sondage(request):
+    return render(request, 'sondage/sondage.html', locals())
+
+
+def solution(request):
+    return render(request, 'solution/solution.html', locals())
+
+
+def activite(request):
+    return render(request, 'activite/activite.html', locals())
+
+
+def article(request):
+    return render(request, 'article/article.html', locals())
+
+
+def apropos(request):
+    return render(request, 'apropos/apropos.html', locals())
+
+
+def contacteznous(request):
+    return render(request, 'contacteznous/contacteznous.html', locals())
+
+
+def feedback(request):
+    return render(request, 'feedback/feedback.html', locals())

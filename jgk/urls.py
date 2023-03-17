@@ -19,7 +19,8 @@ from django.contrib import admin
 from django.urls import path
 
 from cabinet.views import acceuil, contacts, expertise, ingenierie, management, finance, insertion, \
-    formation, formule, calendrier, calendrier2, sondage, reprise, etude
+    formation, formule, calendrier, calendrier2, sondage, reprise, etude, solution, activite, article, \
+    apropos, contacteznous, feedback
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -37,6 +38,12 @@ urlpatterns = [
     path('calendrier/', calendrier, name="calendrier"),
     path('calendrier2/', calendrier2, name="calendrier2"),
     path('sondage/', sondage, name="sondage"),
+    path('solution/', solution, name="solution"),
+    path('activite/', activite, name="activite"),
+    path('article/', article, name="article"),
+    path('apropos/', apropos, name="apropos"),
+    path('contacteznous/', contacteznous, name="contacteznous"),
+    path('feedback/', feedback, name="feedback"),
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
 
 if settings.DEBUG:

@@ -48,12 +48,12 @@
       <nav class="nav-menu d-none d-lg-block">
         <ul>
           <li class="{% block active_acceuil %}{% endblock %}"><a href="{% url 'acceuil' %}">Acceuil</a></li>
-          <li class="{% block active_nosolutions %}{% endblock %}"><a href="#">Nos solutions</a></li>
-          <li class="{% block active_articles %}{% endblock %}"><a href="{% url 'acceuil' %}">Articles</a></li>
-          <li class="{% block active_activites %}{% endblock %}"><a href="{% url 'acceuil' %}">Activités</a></li>
-          <li class="{% block active_apropos %}{% endblock %}"><a href="{% url 'acceuil' %}">A propos</a></li>
-          <li class="{% block active_feedback %}{% endblock %}"><a href="{% url 'acceuil' %}">Feedback</a></li>
-          <li class="{% block active_contacteznous %}{% endblock %}"><a href="{% url 'acceuil' %}">Contactez nous</a></li>
+          <li class="{% block active_nosolutions %}{% endblock %}"><a href="{% url 'solution' %}">Nos solutions</a></li>
+          <li class="{% block active_articles %}{% endblock %}"><a href="{% url 'article' %}">Articles</a></li>
+          <li class="{% block active_activites %}{% endblock %}"><a href="{% url 'activite' %}">Activités</a></li>
+          <li class="{% block active_apropos %}{% endblock %}"><a href="{% url 'apropos' %}">A propos</a></li>
+          <li class="{% block active_feedback %}{% endblock %}"><a href="{% url 'feedback' %}">Feedback</a></li>
+          <li class="{% block active_contacteznous %}{% endblock %}"><a href="{% url 'contacteznous' %}">Contactez nous</a></li>
 
 
 
@@ -308,7 +308,7 @@
       </div>
     </section>
 
-    <section class="clients" style="background-color:#8870FF;">
+    <section class="clients" style="background-color:#462446;">
       <div class="container" data-aos="fade-up">
 
         <div class="row text-center clearfix" data-aos="fade-up">
@@ -317,7 +317,7 @@
               <img style="height:200px;width:55%" src="{% static 'cabinet/assets/img/cerveau.jpg' %}" class="rounded img-fluid" alt="tester votre compétence">
             </div>
             <div class="row-12 text-center">
-              <p style="color:#000;font-size:18px;font-weight:700;margin-top:35px">
+              <p style="color:#fff;font-size:18px;font-weight:700;margin-top:35px">
                 Testez gratuitement vos aptitudes managériales maintenant
               </p>
             </div>
@@ -327,7 +327,7 @@
               <img style="height:200px;width:55%" src="{% static 'cabinet/assets/img/expert.jpg' %}" class="rounded img-fluid" alt="tester votre compétence">
             </div>
             <div class="row-12 text-center">
-              <p style="color:#000;font-size:18px;font-weight:700;margin-top:35px">
+              <p style="color:#fff;font-size:18px;font-weight:700;margin-top:35px">
                 Discuter avec un expert
               </p>
             </div>
@@ -343,94 +343,91 @@
           <div class="col-lg-6 col-12">
             <div class="" data-aos="fade-up">
               <h2>Ils nous ont fait confiance</h2>
-
               <div class="row clients-wrap clearfix" data-aos="fade-up">
-                <div class="col-lg-3 col-md-3 col-6">
+                <div class="col-lg-3 col-6">
                   <div class="client-logo">
-                    <img style="height:100px; width:200px" src="{% static 'cabinet/assets/img/logo-PAEIJ-SP3.jpg' %}" class="img-fluid" alt="">
+                    <img style="margin:20px 30px 20px 5px;height:80px; width:120px;" src="{% static 'cabinet/assets/img/logo-PAEIJ-SP3.jpg' %}" class="img-fluid" alt="">
                   </div>
                 </div>
-                <div class="col-lg-3 col-md-3 col-6">
+                <div class="col-lg-3 col-6">
                   <div class="client-logo">
-                    <img style="height:100px; width:200px" src="{% static 'cabinet/assets/img/Logo_ANPE_Togo.png' %}" class="img-fluid" alt="">
+                    <img style="margin:35px 30px 20px 5px;height:50px; width:120px;" src="{% static 'cabinet/assets/img/Logo_ANPE_Togo.png' %}" class="img-fluid" alt="">
                   </div>
                 </div>
-                <div class="col-lg-3 col-md-3 col-6">
+                <div class="col-lg-3 col-6">
                   <div class="client-logo">
-                    <img style="height:100px; width:200px" src="{% static 'cabinet/assets/img/nipped.png' %}" class="img-fluid" alt="">
+                    <img style="margin:15px 30px 20px 5px;height:90px; width:110px;" src="{% static 'cabinet/assets/img/nipped.png' %}" class="img-fluid" alt="">
                   </div>
                 </div>
-                <div class="col-lg-3 col-md-3 col-6">
+                <div class="col-lg-3 col-6">
                   <div class="client-logo">
-                    <img style="height:100px; width:200px" src="{% static 'cabinet/assets/img/ogar.jpg' %}" class="img-fluid" alt="">
+                    <img style="margin:0px 30px 20px 5px;height:110px; width:110px;" src="{% static 'cabinet/assets/img/ogar.jpg' %}" class="img-fluid" alt="">
                   </div>
                 </div>
-                <div class="col-lg-3 col-md-3 col-6">
+                <div class="col-lg-3 col-6">
                   <div class="client-logo">
-                    <img style="height:100px; width:200px" src="{% static 'cabinet/assets/img/sge.png' %}" class="img-fluid" alt="">
+                    <img style="margin:20px 30px 20px 5px;height:70px; width:110px;" src="{% static 'cabinet/assets/img/sge.png' %}" class="img-fluid" alt="">
                   </div>
                 </div>
-                <div class="col-lg-3 col-md-3 col-6">
+                <div class="col-lg-3 col-6">
                   <div class="client-logo">
-                    <img style="height:100px; width:200px" src="{% static 'cabinet/assets/img/sodigaz.png' %}" class="img-fluid" alt="">
+                    <img style="margin:35px 30px 20px 5px;height:30px; width:180px;" src="{% static 'cabinet/assets/img/sodigaz.png' %}" class="img-fluid" alt="">
                   </div>
                 </div>
-                <div class="col-lg-3 col-md-3 col-6">
+                <div class="col-lg-3 col-6">
                   <div class="client-logo">
-                    <img style="height:100px; width:200px" src="{% static 'cabinet/assets/img/ism-adonai.png' %}" class="img-fluid" alt="">
+                    <img style="margin:20px 30px 20px 5px;height:60px; width:180px;" src="{% static 'cabinet/assets/img/ism-adonai.png' %}" class="img-fluid" alt="">
                   </div>
                 </div>
-                <div class="col-lg-3 col-md-3 col-6">
+                <div class="col-lg-3 col-6">
                   <div class="client-logo">
-                    <img style="height:100px; width:200px" src="{% static 'cabinet/assets/img/lafic.png' %}" class="img-fluid" alt="">
+                    <img style="margin:25px 30px 20px 5px;height:45px; width:190px;" src="{% static 'cabinet/assets/img/lafic.png' %}" class="img-fluid" alt="">
                   </div>
                 </div>
-                <div class="col-lg-3 col-md-3 col-6">
+                <div class="col-lg-3 col-6">
                   <div class="client-logo">
-                    <img style="height:100px; width:200px" src="{% static 'cabinet/assets/img/cfbt.png' %}" class="img-fluid" alt="">
+                    <img style="margin:5px 30px 20px 5px;height:150px; width:150px;" src="{% static 'cabinet/assets/img/cfbt.png' %}" class="img-fluid" alt="">
                   </div>
                 </div>
-                <div class="col-lg-3 col-md-3 col-6">
+                <div class="col-lg-3 col-6">
                   <div class="client-logo">
-                    <img style="height:100px; width:200px" src="{% static 'cabinet/assets/img/diwa.jpg' %}" class="img-fluid" alt="">
+                    <img style="margin:35px 30px 20px 5px;height:60px; width:200px;" src="{% static 'cabinet/assets/img/diwa.jpg' %}" class="img-fluid" alt="">
                   </div>
                 </div>
-                <div class="col-lg-3 col-md-3 col-6">
+                <div class="col-lg-3 col-6">
                   <div class="client-logo">
-                    <img style="height:100px; width:200px" src="{% static 'cabinet/assets/img/ires-rdec.jfif' %}" class="img-fluid" alt="">
+                    <img style="margin:20px 30px 20px 5px;height:80px; width:110px;" src="{% static 'cabinet/assets/img/ires-rdec.jfif' %}" class="img-fluid" alt="">
                   </div>
                 </div>
-                <div class="col-lg-3 col-md-3 col-6">
+                <div class="col-lg-3 col-6">
                   <div class="client-logo">
-                    <img style="height:100px; width:200px" src="{% static 'cabinet/assets/img/sotoplat.jpg' %}" class="img-fluid" alt="">
+                    <img style="margin:20px 30px 20px 5px;height:80px; width:100px;" src="{% static 'cabinet/assets/img/sotoplat.jpg' %}" class="img-fluid" alt="">
                   </div>
                 </div>
-                <div class="col-lg-3 col-md-3 col-6">
+                <div class="col-lg-3 col-6">
                   <div class="client-logo">
-                    <img style="height:100px; width:200px" src="{% static 'cabinet/assets/img/transam.png' %}" class="img-fluid" alt="">
+                    <img style="margin:20px 30px 20px 5px;height:75px; width:180px;" src="{% static 'cabinet/assets/img/transam.png' %}" class="img-fluid" alt="">
                   </div>
                 </div>
-                <div class="col-lg-3 col-md-3 col-6">
+                <div class="col-lg-3 col-6">
                   <div class="client-logo">
-                    <img style="height:100px; width:200px" src="{% static 'cabinet/assets/img/umat.png' %}" class="img-fluid" alt="">
+                    <img style="margin:15px 30px 20px 5px;height:70px; width:190px;" src="{% static 'cabinet/assets/img/umat.png' %}" class="img-fluid" alt="">
                   </div>
                 </div>
-                <div class="col-lg-3 col-md-3 col-6">
+                <div class="col-lg-3 col-6">
                   <div class="client-logo">
-                    <img style="height:100px; width:200px" src="{% static 'cabinet/assets/img/sge2.png' %}" class="img-fluid" alt="">
+                    <img style="margin:10px 30px 20px 5px;height:80px; width:180px;" src="{% static 'cabinet/assets/img/sge2.png' %}" class="img-fluid" alt="">
                   </div>
                 </div>
-                <div class="col-lg-3 col-md-3 col-6">
+                <div class="col-lg-3 col-6">
                   <div class="client-logo">
-                    <img style="height:100px; width:200px" src="{% static 'cabinet/assets/img/tde.png' %}" class="img-fluid" alt="">
+                    <img style="margin:20px 30px 20px 5px;height:80px; width:75px;" src="{% static 'cabinet/assets/img/tde.png' %}" class="img-fluid" alt="">
                   </div>
                 </div>
               </div>
             </div>
           </div>
-          <div class="col-lg-6 col-12" style="height:445px;background-image: url({% static 'cabinet/assets/img/poignet.webp' %}); background-size:cover" data-aos="fade-up">
-
-          </div>
+          <div class="col-lg-6 col-12" style="margin-top:90px;height:445px;background-image: url({% static 'cabinet/assets/img/poignet.webp' %}); background-size:cover" data-aos="fade-up"></div>
         </div>
       </div>
     </section>

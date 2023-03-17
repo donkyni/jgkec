@@ -1,0 +1,80 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block active_articles %}
+active
+{% endblock %}
+
+{% block section %}
+{% endblock %}
+
+{% block main %}
+  <main id="main">
+    <section id="breadcrumbs" style="background-color:#462446" class="breadcrumbs">
+      <div class="container">
+
+        <div class="d-flex justify-content-between align-items-center">
+          <h2>Articles</h2>
+          <ol>
+            <li><a href="{% url 'acceuil' %}">Acceuil</a></li>
+              <li><a href="{% url 'sondage' %}">Articles</a></li>
+          </ol>
+        </div>
+
+      </div>
+    </section>
+
+    <section>
+      <div class="container" data-aos="fade-up" style="margin-bottom:-50px">
+          <div class="row justify-content-evenly">
+              <div class="col-2"></div>
+              <div class="col-lg-8 col-12">
+                <div style="text-align:center;">
+                    <span style="font-weight:700;font-size:40px;color:#282830;border-bottom:6px solid #462446">Nos articles</span>
+                </div>
+              </div>
+              <div class="col-2"></div>
+          </div>
+      </div>
+    </section>
+
+      <section>
+          <div class="container" data-aos="fade-up">
+              <div class="row justify-content-evenly">
+                  <div class="col-lg-6 col-12">
+                      <p style="color:#282830;font-size:18px;font-weight:700" class="text-justify">
+                        Pourquoi faire suivre des formations de renforcement à votre équipe managériale ?
+                      </p>
+                      <p class="text-justify">
+                          Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                          Ab aspernatur atque autem consequatur cumque delectus deleniti dolor dolorum,
+                          eligendi, ex fuga, illo nemo perferendis quis sint sunt tenetur veritatis voluptas!
+                      </p>
+                  </div>
+                  <div class="col-lg-6"></div>
+                  <div class="col-lg-6"></div>
+                  <div class="col-lg-6 col-12">
+                      <p style="color:#282830;font-size:18px;font-weight:700" class="text-justify">
+                        Comment créer une entreprise ?
+                      </p>
+                      <p class="text-justify">
+                          Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                          Ab aspernatur atque autem consequatur cumque delectus deleniti dolor dolorum,
+                          eligendi, ex fuga, illo nemo perferendis quis sint sunt tenetur veritatis voluptas!
+                      </p>
+                  </div>
+                  <div class="col-lg-6 col-12">
+                      <p style="color:#282830;font-size:18px;font-weight:700" class="text-justify">
+                        Comment trouver du financement pour ses projets ?
+                      </p>
+                      <p class="text-justify">
+                          Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                          Ab aspernatur atque autem consequatur cumque delectus deleniti dolor dolorum,
+                          eligendi, ex fuga, illo nemo perferendis quis sint sunt tenetur veritatis voluptas!
+                      </p>
+                  </div>
+              </div>
+          </div>
+      </section>
+  </main>
+{% endblock %}

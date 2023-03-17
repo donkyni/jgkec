@@ -1,0 +1,91 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block active_apropos %}
+active
+{% endblock %}
+
+{% block section %}
+{% endblock %}
+
+{% block main %}
+  <main id="main">
+    <section id="breadcrumbs" style="background-color:#462446" class="breadcrumbs">
+      <div class="container">
+
+        <div class="d-flex justify-content-between align-items-center">
+          <h2>A propos</h2>
+          <ol>
+            <li><a href="{% url 'acceuil' %}">Acceuil</a></li>
+              <li><a href="{% url 'sondage' %}">A propos</a></li>
+          </ol>
+        </div>
+
+      </div>
+    </section>
+
+      <section>
+          <div class="container" data-aos="fade-up">
+              <div class="row justify-content-evenly">
+                  <div class="col-lg-6 col-12">
+                      <p style="color:#282830;font-size:18px;font-weight:700" class="text-justify">
+                          Qui sommes-nous ?
+                      </p>
+                      <p class="text-justify">
+                          JGK Entreprises & Consulting (JGK-EC) évolue dans le domaine de
+                          l'appui-conseil aux organisations de tout genre :
+                          entreprises, administrations publiques et privées.
+                          <br><br>
+                            Nous aidons les organisations à booster leur productivité en renforçant
+                          les capacités techniques et managériales de leurs dirigeants.
+                          Nous accompagnons également les entreprises dans la réalisation de leurs
+                          projets de croissance de l’étude au financement.
+                          <br>
+                          Notre expertise nous a valu la reconnaissance de la BCEAO comme
+                          <a href="javascript:void(0)">structures d'appui et d'encadrement.</a>
+                      </p>
+                      <p>
+                          <img src="{% static 'cabinet/assets/img/jeux.jpg' %}" style="height:370px;width:500px;background-size:cover" alt="">
+                      </p>
+                  </div>
+                  <div class="col-lg-6"></div>
+                  <div class="col-lg-6"></div>
+                  <div class="col-lg-6 col-12">
+                      <p style="color:#282830;font-size:18px;font-weight:700" class="text-right">
+                        Notre mission
+                      </p>
+                      <p class="text-right">
+                          Améliorer les vies en habilitant les personnes et les organisations
+                      </p>
+                      <p class="text-right">
+                          <img src="{% static 'cabinet/assets/img/jeux.jpg' %}" style="height:370px;width:500px;background-size:cover" alt="">
+                      </p>
+                  </div>
+                  <div class="col-lg-6 col-12">
+                      <p style="color:#282830;font-size:18px;font-weight:700" class="text-justify">
+                        Notre vision
+                      </p>
+                      <p class="text-justify">
+                          Être reconnus pour notre contribution de qualité à l’amélioration
+                          des performances des organisations et à l’amélioration des vies.
+                      </p>
+                      <p>
+                          <img src="{% static 'cabinet/assets/img/jeux.jpg' %}" style="height:370px;width:500px;background-size:cover" alt="">
+                      </p>
+                  </div>
+                  <div class="col-lg-6"></div>
+                  <div class="col-lg-6"></div>
+                  <div class="col-lg-6 col-12">
+                      <p style="color:#282830;font-size:18px;font-weight:700" class="text-right">
+                        Nos valeurs
+                      </p>
+                      <p class="text-right">
+                          L'intégrité, la bienvaillance, le professionnalisme sont les valeurs que nous mettons
+                          en avant afin de toujours donner le meilleur à nos clients et organisations.
+                      </p>
+                  </div>
+              </div>
+          </div>
+      </section>
+  </main>
+{% endblock %}
