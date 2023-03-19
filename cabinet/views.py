@@ -1,6 +1,8 @@
 from django.core.files.storage import FileSystemStorage
 from django.shortcuts import render
 
+from cabinet.forms import ContactForm
+
 
 def acceuil(request):
     return render(request, 'acceuil.html', locals())
@@ -108,7 +110,17 @@ def apropos(request):
 
 
 def contacteznous(request):
-    return render(request, 'contacteznous/contacteznous.html', locals())
+    if request == 'POST':
+        form = ContactForm(request.POST)
+        if form.is_valid():
+            form.save()
+    else:
+        form = ContactForm()
+
+    context = {
+        'form': form,
+    }
+    return render(request, 'contacteznous/contacteznous.html', context)
 
 
 def feedback(request):
