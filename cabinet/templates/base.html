@@ -30,12 +30,35 @@
   <link href="{% static 'cabinet/assets/vendor/aos/aos.css' %}" rel="stylesheet">
   <link href="{% static 'cabinet/assets/vendor/remixicon/remixicon.css' %}" rel="stylesheet">
 
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css">
+
+  {% block link %}{% endblock %}
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab&display=swap" rel="stylesheet">
 
   <!-- Template Main CSS File -->
   <link href="{% static 'cabinet/assets/css/style.css' %}" rel="stylesheet">
+
+  <style>
+    a {
+      text-decoration:none;
+    }
+    .solution::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.5); /* Fond noir semi-transparent */
+      filter: blur(15px); /* Flou gaussien de 5px */
+    }
+  </style>
 </head>
 
-<body>
+<body style="font-family: 'Roboto Slab', serif;">
   {% block header %}
   <!-- ======= Header ======= -->
   <header id="header" class="fixed-top">
@@ -49,11 +72,11 @@
         <ul>
           <li class="{% block active_acceuil %}{% endblock %}"><a href="{% url 'acceuil' %}">Acceuil</a></li>
           <li class="{% block active_nosolutions %}{% endblock %}"><a href="{% url 'solution' %}">Nos solutions</a></li>
-          <li class="{% block active_articles %}{% endblock %}"><a href="{% url 'article' %}">Articles</a></li>
-          <li class="{% block active_activites %}{% endblock %}"><a href="{% url 'activite' %}">Activités</a></li>
+          <!--<li class="{% block active_articles %}{% endblock %}"><a href="{% url 'article' %}">Articles</a></li>-->
+          <!--<li class="{% block active_activites %}{% endblock %}"><a href="{% url 'activite' %}">Activités</a></li>-->
           <li class="{% block active_apropos %}{% endblock %}"><a href="{% url 'apropos' %}">A propos</a></li>
           <li class="{% block active_feedback %}{% endblock %}"><a href="{% url 'feedback' %}">Feedback</a></li>
-          <li class="{% block active_contacteznous %}{% endblock %}"><a href="{% url 'contacteznous' %}">Contactez nous</a></li>
+          <!--<li class="{% block active_contacteznous %}{% endblock %}"><a href="{% url 'contacteznous' %}">Contactez nous</a></li>-->
 
 
 
@@ -118,7 +141,7 @@
                 Elle évolue dans le renforcement des capacités techniques et managériales ainsi que dans la facilitation d'accès au financement.
               </p>
 
-              <div class="text-center"><a href="{% url 'expertise' %}" class="btn-get-started">Voir plus</a></div>
+              <div class="text-center"><a href="{% url 'apropos' %}" class="btn-get-started">Voir plus</a></div>
             </div>
           </div>
         </div>
@@ -133,7 +156,7 @@
                 Nous disposons en effet d’un important répertoire d’experts nationaux et internationaux possédant des
                 d’expériences multiples et variées.
               </p>
-              <div class="text-center"><a href="{% url 'expertise' %}" class="btn-get-started">Voir plus</a></div>
+              <div class="text-center"><a href="{% url 'solution' %}" class="btn-get-started">Voir plus</a></div>
             </div>
           </div>
         </div>
@@ -147,7 +170,7 @@
                 <i>Les quatre postures du manager: equipier, entraineur, arbitre, coach.</i>
                 <br>
               </p>
-              <div class="text-center"><a href="{% url 'calendrier' %}" class="btn-get-started">Voir plus</a></div>
+              <div class="text-center"><a href="{% url 'solution' %}" class="btn-get-started">Voir plus</a></div>
             </div>
           </div>
         </div>
@@ -178,7 +201,7 @@
     <section id="about-us" class="about-us" style="background-color:#D1D5D8">
       <div class="container" data-aos="fade-up">
         <div class="">
-          <h2 style="font-weight:700;color:#02000D">Notre mission : </h2>
+          <h2 style="font-weight:700;color:#02000D;">Notre mission : </h2>
           <p style="color:#02000D;font-size:20px;font-weight:600;font-style:italic">
             Améliorer les vies en habilitant les personnes et les organisations
           </p>
@@ -186,20 +209,22 @@
         </div>
 
         <div class="row content">
-          <div class="container" style="position:relative;background-color:#fff;border:none;margin:100px 100px 0px 100px;padding:120px 50px 15px 50px;border-radius:40px">
+          <div class="container" style="position:relative;background-color:#fff;border:none;margin:100px 100px 0px 0px;padding:120px 50px 15px 50px;border-radius:40px">
 
             <p style="padding-top:5px;text-align:center;font-size:18px">
               Booster la <i>productivité</i> de votre équipe avec le <b>programme Diamond</b>.
             </p>
             <p style="text-align:center">
-              <span style="background-color:#2C82C9;color:#fff;font-style:italic;padding:3px 6px 3px 6px">
-                En savoir plus
-              </span>
+              <a href="{% url 'solution' %}#solution">
+                <span style="background-color:#2C82C9;color:#fff;font-style:italic;padding:3px 6px 3px 6px">
+                  En savoir plus
+                </span>
+              </a>
             </p>
           </div>
-          <div class="container" style="top:30%;position:absolute;text-align:center">
+          <div class="container" style="top:25%;position:absolute;text-align:center">
               <img
-                  style="width:50%;height:250px;background-position:center top; background-repeat:no-repeat;size:cover"
+                  style="width:60%;height:260px;background-position:center top; background-repeat:no-repeat;size:cover"
                   src="{% static 'cabinet/assets/img/OIP.jpg' %}"
                   alt="images">
             </div>
@@ -247,8 +272,8 @@
     <!-- End About Us Section -->
 
     <section id="clients" class="clients"
-             style="background-image:url('{% static 'cabinet/assets/img/unsplash.jpg' %}'); background-size:cover;background-position:center">
-      <div class="container" data-aos="fade-up">
+             style="background-image:url('{% static 'cabinet/assets/img/main-clavier.jpg' %}'); background-size:cover;background-position:center">
+      <div class="container solution" data-aos="fade-up">
 
         <br>
         <div class="section-title" style="font-style:italic;color:#fff">
@@ -427,7 +452,7 @@
               </div>
             </div>
           </div>
-          <div class="col-lg-6 col-12" style="margin-top:90px;height:445px;background-image: url({% static 'cabinet/assets/img/poignet.webp' %}); background-size:cover" data-aos="fade-up"></div>
+          <div class="col-lg-6 col-12" style="margin-top:90px;height:445px;background-image: url({% static 'cabinet/assets/img/poignet.jpg' %}); opacity:0.9;background-size:cover" data-aos="fade-up"></div>
         </div>
       </div>
     </section>
@@ -627,9 +652,11 @@
   <script src="{% static 'cabinet/assets/vendor/owl.carousel/owl.carousel.min.js' %}"></script>
   <script src="{% static 'cabinet/assets/vendor/aos/aos.js' %}"></script>
 
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js" integrity="sha384-mQ93GR66B00ZXjt0YO5KlohRA5SY2XofN4zfuZxLkoj1gXtW8ANNCe9d5Y3eG5eD" crossorigin="anonymous"></script>
+
   <!-- Template Main JS File -->
   <script src="{% static 'cabinet/assets/js/main.js' %}"></script>
-
 </body>
 
 </html>

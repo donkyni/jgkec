@@ -42,10 +42,14 @@ active
                           projets de croissance de l’étude au financement.
                           <br>
                           Notre expertise nous a valu la reconnaissance de la BCEAO comme
-                          <a href="javascript:void(0)">structures d'appui et d'encadrement.</a>
+                          <a href="javascript:void(0)" data-bs-toggle="modal" data-bs-target="#exampleModal">structures d'appui et d'encadrement.</a>
+
                       </p>
                       <p>
-                          <img src="{% static 'cabinet/assets/img/jeux.jpg' %}" style="height:370px;width:500px;background-size:cover" alt="">
+                        <img src="{% static 'cabinet/assets/img/insertion.png' %}" alt="" class="img-fluid">
+                        <!--
+                        <img src="{% static 'cabinet/assets/img/jeux.jpg' %}" style="height:370px;width:500px;background-size:cover" alt="">
+                        -->
                       </p>
                   </div>
                   <div class="col-lg-6"></div>
@@ -58,7 +62,14 @@ active
                           Améliorer les vies en habilitant les personnes et les organisations
                       </p>
                       <p class="text-right">
+                          <img
+                              style="background-position:center top; background-repeat:no-repeat;size:cover"
+                              src="{% static 'cabinet/assets/img/OIP.jpg' %}"
+                              class="img-fluid"
+                              alt="images">
+                          <!--
                           <img src="{% static 'cabinet/assets/img/jeux.jpg' %}" style="height:370px;width:500px;background-size:cover" alt="">
+                          -->
                       </p>
                   </div>
                   <div class="col-lg-6 col-12">
@@ -70,7 +81,12 @@ active
                           des performances des organisations et à l’amélioration des vies.
                       </p>
                       <p>
+                        <img src="{% static 'cabinet/assets/img/vision.jpg' %}" alt=""
+                             style="height:400px;width:100%;background-position:center top; background-repeat:no-repeat;size:cover"
+                             class="img-fluid">
+                          <!--
                           <img src="{% static 'cabinet/assets/img/jeux.jpg' %}" style="height:370px;width:500px;background-size:cover" alt="">
+                          -->
                       </p>
                   </div>
                   <div class="col-lg-6"></div>
@@ -88,4 +104,55 @@ active
           </div>
       </section>
   </main>
+
+<!-- Modal DIAMOND -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">Nos solutions</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <div class="">
+            <p class="text-justify">
+              JGK Entreprises & Consulting (JGK-EC) évolue dans le domaine de l'appui-conseil aux organisations de tout genre : entreprises, administrations publiques et privées.
+                <br><br>
+              Nous aidons les organisations à booster leur productivité en renforçant les capacités techniques et managériales de leurs dirigeants.
+                <br><br>
+              Nous accompagnons également les entreprises dans la réalisation de leurs projets de croissance à travers :
+              <ul>
+                <li>
+                    Des études de marché approfondies leur permettant d’avoir une bonne compréhension des réalités de leurs
+                    marchés et de décider de leur positionnement.
+                </li>
+                <li>
+                    Le montage de business plans complets et détaillés, leur permettant de clarifier leurs objectifs
+                    et d’établir des plans pour les atteindre.
+                </li>
+                <li>
+                    L’accompagnement dans le processus de recherche de financements, en mettant à contribution divers partenariats
+                    établis localement et à l’international.
+                </li>
+              </ul>
+              <br>
+              Notre expertise nous a valu la reconnaissance de la BCEAO comme :  structures d'appui et d'encadrement.
+                <br><br>
+              L’intégrité, la bienveillance et le professionnalisme sont les valeurs que nous mettons en avant afin de toujours donner le meilleur à nos clients.
+            <br><br>
+              Nous tirons notre satisfaction de l’impact de nos interventions sur nos clients. Ceux-ci atteignent des objectifs plus élevés, par un meilleur management de leurs ressources humaines et par un meilleur accès aux ressources financières nécessaires à l’implémentation de leurs projets.
+
+            </p>
+        </div>
+      </div>
+        <!--
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+        -->
+    </div>
+  </div>
+</div>
+
 {% endblock %}
