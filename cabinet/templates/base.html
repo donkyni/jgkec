@@ -148,7 +148,7 @@
           </div>
         </div>
 
-        <!-- Slide 2 -->
+        <!-- Slide 2
         <div class="carousel-item" style="background-image: url({% static 'cabinet/assets/img/slide_2.jpeg' %});">
           <div class="carousel-container">
             <div class="carousel-content animate__animated animate__fadeInUp">
@@ -162,8 +162,9 @@
             </div>
           </div>
         </div>
+        -->
 
-        <!-- Slide 3 -->
+        <!-- Slide 3
         <div class="carousel-item" style="background-image: url({% static 'cabinet/assets/img/slide_3.jpeg' %});">
           <div class="carousel-container">
             <div class="carousel-content animate__animated animate__fadeInUp">
@@ -176,6 +177,7 @@
             </div>
           </div>
         </div>
+        -->
 
       </div>
 
@@ -198,43 +200,29 @@
   {% block main %}
   <main id="main">
 
-    <!-- ======= About Us Section ======= -->
+    <!-- ======= Notre mission ======= -->
+    <div data-aos="fade-up">
+      <p style="background-color:#462446;padding-left:25px;">
+        <br><br>
+        <span style="font-size:30px;color:#fff">Notre mission :</span>
+        <br>
+        <span style="font-size:25px;color:#fff;font-style:italic">Améliorer les vies en habilitant les personnes et les organisations.</span>
+        <br>
+      </p>
+      <p style="padding-right:15px" class="text-right">
+        <br>
+        <span>
+          <img src="{% static 'cabinet/assets/img/missions.jpg' %}" style="background-size:cover;width:60%;height:300px" alt="">
+          <br><br>
+          <span style="font-size:23px">Booster la <i>productivité</i> de votre équipe avec le <b>programme Diamond.</b></span>
+          <br><br>
+          <a href="{% url 'solution' %}" style="background-color:#462446;border:1px solid #462446;color:#fff;font-size:20px;padding: 0 15px;font-style:italic">En savoir plus</a>
+        </span>
+      </p>
 
-    <section id="about-us" class="about-us" style="background-color:#D1D5D8">
-      <div class="container" data-aos="fade-up">
-        <div class="">
-          <h2 style="font-weight:700;color:#02000D;">Notre mission : </h2>
-          <p style="color:#02000D;font-size:20px;font-weight:600;font-style:italic">
-            Améliorer les vies en habilitant les personnes et les organisations
-          </p>
-          <br><br><br><br>
-        </div>
+    </div>
 
-        <div class="row content">
-          <div class="container" style="position:relative;background-color:#fff;border:none;margin:100px 100px 0px 0px;padding:120px 50px 15px 50px;border-radius:40px">
-
-            <p style="padding-top:5px;text-align:center;font-size:18px">
-              Booster la <i>productivité</i> de votre équipe avec le <b>programme Diamond</b>.
-            </p>
-            <p style="text-align:center">
-              <a href="{% url 'solution' %}#solution">
-                <span style="background-color:#2C82C9;color:#fff;font-style:italic;padding:3px 6px 3px 6px">
-                  En savoir plus
-                </span>
-              </a>
-            </p>
-          </div>
-          <div class="container" style="top:25%;position:absolute;text-align:center">
-              <img
-                  style="width:60%;height:260px;background-position:center top; background-repeat:no-repeat;size:cover"
-                  src="{% static 'cabinet/assets/img/OIP.jpg' %}"
-                  alt="images">
-            </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- End About Us Section -->
+    <!-- End Notre mission -->
 
     <!-- OLD SECTION
     <section id="about-us" class="about-us">
@@ -285,19 +273,19 @@
 
         <div class="row  clearfix" data-aos="fade-up">
           <div class="col-lg-6 col-md-6 col-12">
-            <p style="text-align:center;color:#fff;font-weight:600;font-style:italic;border:5px solid #fff;padding:10px 5px;border-radius:15px">
+            <p style="font-size:30px;text-align:center;color:#fff;font-weight:600;font-style:italic;">
               <span>
                 Renforcement des capacités techniques et managériales
               </span>
             </p>
-            <div style="color:#fff;font-weight:600;border:5px solid #fff;padding:5px;border-radius:15px;">
+            <div style="color:#fff;font-weight:500;border:5px solid #fff;padding:5px;border-radius:15px;">
               <br><br><br>
               <ul style="text-align:left;list-style-size:50px;">
-                <li style="font-size:18px">
+                <li style="font-size:25px">
                   Programme DIAMOND
                 </li>
-                <br>
-                <li style="font-size:18px">
+                <br><br><br>
+                <li style="font-size:25px">
                   Formations inter et intra-entreprises
                 </li>
               </ul>
@@ -305,24 +293,24 @@
             </div>
           </div>
           <div class="col-lg-6 col-md-6 col-12">
-            <p style="text-align:center;color:#fff;font-weight:600;font-style:italic;border:5px solid #fff;padding:10px 5px;border-radius:15px">
+            <p style="font-size:30px;text-align:center;color:#fff;font-weight:600;font-style:italic;">
               <span>
-                Facilitation d'accès au financement
+                Facilitation d'accès au financement <br><br>
               </span>
             </p>
-            <div style="color:#fff;font-weight:600;border:5px solid #fff;padding:5px;border-radius:15px;">
+            <div style="color:#fff;font-weight:500;border:5px solid #fff;padding:5px;border-radius:15px;">
               <br>
               <ul style="text-align:left;list-style-size:50px;">
                 <br>
-                <li style="font-size:18px">
+                <li style="font-size:25px">
                   Etudes de marchés
                 </li>
                 <br>
-                <li style="font-size:18px">
+                <li style="font-size:25px">
                   Business plans
                 </li>
                 <br>
-                <li style="font-size:18px">
+                <li style="font-size:25px">
                   Accompagnement dans la recherche de financement
                 </li>
               </ul>
@@ -339,6 +327,12 @@
       <div class="container" data-aos="fade-up">
 
         <div class="row text-center clearfix" data-aos="fade-up">
+          <span style="font-size:30px;color:#fff">
+            Souhaitez vous discuter avec notre équipe ?
+            <br>
+            <a href="{% url 'contacteznous' %}" style="color:#31A3FF">Laissez-nous un message</a>
+          </span>
+          <!--
           <div class="col-lg-6 col-12">
             <div class="row-12 text-center">
               <img style="height:200px;width:55%" src="{% static 'cabinet/assets/img/cerveau.jpg' %}" class="rounded img-fluid" alt="tester votre compétence">
@@ -359,6 +353,7 @@
               </p>
             </div>
           </div>
+          -->
         </div>
 
       </div>
