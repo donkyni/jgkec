@@ -77,7 +77,7 @@
           <!--<li class="{% block active_articles %}{% endblock %}"><a href="{% url 'article' %}">Articles</a></li>-->
           <!--<li class="{% block active_activites %}{% endblock %}"><a href="{% url 'activite' %}">Activités</a></li>-->
           <li class="{% block active_apropos %}{% endblock %}"><a href="{% url 'apropos' %}">A propos</a></li>
-          <li class="{% block active_feedback %}{% endblock %}"><a href="{% url 'feedback' %}">Feedback</a></li>
+          <!--<li class="{% block active_feedback %}{% endblock %}"><a href="{% url 'feedback' %}">Feedback</a></li>-->
           <li class="{% block active_contacteznous %}{% endblock %}"><a href="{% url 'contacteznous' %}">Contactez nous</a></li>
 
 
@@ -129,18 +129,21 @@
       <div class="carousel-inner" role="listbox">
 
         <!-- Slide 1 -->
-        <div class="carousel-item active" style="background-image: url({% static 'cabinet/assets/img/acceuil3.jpg' %});">
+        <div class="carousel-item active" style="background-image: url({% static 'cabinet/assets/img/6.jpeg' %});">
           <div class="carousel-container">
             <div class="carousel-content animate__animated animate__fadeInUp">
 
               <h2>Qui sommes-nous ?</h2>
 
               <p style="font-weight:500;line-height:30px;text-align:justify">
-                JGK Entreprises & Consulting (JGK-EC) est une entreprise qui évolue dans l'appui-conseil aux organisations de tout genre :
-                entreprises, administrations publiques et privés.
-                <br> <!-- retour a la ligne -->
-                <br> <!-- retour a la ligne -->
-                Elle évolue dans le renforcement des capacités techniques et managériales ainsi que dans la facilitation d'accès au financement.
+                JGK Entreprises & Consulting (JGK-EC) évolue dans le domaine de l'appui-conseil aux organisations de
+                tout genre : entreprises, administrations publiques et privées.
+                <br><br> <!-- retour a la ligne -->
+                Nous aidons les organisations à booster leur productivité en renforçant les capacités techniques et
+                managériales de leurs dirigeants. Nous accompagnons également les entreprises dans la réalisation
+                de leurs projets de croissance de l’étude au financement.
+                <br><br> <!-- retour a la ligne -->
+                Notre expertise nous a valu <a target="_blank" style="color:#70a1ff;font-weight:bold" href="https://www.bceao.int/fr/content/dispositif-de-soutien-au-financement-des-pmepmi-liste-des-structures-dappui-et-dencadrement">la reconnaissance de la BCEAO</a> comme structures d'appui et d'encadrement.
               </p>
 
               <div class="text-center"><a href="{% url 'apropos' %}" class="btn-get-started">Voir plus</a></div>
@@ -204,7 +207,7 @@
     <div data-aos="fade-up">
       <p style="background-color:#462446;padding-left:25px;">
         <br><br>
-        <span style="font-size:30px;color:#fff">Notre mission :</span>
+        <span style="font-size:26px;color:#fff">Notre mission :</span>
         <br>
         <span style="font-size:25px;color:#fff;font-style:italic">Améliorer les vies en habilitant les personnes et les organisations.</span>
         <br>
@@ -212,7 +215,7 @@
       <p style="padding-right:15px" class="text-right">
         <br>
         <span>
-          <img src="{% static 'cabinet/assets/img/missions.jpg' %}" style="background-size:cover;width:60%;height:300px" alt="">
+          <img src="{% static 'cabinet/assets/img/missions.jpg' %}" style="object-fit: cover;width:60%;height:400px;" alt="">
           <br><br>
           <span style="font-size:23px">Booster la <i>productivité</i> de votre équipe avec le <b>programme Diamond.</b></span>
           <br><br>
@@ -262,7 +265,7 @@
     <!-- End About Us Section -->
 
     <section id="clients" class="clients"
-             style="background-image:url('{% static 'cabinet/assets/img/main-clavier.jpg' %}'); background-size:cover;background-position:center">
+             style="background-image:url('{% static 'cabinet/assets/img/3.jpeg' %}'); background-size:cover;background-position:center">
       <div class="container solution" data-aos="fade-up">
 
         <br>
@@ -359,100 +362,102 @@
       </div>
     </section>
 
-    <section>
-      <div class="container text-center">
-        <div class="row">
-          <div class="col-lg-6 col-12">
-            <div class="" data-aos="fade-up">
-              <h2>Ils nous ont fait confiance</h2>
-              <div class="row clients-wrap clearfix" data-aos="fade-up">
-                <div class="col-lg-3 col-6">
-                  <div class="client-logo">
-                    <img style="margin:20px 30px 20px 5px;height:80px; width:120px;" src="{% static 'cabinet/assets/img/logo-PAEIJ-SP3.jpg' %}" class="img-fluid" alt="">
-                  </div>
+    <div class="container text-center">
+      <div class="row">
+        <div class="col-lg-6 col-12">
+          <div class="" data-aos="fade-up">
+            <p style="font-size:30px;margin-top:30px">Ils nous ont fait confiance</p>
+            <div class="row clients-wrap clearfix text-center" data-aos="fade-up">
+              <div class="col-lg-3 col-6" style="margin-top:50px">
+                <div class="client-logo">
+                  <img style="height:30px;width:110px;" src="{% static 'cabinet/assets/img/lafic.png' %}" class="img-fluid" alt="">
                 </div>
-                <div class="col-lg-3 col-6">
-                  <div class="client-logo">
-                    <img style="margin:35px 30px 20px 5px;height:50px; width:120px;" src="{% static 'cabinet/assets/img/Logo_ANPE_Togo.png' %}" class="img-fluid" alt="">
-                  </div>
+              </div>
+              <div class="col-lg-3 col-6" style="margin-top:50px">
+                <div class="client-logo">
+                  <img style="height:110px;width:120px;margin-top:-40px" src="{% static 'cabinet/assets/img/ogar.jpg' %}" class="img-fluid" alt="">
                 </div>
-                <div class="col-lg-3 col-6">
-                  <div class="client-logo">
-                    <img style="margin:15px 30px 20px 5px;height:90px; width:110px;" src="{% static 'cabinet/assets/img/nipped.png' %}" class="img-fluid" alt="">
-                  </div>
+              </div>
+              <div class="col-lg-3 col-6" style="margin-top:50px">
+                <div class="client-logo">
+                  <img style="height:40px;width:110px;" src="{% static 'cabinet/assets/img/transam.png' %}" class="img-fluid" alt="">
                 </div>
-                <div class="col-lg-3 col-6">
-                  <div class="client-logo">
-                    <img style="margin:0px 30px 20px 5px;height:110px; width:110px;" src="{% static 'cabinet/assets/img/ogar.jpg' %}" class="img-fluid" alt="">
-                  </div>
+              </div>
+              <div class="col-lg-3 col-6" style="margin-top:50px">
+                <div class="client-logo">
+                  <img style="height:20px;width:90px;" src="{% static 'cabinet/assets/img/sodigaz.png' %}" class="img-fluid" alt="">
                 </div>
-                <div class="col-lg-3 col-6">
-                  <div class="client-logo">
-                    <img style="margin:20px 30px 20px 5px;height:70px; width:110px;" src="{% static 'cabinet/assets/img/sge.png' %}" class="img-fluid" alt="">
-                  </div>
+              </div>
+              <div class="col-lg-3 col-6" style="margin-top:50px">
+                <div class="client-logo">
+                  <img style="height:80px;width:80px;margin-top:-15px" src="{% static 'cabinet/assets/img/cfbt.png' %}" class="img-fluid" alt="">
                 </div>
-                <div class="col-lg-3 col-6">
-                  <div class="client-logo">
-                    <img style="margin:35px 30px 20px 5px;height:30px; width:180px;" src="{% static 'cabinet/assets/img/sodigaz.png' %}" class="img-fluid" alt="">
-                  </div>
+              </div>
+              <div class="col-lg-3 col-6" style="margin-top:50px">
+                <div class="client-logo">
+                  <img style="height:40px;width:50px;" src="{% static 'cabinet/assets/img/sge.png' %}" class="img-fluid" alt="">
                 </div>
-                <div class="col-lg-3 col-6">
-                  <div class="client-logo">
-                    <img style="margin:20px 30px 20px 5px;height:60px; width:180px;" src="{% static 'cabinet/assets/img/ism-adonai.png' %}" class="img-fluid" alt="">
-                  </div>
+              </div>
+              <div class="col-lg-3 col-6" style="margin-top:50px">
+                <div class="client-logo">
+                  <img style="height:50px;width:35px;" src="{% static 'cabinet/assets/img/tde.png' %}" class="img-fluid" alt="">
                 </div>
-                <div class="col-lg-3 col-6">
-                  <div class="client-logo">
-                    <img style="margin:25px 30px 20px 5px;height:45px; width:190px;" src="{% static 'cabinet/assets/img/lafic.png' %}" class="img-fluid" alt="">
-                  </div>
+              </div>
+              <div class="col-lg-3 col-6" style="margin-top:50px">
+                <div class="client-logo">
+                  <img style="height:45px;width:45px;" src="{% static 'cabinet/assets/img/sotoplat.jpg' %}" class="img-fluid" alt="">
                 </div>
-                <div class="col-lg-3 col-6">
-                  <div class="client-logo">
-                    <img style="margin:5px 30px 20px 5px;height:150px; width:150px;" src="{% static 'cabinet/assets/img/cfbt.png' %}" class="img-fluid" alt="">
-                  </div>
+              </div>
+              <div class="col-lg-3 col-6" style="margin-top:50px">
+                <div class="client-logo">
+                  <img style="height:30px;width:70px;" src="{% static 'cabinet/assets/img/ism-adonai.png' %}" class="img-fluid" alt="">
                 </div>
-                <div class="col-lg-3 col-6">
-                  <div class="client-logo">
-                    <img style="margin:35px 30px 20px 5px;height:60px; width:200px;" src="{% static 'cabinet/assets/img/diwa.jpg' %}" class="img-fluid" alt="">
-                  </div>
+              </div>
+              <div class="col-lg-3 col-6" style="margin-top:50px">
+                <div class="client-logo">
+                  <img style="height:80px;width:80px;margin-top:-30px" src="{% static 'cabinet/assets/img/nipped.png' %}" class="img-fluid" alt="">
                 </div>
-                <div class="col-lg-3 col-6">
-                  <div class="client-logo">
-                    <img style="margin:20px 30px 20px 5px;height:80px; width:110px;" src="{% static 'cabinet/assets/img/ires-rdec.jfif' %}" class="img-fluid" alt="">
-                  </div>
+              </div>
+              <div class="col-lg-3 col-6" style="margin-top:50px">
+                <div class="client-logo">
+                  <img style="height:30px;width:90px;" src="{% static 'cabinet/assets/img/umat.png' %}" class="img-fluid" alt="">
                 </div>
-                <div class="col-lg-3 col-6">
-                  <div class="client-logo">
-                    <img style="margin:20px 30px 20px 5px;height:80px; width:100px;" src="{% static 'cabinet/assets/img/sotoplat.jpg' %}" class="img-fluid" alt="">
-                  </div>
+              </div>
+              <div class="col-lg-3 col-6" style="margin-top:50px">
+                <div class="client-logo">
+                  <img style="height:25px;width:90px" src="{% static 'cabinet/assets/img/sge2.png' %}" class="img-fluid" alt="">
                 </div>
-                <div class="col-lg-3 col-6">
-                  <div class="client-logo">
-                    <img style="margin:20px 30px 20px 5px;height:75px; width:180px;" src="{% static 'cabinet/assets/img/transam.png' %}" class="img-fluid" alt="">
-                  </div>
+              </div>
+              <div class="col-lg-3 col-6" style="margin-top:50px">
+                <div class="client-logo">
+                  <img style="height:35px;width:90px;" src="{% static 'cabinet/assets/img/Logo_ANPE_Togo.png' %}" class="img-fluid" alt="">
                 </div>
-                <div class="col-lg-3 col-6">
-                  <div class="client-logo">
-                    <img style="margin:15px 30px 20px 5px;height:70px; width:190px;" src="{% static 'cabinet/assets/img/umat.png' %}" class="img-fluid" alt="">
-                  </div>
+              </div>
+              <div class="col-lg-3 col-6" style="margin-top:50px">
+                <div class="client-logo">
+                  <img style="height:55px;width:100px;margin-top:-10px" src="{% static 'cabinet/assets/img/diwa.jpg' %}" class="img-fluid" alt="">
                 </div>
-                <div class="col-lg-3 col-6">
-                  <div class="client-logo">
-                    <img style="margin:10px 30px 20px 5px;height:80px; width:180px;" src="{% static 'cabinet/assets/img/sge2.png' %}" class="img-fluid" alt="">
-                  </div>
+              </div>
+              <div class="col-lg-3 col-6" style="margin-top:50px">
+                <div class="client-logo">
+                  <img style="height:80px;width:120px;margin-top:-25px" src="{% static 'cabinet/assets/img/logo-PAEIJ-SP3.jpg' %}" class="img-fluid" alt="">
                 </div>
-                <div class="col-lg-3 col-6">
-                  <div class="client-logo">
-                    <img style="margin:20px 30px 20px 5px;height:80px; width:75px;" src="{% static 'cabinet/assets/img/tde.png' %}" class="img-fluid" alt="">
-                  </div>
+              </div>
+              <div class="col-lg-3 col-6" style="margin-top:50px">
+                <div class="client-logo">
+                  <img style="height:55px;width:55px;margin-top:-10px" src="{% static 'cabinet/assets/img/ires-rdec.jfif' %}" class="img-fluid" alt="">
                 </div>
               </div>
             </div>
           </div>
-          <div class="col-lg-6 col-12" style="margin-top:90px;height:445px;background-image: url({% static 'cabinet/assets/img/poignet.jpg' %}); opacity:0.9;background-size:cover" data-aos="fade-up"></div>
+        </div>
+        <div class="col-lg-6 col-12"
+             style="background-image: url({% static 'cabinet/assets/img/poignet1.jpg' %}); opacity:0.9;background-size:cover;height:550px;"
+             data-aos="fade-up">
         </div>
       </div>
-    </section>
+    </div>
+    <br>
 
     <!-- ======= Our Clients Section ======= -->
     <!--
@@ -583,6 +588,7 @@
             </ul>
           </div>
 
+          <!--
           <div class="col-lg-2 col-md-6 footer-links">
             <h4>Articles</h4>
             <ul>
@@ -591,7 +597,9 @@
               <li><i class="bx bx-chevron-right"></i> <a href="#">Financements</a></li>
             </ul>
           </div>
+          -->
 
+          <!--
           <div class="col-lg-2 col-md-6 footer-links">
             <h4>Activités</h4>
             <ul>
@@ -599,11 +607,13 @@
               <li><i class="bx bx-chevron-right"></i> <a href="#">Salon d'échanges</a></li>
             </ul>
           </div>
+          -->
 
           <div class="col-lg-1 col-md-6 footer-links">
             <h4>A propos</h4>
           </div>
 
+          <!--
           <div class="col-lg-2 col-md-6 footer-links">
             <h4>Feedback</h4>
             <ul>
@@ -611,6 +621,7 @@
               <li><i class="bx bx-chevron-right"></i> <a href="#">Commentaires</a></li>
             </ul>
           </div>
+          -->
 
           <div class="col-lg-1 col-md-6 footer-links">
             <h4>Contactez nous</h4>

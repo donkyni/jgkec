@@ -7,10 +7,10 @@ from cabinet.models import Contact
 
 
 class ContactAdmin(admin.ModelAdmin):
-    list_display = ('prenom', 'nom', 'fonction', 'objet', 'message')
-    list_filter = ('nom', 'fonction', 'objet')
-    ordering = ('nom', 'fonction', 'objet')
-    search_fields = ('nom', 'fonction', 'objet')
+    list_display = ('prenom', 'nom', 'fonction', 'objet', 'message', 'date')
+    list_filter = ('nom', 'fonction', 'objet', 'date')
+    ordering = ('nom', 'fonction', 'objet', 'date')
+    search_fields = ('nom', 'fonction', 'objet', 'date')
 
 
 admin.site.register(Contact, ContactAdmin)

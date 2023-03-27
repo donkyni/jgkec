@@ -1,5 +1,5 @@
 from django.core.files.storage import FileSystemStorage
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 
 from cabinet.forms import ContactForm
 
@@ -110,10 +110,11 @@ def apropos(request):
 
 
 def contacteznous(request):
-    if request == 'POST':
+    if request.method == 'POST':
         form = ContactForm(request.POST)
         if form.is_valid():
             form.save()
+            return redirect('contacteznous')
     else:
         form = ContactForm()
 
