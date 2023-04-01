@@ -66,9 +66,15 @@
   <header id="header" class="fixed-top">
     <div class="container d-flex align-items-center">
 
-      <h1 style="background: url('{% static 'cabinet/assets/img/jgk.jpg' %}');background-size: cover;" class="logo mr-auto"><a style="opacity:0" href="{% url 'acceuil' %}"><span>JGK</span>EC</a></h1>
+      <!--<h1 style="background: url('{% static 'cabinet/assets/img/jgk.jpg' %}');background-size: cover;" class="logo mr-auto">
+        <a style="opacity:0" href="{% url 'acceuil' %}"><span>JGK</span>EC</a></h1>-->
       <!-- Uncomment below if you prefer to use an image logo -->
       <!-- <a href="index.html" class="logo mr-auto"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
+
+      <img class="logo mr-auto"
+           style="width:85px;height:35px;img-fit : cover;"
+           src="{% static 'cabinet/assets/img/jgk.jpg' %}"
+           alt="">
 
       <nav class="nav-menu d-none d-lg-block">
         <ul>
@@ -137,7 +143,7 @@
 
               <p style="font-weight:500;line-height:30px;text-align:justify">
                 JGK Entreprises & Consulting (JGK-EC) évolue dans le domaine de l'appui-conseil aux organisations de
-                tout genre : entreprises, administrations publiques et privées.
+                tout genre entreprises, administrations publiques et privées.
                 <br><br> <!-- retour a la ligne -->
                 Nous aidons les organisations à booster leur productivité en renforçant les capacités techniques et
                 managériales de leurs dirigeants. Nous accompagnons également les entreprises dans la réalisation
@@ -207,15 +213,15 @@
     <div data-aos="fade-up">
       <p style="background-color:#462446;padding-left:25px;">
         <br><br>
-        <span style="font-size:26px;color:#fff">Notre mission :</span>
+        <span style="font-size:21px;color:#fff">Notre mission :</span>
         <br>
-        <span style="font-size:25px;color:#fff;font-style:italic">Améliorer les vies en habilitant les personnes et les organisations.</span>
+        <span style="font-size:21px;color:#fff;font-style:italic">Améliorer les vies en habilitant les personnes et les organisations.</span>
         <br>
       </p>
       <p style="padding-right:15px" class="text-right">
         <br>
         <span>
-          <img src="{% static 'cabinet/assets/img/missions.jpg' %}" style="object-fit: cover;width:60%;height:400px;" alt="">
+          <img src="{% static 'cabinet/assets/img/9.jpeg' %}" style="object-fit: cover;width:60%;height:400px;" alt="">
           <br><br>
           <span style="font-size:23px">Booster la <i>productivité</i> de votre équipe avec le <b>programme Diamond.</b></span>
           <br><br>
