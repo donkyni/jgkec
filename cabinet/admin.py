@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from cabinet.models import Contact
+from cabinet.models import Contact, Article, Activite
 
 
 # Register your models here.
@@ -14,3 +14,23 @@ class ContactAdmin(admin.ModelAdmin):
 
 
 admin.site.register(Contact, ContactAdmin)
+
+
+class ArticleAdmin(admin.ModelAdmin):
+    list_display = ('titre', 'texte', 'date', 'image', 'archive')
+    list_filter = ('titre', 'texte', 'date', 'archive')
+    ordering = ('titre', 'texte', 'date', 'archive')
+    search_fields = ('titre', 'texte', 'date', 'archive')
+
+
+admin.site.register(Article, ArticleAdmin)
+
+
+class ActiviteAdmin(admin.ModelAdmin):
+    list_display = ('titre', 'texte', 'date', 'image', 'archive')
+    list_filter = ('titre', 'texte', 'date', 'archive')
+    ordering = ('titre', 'texte', 'date', 'archive')
+    search_fields = ('titre', 'texte', 'date', 'archive')
+
+
+admin.site.register(Activite, ActiviteAdmin)
