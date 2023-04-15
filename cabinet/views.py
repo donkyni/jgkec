@@ -1,7 +1,7 @@
 from django.core.files.storage import FileSystemStorage
 from django.shortcuts import render, redirect
 
-from cabinet.forms import ContactForm
+from cabinet.forms import ContactForm, ArticleForm, ActiviteForm
 
 
 def acceuil(request):
@@ -98,11 +98,35 @@ def solution(request):
 
 
 def activite(request):
-    return render(request, 'activite/activite.html', locals())
+    if request.method == 'POST':
+        form = ActiviteForm(request.POST,
+                            request.FILES)
+        if form.is_valid():
+            form.save()
+            redirect('activite')
+    else:
+        form = ActiviteForm()
+
+    context = {
+        'form': form,
+    }
+    return render(request, 'activite/activite.html', context)
 
 
 def article(request):
-    return render(request, 'article/article.html', locals())
+    if request.method == 'POST':
+        form = ArticleForm(request.POST,
+                           request.FILES)
+        if form.is_valid():
+            form.save()
+            redirect('article')
+    else:
+        form = ArticleForm()
+
+    context = {
+        'form': form,
+    }
+    return render(request, 'article/article.html', context)
 
 
 def apropos(request):
