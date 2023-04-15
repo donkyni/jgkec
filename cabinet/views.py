@@ -126,3 +126,11 @@ def contacteznous(request):
 
 def feedback(request):
     return render(request, 'feedback/feedback.html', locals())
+
+
+def dashboard(request):
+    return render(request, 'dashboard.html', locals())
+
+
+def articleadmin(request):
+    return render(request, 'articleadmin/articleadmin.html', locals())

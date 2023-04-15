@@ -20,7 +20,7 @@ from django.urls import path
 
 from cabinet.views import acceuil, contacts, expertise, ingenierie, management, finance, insertion, \
     formation, formule, calendrier, calendrier2, sondage, reprise, etude, solution, activite, article, \
-    apropos, contacteznous, feedback
+    apropos, contacteznous, feedback, dashboard, articleadmin
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -44,6 +44,9 @@ urlpatterns = [
     path('apropos/', apropos, name="apropos"),
     path('contacteznous/', contacteznous, name="contacteznous"),
     path('feedback/', feedback, name="feedback"),
+    # ADMIN URLs
+    path('dashboard/', dashboard, name="dashboard"),
+    path('articleadmin/', articleadmin, name="articleadmin"),
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
 
 if settings.DEBUG:
