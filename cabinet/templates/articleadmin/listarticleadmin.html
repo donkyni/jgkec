@@ -1,0 +1,19 @@
+{% for article in articles %}
+<tr>
+  <td class="text-left" style="font-size:18px">{{article.titre}}</td>
+  <td class="text-left" style="font-size:18px">{{article.image}}</td>
+  <td class="text-left" style="font-size:18px">{{article.date}}</td>
+  <td>
+    <a href="{% url 'updatearticleadmin' article.id %}" class="btn btn-info btn-sm">
+      <i class="fas fa-pencil-alt"></i>
+    </a>
+    <button class="btn btn-danger btn-sm show-form-delete" data-url="{% url 'deletearticleadmin' article.id %}">
+      <i class="fas fa-trash-alt"></i>
+    </button>
+  </td>
+</tr>
+{% empty %}
+<tr>
+  <td colspan="5" style="background:lightblue;text-align:center;font-weight:700">Aucun article n'est disponible pour le moment !</td>
+</tr>
+{% endfor %}

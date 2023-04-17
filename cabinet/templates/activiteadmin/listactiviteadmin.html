@@ -1,0 +1,19 @@
+{% for activite in activites %}
+<tr>
+  <td class="text-left" style="font-size:18px">{{activite.titre}}</td>
+  <td class="text-left" style="font-size:18px">{{activite.image}}</td>
+  <td class="text-left" style="font-size:18px">{{activite.date}}</td>
+  <td>
+    <a href="{% url 'updateactiviteadmin' activite.id %}" class="btn btn-info btn-sm">
+      <i class="fas fa-pencil-alt"></i>
+    </a>
+    <button class="btn btn-danger btn-sm show-form-delete" data-url="{% url 'deleteactiviteadmin' activite.id %}">
+      <i class="fas fa-trash-alt"></i>
+    </button>
+  </td>
+</tr>
+{% empty %}
+<tr>
+  <td colspan="5" style="background:lightblue;text-align:center;font-weight:700">Aucune activité n'est disponible pour le moment !</td>
+</tr>
+{% endfor %}

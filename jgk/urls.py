@@ -18,9 +18,13 @@ from django.conf.urls.static import static
 from django.contrib import admin
 from django.urls import path
 
+from django.urls import re_path as url
+
+from cabinet import views
+
 from cabinet.views import acceuil, contacts, expertise, ingenierie, management, finance, insertion, \
     formation, formule, calendrier, calendrier2, sondage, reprise, etude, solution, activite, article, \
-    apropos, contacteznous, feedback, dashboard, articleadmin
+    apropos, contacteznous, feedback, dashboard, articleadmin, activiteadmin
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -47,7 +51,14 @@ urlpatterns = [
     # ADMIN URLs
     path('dashboard/', dashboard, name="dashboard"),
     path('articleadmin/', articleadmin, name="articleadmin"),
-] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+    path(r'^(?P<id>\d+)/modifier-un-article', views.updatearticleadmin, name="updatearticleadmin"),
+    path(r'^(?P<id>\d+)/supprimer-un-article', views.deletearticleadmin, name="deletearticleadmin"),
+    path('activiteadmin/', activiteadmin, name="activiteadmin"),
+    path(r'^(?P<id>\d+)/modifier-une-activite', views.updateactiviteadmin, name="updateactiviteadmin"),
+    path(r'^(?P<id>\d+)/supprimer-une-activite', views.deleteactiviteadmin, name="deleteactiviteadmin"),
+
+] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT) \
+              + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
 if settings.DEBUG:
     urlpatterns += static(

@@ -1,7 +1,28 @@
 from django.core.files.storage import FileSystemStorage
-from django.shortcuts import render, redirect
+from django.http import JsonResponse
+from django.shortcuts import render, redirect, get_object_or_404
+from django.template.loader import render_to_string
 
 from cabinet.forms import ContactForm, ArticleForm, ActiviteForm
+from cabinet.models import Article, Activite
+
+
+def save_all(request, form, template_name, model, template_name2, mycontext):
+    data = dict()
+    if request.method == 'POST':
+        if form.is_valid():
+            if model == "articleadmin":
+                form.save()
+                data['form_is_valid'] = True
+                data[model] = render_to_string(template_name2, mycontext)
+        else:
+            data['form_is_valid'] = False
+
+    context = {
+        'form': form
+    }
+    data['html_form'] = render_to_string(template_name, context, request=request)
+    return JsonResponse(data)
 
 
 def acceuil(request):
@@ -98,33 +119,19 @@ def solution(request):
 
 
 def activite(request):
-    if request.method == 'POST':
-        form = ActiviteForm(request.POST,
-                            request.FILES)
-        if form.is_valid():
-            form.save()
-            redirect('activite')
-    else:
-        form = ActiviteForm()
+    actvites = Activite.objects.filter(archive=False)
 
     context = {
-        'form': form,
+        'activites': actvites,
     }
     return render(request, 'activite/activite.html', context)
 
 
 def article(request):
-    if request.method == 'POST':
-        form = ArticleForm(request.POST,
-                           request.FILES)
-        if form.is_valid():
-            form.save()
-            redirect('article')
-    else:
-        form = ArticleForm()
+    articles = Article.objects.filter(archive=False)
 
     context = {
-        'form': form,
+        "articles": articles
     }
     return render(request, 'article/article.html', context)
 
@@ -157,4 +164,108 @@ def dashboard(request):
 
 
 def articleadmin(request):
-    return render(request, 'articleadmin/articleadmin.html', locals())
+    articles = Article.objects.filter(archive=False)
+
+    if request.method == "POST":
+        form = ArticleForm(request.POST, request.FILES)
+        if form.is_valid():
+            form.save()
+            return redirect('articleadmin')
+    else:
+        form = ArticleForm()
+
+    context = {
+        "articles": articles,
+        "form": form
+    }
+    return render(request, 'articleadmin/articleadmin.html', context)
+
+
+def updatearticleadmin(request, id):
+    articles = Article.objects.filter(archive=False)
+    article = get_object_or_404(Article, id=id)
+
+    if request.method == "POST":
+        form = ArticleForm(request.POST, request.FILES, instance=article)
+        if form.is_valid():
+            form.save()
+            return redirect('articleadmin')
+    else:
+        form = ArticleForm(instance=article)
+
+    context = {
+        "articles": articles,
+        "form": form
+    }
+    return render(request, 'articleadmin/articleadmin.html', context)
+
+
+def deletearticleadmin(request, id):
+    data = dict()
+    article = get_object_or_404(Article, id=id)
+    if request.method == "POST":
+        article.archive = True
+        article.save()
+        data['form_is_valid'] = True
+        articles = Article.objects.filter(archive=False)
+        data['articleadmin'] = render_to_string('articleadmin/listarticleadmin.html',
+                                                            {'articles': articles})
+    else:
+        context = {
+            'article': article,
+        }
+        data['html_form'] = render_to_string('articleadmin/deletearticleadmin.html', context, request=request)
+
+    return JsonResponse(data)
+
+
+def activiteadmin(request):
+    activites = Activite.objects.filter(archive=False)
+
+    if request.method == 'POST':
+        form = ActiviteForm(request.POST,
+                            request.FILES)
+        if form.is_valid():
+            form.save()
+            redirect('activite')
+    else:
+        form = ActiviteForm()
+    return render(request, 'activiteadmin/activiteadmin.html', locals())
+
+
+def updateactiviteadmin(request, id):
+    activites = Activite.objects.filter(archive=False)
+    activite = get_object_or_404(Activite, id=id)
+
+    if request.method == "POST":
+        form = ActiviteForm(request.POST, request.FILES, instance=activite)
+        if form.is_valid():
+            form.save()
+            return redirect('activiteadmin')
+    else:
+        form = ActiviteForm(instance=activite)
+
+    context = {
+        "activites": activites,
+        "form": form
+    }
+    return render(request, 'activiteadmin/activiteadmin.html', context)
+
+
+def deleteactiviteadmin(request, id):
+    data = dict()
+    activite = get_object_or_404(Activite, id=id)
+    if request.method == "POST":
+        activite.archive = True
+        activite.save()
+        data['form_is_valid'] = True
+        activites = Activite.objects.filter(archive=False)
+        data['activiteadmin'] = render_to_string('activiteadmin/listactiviteadmin.html',
+                                                            {'activites': activites})
+    else:
+        context = {
+            'activite': activite,
+        }
+        data['html_form'] = render_to_string('activiteadmin/deleteactiviteadmin.html', context, request=request)
+
+    return JsonResponse(data)

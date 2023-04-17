@@ -17,14 +17,16 @@ class ActiviteForm(forms.ModelForm):
         model = Activite
         fields = ('image', 'titre', 'texte',)
         widgets = {
-            'texte': forms.Textarea(attrs={'cols': 50, 'rows': 20})
+            'texte': forms.Textarea(attrs={'cols': 50, 'rows': 10})
         }
 
 
 class ArticleForm(forms.ModelForm):
     class Meta:
         model = Article
-        fields = ('titre', 'texte', 'image',)
+        fields = ['titre', 'texte', 'image']
         widgets = {
-            'texte': forms.Textarea(attrs={'cols': 50, 'rows': 20})
+            'texte': forms.Textarea(attrs={'cols': 50, 'rows': 10}),
+            'image': forms.ClearableFileInput(attrs={'multiple': True})
         }
+        enctype = 'multipart/form-data'

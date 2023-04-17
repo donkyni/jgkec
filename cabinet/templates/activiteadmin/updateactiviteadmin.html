@@ -13,12 +13,12 @@ active
 show
 {% endblock %}
 
-{% block active-article %}
+{% block active-activite %}
 active
 {% endblock %}
 
 {% block pagename %}
-Articles
+Activités
 {% endblock %}
 
 {% block content %}
@@ -34,7 +34,7 @@ Articles
                     {{ form.image|as_crispy_field }}
                     {{ form.titre|as_crispy_field }}
                     {{ form.texte|as_crispy_field }}
-                    <button type="submit" class="btn btn-block btn-lg btn-primary" style="font-weight:bold">Modifier l'article {{article.titre}}</button>
+                    <button type="submit" class="btn btn-block btn-lg btn-primary" style="font-weight:bold">Modifier l'activité {{activite.titre}}</button>
                 </div>
                 <div class="col">
                 </div>
@@ -47,11 +47,11 @@ Articles
 
         <div class="card shadow mb-4">
             <div class="card-header py-3">
-                <h6 class="m-0 font-weight-bold text-primary text-center" style="font-size:17px">Liste des Articles</h6>
+                <h6 class="m-0 font-weight-bold text-primary text-center" style="font-size:17px">Liste des Activités</h6>
             </div>
             <div class="card-body">
                 <div class="table-responsive">
-                    <table class="table table-bordered" id="table-modalcreatearticleadmin" width="100%" cellspacing="0">
+                    <table class="table table-bordered" id="table-modalcreateactiviteadmin" width="100%" cellspacing="0">
                         <thead>
                         <tr class="text-center" style="text-transform:uppercase">
                             <th>Titre</th>
@@ -61,12 +61,12 @@ Articles
                         </tr>
                         </thead>
                         <tbody class="text-center">
-                        {% include "articleadmin/listarticleadmin.html" %}
+                        {% include "articleadmin/listactiviteadmin.html" %}
                         </tbody>
                     </table>
 
                     <!-- Popup ajouter nouvelle categorie -->
-                    <div class="modal modal fade" id="modal-modalcreatearticleadmin">
+                    <div class="modal modal fade" id="modal-modalcreateactiviteadmin">
                         <div class="modal-dialog modal-lg">
                             <div class="modal-content"></div>
                         </div>
@@ -80,5 +80,5 @@ Articles
 {% endblock %}
 
 {% block javascript %}
-<script src="{% static 'cabinet/admin/js/modalcreatearticleadmin.js' %}"></script>
+<script src="{% static 'cabinet/admin/js/modalcreateactiviteadmin.js' %}"></script>
 {% endblock %}

@@ -17,13 +17,13 @@ class Contact(models.Model):
 class Article(models.Model):
     titre = models.CharField(max_length=255, null=True, blank=True, verbose_name="Titre")
     texte = models.TextField(verbose_name="Texte", null=True, blank=False)
-    image = models.ImageField(blank=True, null=True, upload_to="articles")
+    image = models.ImageField(blank=True, null=True, upload_to="articles/")
     date = models.DateTimeField(null=True, auto_now_add=True, blank=True)
     archive = models.BooleanField(default=False)
 
 
 class Activite(models.Model):
-    image = models.ImageField(blank=True, null=True, upload_to="activites")
+    image = models.ImageField(blank=True, null=True, upload_to="articles/")
     titre = models.CharField(max_length=255, null=True, blank=True, verbose_name="Titre")
     texte = models.TextField(verbose_name="Texte", null=True, blank=False)
     date = models.DateTimeField(null=True, auto_now_add=True, blank=True)

@@ -128,15 +128,18 @@ USE_TZ = True
 STATIC_URL = '/static/'
 
 STATICFILES_DIR = (
-        BASE_DIR / 'static',
-        "/var/www/html/django/jgk/cabinet/static"
+        BASE_DIR / 'static'
 )
 
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
-# STATIC_ROOT = "/var/www/html/django/jgk/static/"
 
 MEDIA_URL = '/fichier_static/'
 
+MEDIA_ROOT = os.path.join(BASE_DIR, 'fichier_static')
+
+
+"""MEDIA_URL = '/fichier_static/'
+
 MEDIA_ROOT = (
         BASE_DIR / 'fichier_static'
-)
+)"""
