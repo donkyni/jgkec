@@ -22,11 +22,11 @@ Tableau de board
                 <div class="row no-gutters align-items-center">
                     <div class="col mr-2">
                         <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
-                            Earnings (Monthly)</div>
-                        <div class="h5 mb-0 font-weight-bold text-gray-800">$40,000</div>
+                            <a href="{% url 'activiteadmin' %}" style="#4E73DF">Total (Activités)</a></div>
+                        <div class="h5 mb-0 font-weight-bold text-gray-800">{{count_activites}}</div>
                     </div>
                     <div class="col-auto">
-                        <i class="fas fa-calendar fa-2x text-gray-300"></i>
+                        <i class="fas fa-chart-line fa-2x text-gray-300"></i>
                     </div>
                 </div>
             </div>
@@ -40,11 +40,11 @@ Tableau de board
                 <div class="row no-gutters align-items-center">
                     <div class="col mr-2">
                         <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
-                            Earnings (Annual)</div>
-                        <div class="h5 mb-0 font-weight-bold text-gray-800">$215,000</div>
+                            <a href="{% url 'articleadmin' %}" style="color:#1CC88A">Total (Articles)</a></div>
+                        <div class="h5 mb-0 font-weight-bold text-gray-800">{{count_articles}}</div>
                     </div>
                     <div class="col-auto">
-                        <i class="fas fa-dollar-sign fa-2x text-gray-300"></i>
+                        <i class="fas fa-newspaper fa-2x text-gray-300"></i>
                     </div>
                 </div>
             </div>
@@ -57,23 +57,23 @@ Tableau de board
             <div class="card-body">
                 <div class="row no-gutters align-items-center">
                     <div class="col mr-2">
-                        <div class="text-xs font-weight-bold text-info text-uppercase mb-1">Tasks
+                        <div class="text-xs font-weight-bold text-info text-uppercase mb-1"><a href="{% url 'messageadmin' %}" style="color:#36B9CC">Messages clients</a>
                         </div>
                         <div class="row no-gutters align-items-center">
                             <div class="col-auto">
-                                <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">50%</div>
+                                <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">{{count_contacts}}</div>
                             </div>
-                            <div class="col">
+                            <!--<div class="col">
                                 <div class="progress progress-sm mr-2">
                                     <div class="progress-bar bg-info" role="progressbar"
                                         style="width: 50%" aria-valuenow="50" aria-valuemin="0"
                                         aria-valuemax="100"></div>
                                 </div>
-                            </div>
+                            </div>-->
                         </div>
                     </div>
                     <div class="col-auto">
-                        <i class="fas fa-clipboard-list fa-2x text-gray-300"></i>
+                        <i class="fas fa-comments fa-2x text-gray-300"></i>
                     </div>
                 </div>
             </div>
@@ -87,15 +87,119 @@ Tableau de board
                 <div class="row no-gutters align-items-center">
                     <div class="col mr-2">
                         <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">
-                            Pending Requests</div>
-                        <div class="h5 mb-0 font-weight-bold text-gray-800">18</div>
+                            Total (Utilisateurs)</div>
+                        <div class="h5 mb-0 font-weight-bold text-gray-800">{{admin_count}}</div>
                     </div>
                     <div class="col-auto">
-                        <i class="fas fa-comments fa-2x text-gray-300"></i>
+                        <i class="fas fa-users fa-2x text-gray-300"></i>
                     </div>
                 </div>
             </div>
         </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-lg-6">
+        {% for contact in trois_derniers_contacts %}
+        <!-- Collapsable Card Example -->
+        <div class="card shadow mb-4">
+            <!-- Card Header - Accordion -->
+            <a href="{% url 'voirmessageclient' contact.id %}" class="d-block card-header py-3" data-toggle="ollapse"
+                role="button" aria-expanded="true" aria-controls="{{contact.collapse}}">
+                <h6 class="m-0 font-weight-bold text-primary">
+                    <span style="text-decoration: underline">Client</span> | {{contact.prenom}} {{contact.nom}}
+                </h6>
+            </a>
+            <!-- Card Content - Collapse -->
+            <div class="collapse show" id="{{contact.collapse}}">
+                <div class="card-body">
+                    <h6><span style="text-decoration: underline">Objet :</span> {{contact.objet}}</h6>
+                    <p>
+                        {{contact.message}}
+                        <br>
+                    </p>
+                    <div style="text-align:right">
+                        <span style="font-style:italic;">{{ contact.time_diff }}</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% empty %}
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="card mb-4 py-3 border-bottom-danger">
+                    <div class="card-body text-center" style="font-size:18px;font-weight:bold">
+                        Pas de messages disponible pour le moment
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+    <div class="col-lg-6">
+        <!-- Collapsable Card Example -->
+        {% for latest_article in latest_articles %}
+        <div class="card shadow mb-4">
+            <div class="card-header py-3">
+                <h6 class="m-0 font-weight-bold text-primary">Article la plus récente</h6>
+            </div>
+            <div class="card-body">
+                <h3 class="text-center">{{latest_article.titre}}</h3>
+                {% if latest_article.image.url is not None %}
+                <div class="text-center">
+                    <img class="img-fluid px-3 px-sm-4 mt-3 mb-4" style="width: 650px;height:300px;object-fit:cover"
+                        src="{{latest_article.image.url}}" alt="...">
+                </div>
+                {% endif %}
+                <p>
+                    {{latest_article.texte}}
+                </p>
+                <a target="_blank" rel="nofollow" href="{% url 'articleadmin' %}#table-modalcreatearticleadmin">Voir la liste des articles &rarr;</a>
+            </div>
+        </div>
+        {% empty %}
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="card mb-4 py-3 border-bottom-primary">
+                    <div class="card-body text-center" style="font-size:18px;font-weight:bold">
+                        Aucun article récent disponible pour le moment
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+
+        {% for latest_activite in latest_activites %}
+        <div class="card shadow mb-4">
+            <div class="card-header py-3">
+                <h6 class="m-0 font-weight-bold text-primary">Activité la plus récente</h6>
+            </div>
+            <div class="card-body">
+                <h3 class="text-center">{{latest_activite.titre}}</h3>
+                {% if latest_activite.image.url is not None %}
+                <div class="text-center">
+                    <img class="img-fluid px-3 px-sm-4 mt-3 mb-4" style="width: 650px;height:300px;object-fit:cover"
+                        src="{{latest_activite.image.url}}" alt="...">
+                </div>
+                {% endif %}
+                <p>
+                    {{latest_activite.texte}}
+                </p>
+                <a target="_blank" rel="nofollow" href="{% url 'activiteadmin' %}#table-modalcreateactiviteadmin">Voir la liste des activités &rarr;</a>
+            </div>
+        </div>
+        {% empty %}
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="card mb-4 py-3 border-bottom-info">
+                    <div class="card-body text-center" style="font-size:18px;font-weight:bold">
+                        Aucune activité récente disponible pour le moment
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
     </div>
 </div>
 {% endblock %}

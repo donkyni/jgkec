@@ -1,7 +1,7 @@
 {% for activite in activites %}
 <tr>
   <td class="text-left" style="font-size:18px">{{activite.titre}}</td>
-  <td class="text-left" style="font-size:18px">{{activite.image}}</td>
+  <td class="text-left" style="font-size:17px"><span style="background-color:#6C757D;color:#FFF;font-style:italic;border-radius:5px;padding:0px 5px">{{activite.image}}</span></td>
   <td class="text-left" style="font-size:18px">{{activite.date}}</td>
   <td>
     <a href="{% url 'updateactiviteadmin' activite.id %}" class="btn btn-info btn-sm">

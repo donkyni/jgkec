@@ -24,7 +24,7 @@ from cabinet import views
 
 from cabinet.views import acceuil, contacts, expertise, ingenierie, management, finance, insertion, \
     formation, formule, calendrier, calendrier2, sondage, reprise, etude, solution, activite, article, \
-    apropos, contacteznous, feedback, dashboard, articleadmin, activiteadmin
+    apropos, contacteznous, feedback, dashboard, articleadmin, activiteadmin, messageadmin
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -56,6 +56,9 @@ urlpatterns = [
     path('activiteadmin/', activiteadmin, name="activiteadmin"),
     path(r'^(?P<id>\d+)/modifier-une-activite', views.updateactiviteadmin, name="updateactiviteadmin"),
     path(r'^(?P<id>\d+)/supprimer-une-activite', views.deleteactiviteadmin, name="deleteactiviteadmin"),
+    path('messageadmin/', messageadmin, name="messageadmin"),
+    path(r'^(?P<id>\d+)/supprimer-un-message', views.deletemessageadmin, name="deletemessageadmin"),
+    path(r'^(?P<id>\d+)/consulter-le-message', views.voirmessageclient, name="voirmessageclient"),
 
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT) \
               + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

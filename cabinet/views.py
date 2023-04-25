@@ -1,10 +1,35 @@
+from _ast import arg
+
 from django.core.files.storage import FileSystemStorage
 from django.http import JsonResponse
 from django.shortcuts import render, redirect, get_object_or_404
 from django.template.loader import render_to_string
 
-from cabinet.forms import ContactForm, ArticleForm, ActiviteForm
-from cabinet.models import Article, Activite
+from cabinet.forms import ContactForm, ArticleForm, ActiviteForm, DeleteMessage
+from cabinet.models import Article, Activite, Contact
+from django.contrib.auth.models import User
+
+from django.utils import timezone
+
+
+def time_diff(date):
+    now = timezone.now().astimezone(timezone.utc)
+    diff = now - date
+    seconds = diff.seconds
+    days = diff.days
+
+    if days > 365:
+        return f"Il y'a {days // 365} an{'s' if days // 365 > 1 else ''}"
+    elif days > 30:
+        return f"Il y'a {days // 30} mois"
+    elif days > 0:
+        return f"Il y'a {days} jour{'s' if days > 1 else ''}"
+    elif seconds > 3600:
+        return f"Il y'a {seconds // 3600} heure{'s' if seconds // 3600 > 1 else ''}"
+    elif seconds > 60:
+        return f"Il y'a {seconds // 60} minute{'s' if seconds // 60 > 1 else ''}"
+    else:
+        return "Il y'a 1 seconde"
 
 
 def save_all(request, form, template_name, model, template_name2, mycontext):
@@ -26,6 +51,8 @@ def save_all(request, form, template_name, model, template_name2, mycontext):
 
 
 def acceuil(request):
+    articles_count = Article.objects.filter(archive=False).count()
+    activites_count = Activite.objects.filter(archive=False).count()
     return render(request, 'acceuil.html', locals())
 
 
@@ -115,32 +142,46 @@ def sondage(request):
 
 
 def solution(request):
+    articles_count = Article.objects.filter(archive=False).count()
+    activites_count = Activite.objects.filter(archive=False).count()
     return render(request, 'solution/solution.html', locals())
 
 
 def activite(request):
-    actvites = Activite.objects.filter(archive=False)
+    activites = Activite.objects.filter(archive=False)
+    articles_count = Article.objects.filter(archive=False).count()
+    activites_count = Activite.objects.filter(archive=False).count()
 
     context = {
-        'activites': actvites,
+        'activites': activites,
+        'articles_count': articles_count,
+        'activites_count': activites_count,
     }
     return render(request, 'activite/activite.html', context)
 
 
 def article(request):
+    activites_count = Activite.objects.filter(archive=False).count()
+    articles_count = Article.objects.filter(archive=False).count()
     articles = Article.objects.filter(archive=False)
 
     context = {
-        "articles": articles
+        "articles": articles,
+        "articles_count": articles_count,
+        "activites_count": activites_count
     }
     return render(request, 'article/article.html', context)
 
 
 def apropos(request):
+    articles_count = Article.objects.filter(archive=False).count()
+    activites_count = Activite.objects.filter(archive=False).count()
     return render(request, 'apropos/apropos.html', locals())
 
 
 def contacteznous(request):
+    articles_count = Article.objects.filter(archive=False).count()
+    activites_count = Activite.objects.filter(archive=False).count()
     if request.method == 'POST':
         form = ContactForm(request.POST)
         if form.is_valid():
@@ -151,15 +192,31 @@ def contacteznous(request):
 
     context = {
         'form': form,
+        'articles_count': articles_count,
+        'activites_count': activites_count,
     }
     return render(request, 'contacteznous/contacteznous.html', context)
 
 
 def feedback(request):
+    articles_count = Article.objects.filter(archive=False).count()
+    activites_count = Activite.objects.filter(archive=False).count()
     return render(request, 'feedback/feedback.html', locals())
 
 
 def dashboard(request):
+    count_articles = Article.objects.filter(archive=False).count()
+    count_activites = Activite.objects.filter(archive=False).count()
+    count_contacts = Contact.objects.filter(archive=False).count()
+    admin_count = User.objects.filter(is_staff=True, is_superuser=True).count()
+    trois_derniers_contacts = Contact.objects.filter(lu=False).order_by('-date')[:3]
+    latest_articles = Article.objects.filter(archive=False).order_by('-date')[:1]
+    latest_activites = Activite.objects.filter(archive=False).order_by('-date')[:1]
+
+    # Ajouter la durée pour chaque contact
+    for contact in trois_derniers_contacts:
+        contact.time_diff = time_diff(contact.date)
+
     return render(request, 'dashboard.html', locals())
 
 
@@ -209,7 +266,7 @@ def deletearticleadmin(request, id):
         data['form_is_valid'] = True
         articles = Article.objects.filter(archive=False)
         data['articleadmin'] = render_to_string('articleadmin/listarticleadmin.html',
-                                                            {'articles': articles})
+                                                {'articles': articles})
     else:
         context = {
             'article': article,
@@ -261,7 +318,7 @@ def deleteactiviteadmin(request, id):
         data['form_is_valid'] = True
         activites = Activite.objects.filter(archive=False)
         data['activiteadmin'] = render_to_string('activiteadmin/listactiviteadmin.html',
-                                                            {'activites': activites})
+                                                 {'activites': activites})
     else:
         context = {
             'activite': activite,
@@ -269,3 +326,35 @@ def deleteactiviteadmin(request, id):
         data['html_form'] = render_to_string('activiteadmin/deleteactiviteadmin.html', context, request=request)
 
     return JsonResponse(data)
+
+
+def messageadmin(request):
+    messages = Contact.objects.filter(archive=False).order_by('lu')
+    return render(request, 'messageadmin/messageadmin.html', locals())
+
+
+def deletemessageadmin(request, id):
+    data = dict()
+    message = get_object_or_404(Contact, id=id)
+    if request.method == "POST":
+        d_form = DeleteMessage(request.POST, instance=message)
+        if d_form.is_valid():
+            message.save()
+            data['form_is_valid'] = True
+            messages = Contact.objects.filter(archive=False).order_by('lu')
+            data['messageadmin'] = render_to_string('messageadmin/listmessageadmin.html',
+                                                 {'messages': messages})
+    else:
+        d_form = DeleteMessage(instance=message)
+        context = {
+            'd_form': d_form,
+            'message': message,
+        }
+        data['html_form'] = render_to_string('messageadmin/deletemessageadmin.html', context, request=request)
+
+    return JsonResponse(data)
+
+
+def voirmessageclient(request, id):
+    message = get_object_or_404(Contact, id=id)
+    return render(request, 'messageadmin/voirmessageclient.html', locals())

@@ -1,3 +1,5 @@
+import uuid
+
 from django import forms
 
 from cabinet.models import Contact, Activite, Article
@@ -6,7 +8,7 @@ from cabinet.models import Contact, Activite, Article
 class ContactForm(forms.ModelForm):
     class Meta:
         model = Contact
-        fields = ('prenom', 'nom', 'fonction', 'objet', 'message',)
+        fields = ['prenom', 'nom', 'fonction', 'objet', 'message', 'telephone']
         widgets = {
             'message': forms.Textarea(attrs={'cols': 40, 'rows': 10})
         }
@@ -30,3 +32,9 @@ class ArticleForm(forms.ModelForm):
             'image': forms.ClearableFileInput(attrs={'multiple': True})
         }
         enctype = 'multipart/form-data'
+
+
+class DeleteMessage(forms.ModelForm):
+    class Meta:
+        model = Contact
+        fields = ('lu',)

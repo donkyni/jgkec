@@ -80,8 +80,13 @@
         <ul>
           <li class="{% block active_acceuil %}{% endblock %}"><a href="{% url 'acceuil' %}">Acceuil</a></li>
           <li class="{% block active_nosolutions %}{% endblock %}"><a href="{% url 'solution' %}">Nos solutions</a></li>
-          <!--<li class="{% block active_articles %}{% endblock %}"><a href="{% url 'article' %}">Articles</a></li>-->
-          <!--<li class="{% block active_activites %}{% endblock %}"><a href="{% url 'activite' %}">Activités</a></li>-->
+          {% if articles_count %}
+          <li class="{% block active_articles %}{% endblock %}"><a href="{% url 'article' %}">Articles</a></li>
+          {% endif %}
+
+          {% if activites_count %}
+          <li class="{% block active_activites %}{% endblock %}"><a href="{% url 'activite' %}">Activités</a></li>
+          {% endif %}
           <li class="{% block active_apropos %}{% endblock %}"><a href="{% url 'apropos' %}">A propos</a></li>
           <!--<li class="{% block active_feedback %}{% endblock %}"><a href="{% url 'feedback' %}">Feedback</a></li>-->
           <li class="{% block active_contacteznous %}{% endblock %}"><a href="{% url 'contacteznous' %}">Contactez nous</a></li>

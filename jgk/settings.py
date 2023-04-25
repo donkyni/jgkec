@@ -138,8 +138,5 @@ MEDIA_URL = '/fichier_static/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'fichier_static')
 
 
-"""MEDIA_URL = '/fichier_static/'
-
-MEDIA_ROOT = (
-        BASE_DIR / 'fichier_static'
-)"""
+LOGIN_REDIRECT_URL = 'dashboard'
+LOGIN_URL = 'login'

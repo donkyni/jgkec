@@ -51,41 +51,21 @@ active
               <br>
 
               <div class="row justify-content-evenly">
+                  {% for activite in activites %}
                   <div class="col-lg-6 col-12">
-                      <p class="text-center">
+                      <!--<p class="text-center">
                           <img src="{% static 'cabinet/assets/img/jeux.jpg' %}" style="height:270px;width:420px;background-size:cover" alt="">
-                      </p>
-                      <p style="color:#282830;font-size:18px;font-weight:700" class="text-center">Thème du webinaires</p>
+                      </p>-->
+                      {% if activite.image.url is not None %}
+                          <img class="img-fluid px-3 px-sm-4 mt-3 mb-4" style="width: 650px;height:300px;object-fit:cover"
+                               src="{{activite.image.url}}" alt="...">
+                      {% endif %}
+                      <p style="color:#282830;font-size:18px;font-weight:700" class="text-center">{{activite.titre}}</p>
                       <p class="text-justify">
-                          Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                          Ab aspernatur atque autem consequatur cumque delectus deleniti dolor dolorum,
-                          eligendi, ex fuga, illo nemo perferendis quis sint sunt tenetur veritatis voluptas!
+                          {{activite.texte}}
                       </p>
                   </div>
-                  <div class="col-lg-6"></div>
-                  <div class="col-lg-6"></div>
-                  <div class="col-lg-6 col-12">
-                      <p class="text-center">
-                          <img src="{% static 'cabinet/assets/img/jeux.jpg' %}" style="height:270px;width:420px;background-size:cover" alt="">
-                      </p>
-                      <p style="color:#282830;font-size:18px;font-weight:700" class="text-center">Thème du webinaires</p>
-                      <p class="text-justify">
-                          Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                          Ab aspernatur atque autem consequatur cumque delectus deleniti dolor dolorum,
-                          eligendi, ex fuga, illo nemo perferendis quis sint sunt tenetur veritatis voluptas!
-                      </p>
-                  </div>
-                  <div class="col-lg-6 col-12">
-                      <p class="text-center">
-                          <img src="{% static 'cabinet/assets/img/jeux.jpg' %}" style="height:270px;width:420px;background-size:cover" alt="">
-                      </p>
-                      <p style="color:#282830;font-size:18px;font-weight:700" class="text-center">Thème du webinaires</p>
-                      <p class="text-justify">
-                          Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                          Ab aspernatur atque autem consequatur cumque delectus deleniti dolor dolorum,
-                          eligendi, ex fuga, illo nemo perferendis quis sint sunt tenetur veritatis voluptas!
-                      </p>
-                  </div>
+                  {% endfor %}
               </div>
 
               <br><br><br><br>

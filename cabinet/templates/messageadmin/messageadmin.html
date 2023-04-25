@@ -1,0 +1,93 @@
+{% extends "baseadmin.html" %}
+{% load static %}
+
+{% block link %}
+<!-- Custom styles for this page -->
+<link href="{% static 'cabinet/admin/vendor/datatables/dataTables.bootstrap4.min.css' %}" rel="stylesheet">
+{% endblock %}
+
+{% block title %}
+Activités
+{% endblock %}
+
+{% block page-active %}
+active
+{% endblock %}
+
+{% block show %}
+show
+{% endblock %}
+
+{% block active-message %}
+active
+{% endblock %}
+
+{% block pagename %}
+Message
+{% endblock %}
+
+{% block currentpage %}
+Message
+{% endblock %}
+
+{% block content %}
+<div class="row">
+    <div class="container-fluid">
+
+        <div class="card shadow mb-4">
+            <div class="card-header py-3">
+                <h6 class="m-0 font-weight-bold text-primary text-center" style="font-size:18px">Liste des Messages Clients</h6>
+            </div>
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table class="table table-bordered table-striped" id="table-messageadmin" width="100%" cellspacing="0">
+                        <thead>
+                        <tr class="text-center" style="text-transform:uppercase">
+                            <th style="">Noms</th>
+                            <th style="">Fonction</th>
+                            <th style="">Objet</th>
+                            <th style="">Date</th>
+                            <th style="">Action</th>
+                        </tr>
+                        </thead>
+                        <tbody class="text-center">
+                        {% include "messageadmin/listmessageadmin.html" %}
+                        </tbody>
+                    </table>
+
+                     <!-- Popup ajouter nouvelle categorie -->
+                    <div class="modal fade" id="modal-messageadmin">
+                        <div class="modal-dialog modal-sm">
+                            <div class="modal-content"></div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block javascript %}
+<script>
+  $(function () {
+    $('#table-messageadmin').DataTable({
+      "paging": true,
+      "lengthChange": false,
+      "searching": true,
+      "ordering": true,
+      "info": true,
+      "autoWidth": false,
+    });
+  });
+</script>
+
+<script src="{% static 'cabinet/admin/js/messageadmin.js' %}"></script>
+<!-- Page level plugins -->
+<script src="{% static 'cabinet/admin/vendor/datatables/jquery.dataTables.min.js' %}"></script>
+<script src="{% static 'cabinet/admin/vendor/datatables/dataTables.bootstrap4.min.js' %}"></script>
+
+<!-- Page level custom scripts -->
+<script src="{% static 'cabinet/admin/js/demo/datatables-demo.js' %}"></script>
+{% endblock %}

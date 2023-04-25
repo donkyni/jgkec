@@ -40,39 +40,23 @@ active
 
       <section>
           <div class="container" data-aos="fade-up">
-              <div class="row justify-content-evenly">
-                  <div class="col-lg-6 col-12">
+              <div class="row mr-3 mb-3 justify-content-evenly">
+                  {% for article in articles %}
+                  <div class="col-lg-6 col-12 ">
+                      <div class="text-center">
+                          {% if article.image.url is not None %}
+                          <img class="img-fluid px-3 px-sm-4 mt-3 mb-4" style="width: 650px;height:300px;object-fit:cover"
+                               src="{{article.image.url}}" alt="...">
+                          {% endif %}
+                      </div>
                       <p style="color:#282830;font-size:18px;font-weight:700" class="text-justify">
-                        Pourquoi faire suivre des formations de renforcement à votre équipe managériale ?
+                          {{article.titre}}
                       </p>
                       <p class="text-justify">
-                          Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                          Ab aspernatur atque autem consequatur cumque delectus deleniti dolor dolorum,
-                          eligendi, ex fuga, illo nemo perferendis quis sint sunt tenetur veritatis voluptas!
+                          {{article.texte}}
                       </p>
                   </div>
-                  <div class="col-lg-6"></div>
-                  <div class="col-lg-6"></div>
-                  <div class="col-lg-6 col-12">
-                      <p style="color:#282830;font-size:18px;font-weight:700" class="text-justify">
-                        Comment créer une entreprise ?
-                      </p>
-                      <p class="text-justify">
-                          Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                          Ab aspernatur atque autem consequatur cumque delectus deleniti dolor dolorum,
-                          eligendi, ex fuga, illo nemo perferendis quis sint sunt tenetur veritatis voluptas!
-                      </p>
-                  </div>
-                  <div class="col-lg-6 col-12">
-                      <p style="color:#282830;font-size:18px;font-weight:700" class="text-justify">
-                        Comment trouver du financement pour ses projets ?
-                      </p>
-                      <p class="text-justify">
-                          Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                          Ab aspernatur atque autem consequatur cumque delectus deleniti dolor dolorum,
-                          eligendi, ex fuga, illo nemo perferendis quis sint sunt tenetur veritatis voluptas!
-                      </p>
-                  </div>
+                  {% endfor %}
               </div>
           </div>
       </section>
