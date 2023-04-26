@@ -24,7 +24,7 @@ from cabinet import views
 
 from cabinet.views import acceuil, contacts, expertise, ingenierie, management, finance, insertion, \
     formation, formule, calendrier, calendrier2, sondage, reprise, etude, solution, activite, article, \
-    apropos, contacteznous, feedback, dashboard, articleadmin, activiteadmin, messageadmin
+    apropos, contacteznous, feedback, dashboard, articleadmin, activiteadmin, messageadmin, login_url, logout_url
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -49,6 +49,8 @@ urlpatterns = [
     path('contacteznous/', contacteznous, name="contacteznous"),
     path('feedback/', feedback, name="feedback"),
     # ADMIN URLs
+    path('login_url/', login_url, name="login_url"),
+    path('logout_url/', logout_url, name="logout_url"),
     path('dashboard/', dashboard, name="dashboard"),
     path('articleadmin/', articleadmin, name="articleadmin"),
     path(r'^(?P<id>\d+)/modifier-un-article', views.updatearticleadmin, name="updatearticleadmin"),

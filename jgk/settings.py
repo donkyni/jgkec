@@ -139,4 +139,4 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'fichier_static')
 
 
 LOGIN_REDIRECT_URL = 'dashboard'
-LOGIN_URL = 'login'
+LOGIN_URL = 'login_url'

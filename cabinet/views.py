@@ -1,5 +1,7 @@
 from _ast import arg
 
+from django.contrib import messages
+from django.contrib.auth.decorators import login_required
 from django.core.files.storage import FileSystemStorage
 from django.http import JsonResponse
 from django.shortcuts import render, redirect, get_object_or_404
@@ -10,6 +12,7 @@ from cabinet.models import Article, Activite, Contact
 from django.contrib.auth.models import User
 
 from django.utils import timezone
+from django.contrib.auth import authenticate, login, logout
 
 
 def time_diff(date):
@@ -32,6 +35,29 @@ def time_diff(date):
         return "Il y'a 1 seconde"
 
 
+def login_url(request):
+    activites_count = Activite.objects.filter(archive=False).order_by('-date').count()
+    articles_count = Article.objects.filter(archive=False).order_by('-date').count()
+    if request.method == 'POST':
+        if 'username' in request.POST and 'password' in request.POST:
+            username = request.POST["username"]
+            password = request.POST["password"]
+            user = authenticate(request, username=username, password=password)
+            if user is not None:
+                login(request, user)
+                return redirect('dashboard')
+            else:
+                messages.error(request, 'Nom d\'utilisateur ou mot de passe invalide')
+        else:
+            messages.error(request, 'Formulaire invalide')
+    return render(request, 'login.html', locals())
+
+
+def logout_url(request):
+    logout(request)
+    return redirect('acceuil')
+
+
 def save_all(request, form, template_name, model, template_name2, mycontext):
     data = dict()
     if request.method == 'POST':
@@ -51,8 +77,8 @@ def save_all(request, form, template_name, model, template_name2, mycontext):
 
 
 def acceuil(request):
-    articles_count = Article.objects.filter(archive=False).count()
-    activites_count = Activite.objects.filter(archive=False).count()
+    activites_count = Activite.objects.filter(archive=False).order_by('-date').count()
+    articles_count = Article.objects.filter(archive=False).order_by('-date').count()
     return render(request, 'acceuil.html', locals())
 
 
@@ -142,15 +168,15 @@ def sondage(request):
 
 
 def solution(request):
-    articles_count = Article.objects.filter(archive=False).count()
-    activites_count = Activite.objects.filter(archive=False).count()
+    activites_count = Activite.objects.filter(archive=False).order_by('-date').count()
+    articles_count = Article.objects.filter(archive=False).order_by('-date').count()
     return render(request, 'solution/solution.html', locals())
 
 
 def activite(request):
-    activites = Activite.objects.filter(archive=False)
-    articles_count = Article.objects.filter(archive=False).count()
-    activites_count = Activite.objects.filter(archive=False).count()
+    activites = Activite.objects.filter(archive=False).order_by('-date')
+    activites_count = Activite.objects.filter(archive=False).order_by('-date').count()
+    articles_count = Article.objects.filter(archive=False).order_by('-date').count()
 
     context = {
         'activites': activites,
@@ -161,9 +187,9 @@ def activite(request):
 
 
 def article(request):
-    activites_count = Activite.objects.filter(archive=False).count()
-    articles_count = Article.objects.filter(archive=False).count()
-    articles = Article.objects.filter(archive=False)
+    activites_count = Activite.objects.filter(archive=False).order_by('-date').count()
+    articles_count = Article.objects.filter(archive=False).order_by('-date').count()
+    articles = Article.objects.filter(archive=False).order_by('-date')
 
     context = {
         "articles": articles,
@@ -174,14 +200,14 @@ def article(request):
 
 
 def apropos(request):
-    articles_count = Article.objects.filter(archive=False).count()
-    activites_count = Activite.objects.filter(archive=False).count()
+    activites_count = Activite.objects.filter(archive=False).order_by('-date').count()
+    articles_count = Article.objects.filter(archive=False).order_by('-date').count()
     return render(request, 'apropos/apropos.html', locals())
 
 
 def contacteznous(request):
-    articles_count = Article.objects.filter(archive=False).count()
-    activites_count = Activite.objects.filter(archive=False).count()
+    activites_count = Activite.objects.filter(archive=False).order_by('-date').count()
+    articles_count = Article.objects.filter(archive=False).order_by('-date').count()
     if request.method == 'POST':
         form = ContactForm(request.POST)
         if form.is_valid():
@@ -199,11 +225,12 @@ def contacteznous(request):
 
 
 def feedback(request):
-    articles_count = Article.objects.filter(archive=False).count()
-    activites_count = Activite.objects.filter(archive=False).count()
+    activites_count = Activite.objects.filter(archive=False).order_by('-date').count()
+    articles_count = Article.objects.filter(archive=False).order_by('-date').count()
     return render(request, 'feedback/feedback.html', locals())
 
 
+@login_required
 def dashboard(request):
     count_articles = Article.objects.filter(archive=False).count()
     count_activites = Activite.objects.filter(archive=False).count()
@@ -220,6 +247,7 @@ def dashboard(request):
     return render(request, 'dashboard.html', locals())
 
 
+@login_required
 def articleadmin(request):
     articles = Article.objects.filter(archive=False)
 
@@ -238,6 +266,7 @@ def articleadmin(request):
     return render(request, 'articleadmin/articleadmin.html', context)
 
 
+@login_required
 def updatearticleadmin(request, id):
     articles = Article.objects.filter(archive=False)
     article = get_object_or_404(Article, id=id)
@@ -257,6 +286,7 @@ def updatearticleadmin(request, id):
     return render(request, 'articleadmin/articleadmin.html', context)
 
 
+@login_required
 def deletearticleadmin(request, id):
     data = dict()
     article = get_object_or_404(Article, id=id)
@@ -276,6 +306,7 @@ def deletearticleadmin(request, id):
     return JsonResponse(data)
 
 
+@login_required
 def activiteadmin(request):
     activites = Activite.objects.filter(archive=False)
 
@@ -290,6 +321,7 @@ def activiteadmin(request):
     return render(request, 'activiteadmin/activiteadmin.html', locals())
 
 
+@login_required
 def updateactiviteadmin(request, id):
     activites = Activite.objects.filter(archive=False)
     activite = get_object_or_404(Activite, id=id)
@@ -309,6 +341,7 @@ def updateactiviteadmin(request, id):
     return render(request, 'activiteadmin/activiteadmin.html', context)
 
 
+@login_required
 def deleteactiviteadmin(request, id):
     data = dict()
     activite = get_object_or_404(Activite, id=id)
@@ -328,11 +361,13 @@ def deleteactiviteadmin(request, id):
     return JsonResponse(data)
 
 
+@login_required
 def messageadmin(request):
     messages = Contact.objects.filter(archive=False).order_by('lu')
     return render(request, 'messageadmin/messageadmin.html', locals())
 
 
+@login_required
 def deletemessageadmin(request, id):
     data = dict()
     message = get_object_or_404(Contact, id=id)
@@ -355,6 +390,7 @@ def deletemessageadmin(request, id):
     return JsonResponse(data)
 
 
+@login_required
 def voirmessageclient(request, id):
     message = get_object_or_404(Contact, id=id)
     return render(request, 'messageadmin/voirmessageclient.html', locals())
