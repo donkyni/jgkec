@@ -39,7 +39,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'crispy_forms',
-    'crispy_bootstrap5'
+    'crispy_bootstrap5',
+    'django_summernote',
 ]
 
 CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap5"
@@ -137,6 +138,16 @@ MEDIA_URL = '/fichier_static/'
 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'fichier_static')
 
-
 LOGIN_REDIRECT_URL = 'dashboard'
 LOGIN_URL = 'login_url'
+
+SUMMERNOTE_CONFIG = {
+    'summernote': {
+        # As an example, using Summernote Air-mode
+        'airMode': False,
+
+        # Change editor size
+        'width': '100%',
+        'height': '280',
+    }
+}

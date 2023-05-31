@@ -1,0 +1,153 @@
+{% extends "baseadmin.html" %}
+{% load static %}
+
+{% block title %}
+Paramètre Accueil
+{% endblock %}
+
+{% block parametre-active %}
+active
+{% endblock %}
+
+{% block show-parametre %}
+show
+{% endblock %}
+
+{% block active-parametre-nossolutions %}
+active
+{% endblock %}
+
+{% block pagename %}
+Paramètre nos solutions
+{% endblock %}
+
+{% block currentpage %}
+Paramètre nos solutions
+{% endblock %}
+
+{% block content %}
+<div class="row">
+    <div class="container-fluid">
+        <form method="POST" action="" enctype="multipart/form-data">
+            {% load crispy_forms_tags %}
+            {% csrf_token %}
+
+            <div class="row">
+                <div class="col-lg-3"></div>
+                <div class="col-lg-6">
+                    {{ s_form.titrepage|as_crispy_field }}
+                </div>
+                <div class="col-lg-3"></div>
+            </div>
+
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="card shadow mb-4">
+                        <div class="card-header py-3">
+                            <h6 class="m-0 font-weight-bold text-primary">Programme Diamond</h6>
+                        </div>
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-lg-12">
+                                    <!-- Programme Diamond Form -->
+                                    {{ s_form.titreD|as_crispy_field }}
+                                    {{ s_form.soustitreD|as_crispy_field }}
+                                    {{ s_form.imageD|as_crispy_field }}
+                                    {{ s_form.descriptionD|as_crispy_field }}
+                                    {{ s_form.voirplusD|as_crispy_field }}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-6">
+                    <div class="card shadow mb-4">
+                        <div class="card-header py-3">
+                            <h6 class="m-0 font-weight-bold text-primary">Formation inter entreprise</h6>
+                        </div>
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-lg-12">
+                                    <!-- Formation inter entreprise Form -->
+                                    {{ s_form.titreF|as_crispy_field }}
+                                    {{ s_form.soustitreF|as_crispy_field }}
+                                    {{ s_form.imageF|as_crispy_field }}
+                                    {{ s_form.descriptionF|as_crispy_field }}
+                                    {{ s_form.voirplusF|as_crispy_field }}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-6">
+                    <div class="card shadow mb-4">
+                        <div class="card-header py-3">
+                            <h6 class="m-0 font-weight-bold text-primary">Etude de marché</h6>
+                        </div>
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-lg-12">
+                                    <!-- Etude de marché Form -->
+                                    {{ s_form.titreE|as_crispy_field }}
+                                    {{ s_form.soustitreE|as_crispy_field }}
+                                    {{ s_form.imageE|as_crispy_field }}
+                                    {{ s_form.descriptionE|as_crispy_field }}
+                                    {{ s_form.voirplusE|as_crispy_field }}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-6">
+                    <div class="card shadow mb-4">
+                        <div class="card-header py-3">
+                            <h6 class="m-0 font-weight-bold text-primary">Business plan</h6>
+                        </div>
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-lg-12">
+                                    <!-- Etude de marché Form -->
+                                    {{ s_form.titreB|as_crispy_field }}
+                                    {{ s_form.soustitreB|as_crispy_field }}
+                                    {{ s_form.imageB|as_crispy_field }}
+                                    {{ s_form.descriptionB|as_crispy_field }}
+                                    {{ s_form.voirplusB|as_crispy_field }}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-6">
+                    <div class="card shadow mb-4">
+                        <div class="card-header py-3">
+                            <h6 class="m-0 font-weight-bold text-primary">Recherche et financement</h6>
+                        </div>
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-lg-12">
+                                    <!-- Recherche et financement Form -->
+                                    {{ s_form.titreR|as_crispy_field }}
+                                    {{ s_form.soustitreR|as_crispy_field }}
+                                    {{ s_form.imageR|as_crispy_field }}
+                                    {{ s_form.descriptionR|as_crispy_field }}
+                                    {{ s_form.voirplusR|as_crispy_field }}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <button type="submit" class="btn btn-sm btn-block btn-lg btn-primary" style="font-weight:bold">modifier la page&nbsp;
+                <i class="fas fa-newspaper"></i>
+            </button>
+        </form>
+    </div>
+</div>
+{% endblock %}
+
