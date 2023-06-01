@@ -22,7 +22,7 @@ class ActiviteForm(forms.ModelForm):
         widgets = {
             'titre': SummernoteWidget(),
             'texte': SummernoteWidget(),
-            'image': forms.ClearableFileInput(attrs={'multiple': True}),
+
         }
 
 
@@ -33,7 +33,7 @@ class ArticleForm(forms.ModelForm):
         widgets = {
             'titre': SummernoteWidget(),
             'texte': SummernoteWidget(),
-            'image': forms.ClearableFileInput(attrs={'multiple': True}),
+
         }
         enctype = 'multipart/form-data'
 
@@ -52,7 +52,7 @@ class BanniereAccueilForm(forms.ModelForm):
         libelle = SummernoteTextField()
         fields = ['label', 'image', 'titre', 'libelle', 'voirplus']
         widgets = {
-            'image': forms.ClearableFileInput(attrs={'multiple': True}),
+
             'label': forms.TextInput(attrs={'disabled': 'true'}),
             'libelle': SummernoteWidget(),
         }
@@ -65,7 +65,7 @@ class MissionForm(forms.ModelForm):
         fields = ['label', 'titre', 'libellemission', 'image', 'productivite', 'voirplus']
         widgets = {
             'libellemission': SummernoteWidget(),
-            'image': forms.ClearableFileInput(attrs={'multiple': True}),
+
             'productivite': SummernoteWidget(),
             'label': forms.TextInput(attrs={'disabled': 'true'})
         }
@@ -137,11 +137,6 @@ class AproposForm(forms.ModelForm):
             'descriptionV': SummernoteWidget(),
             'descriptionVa': SummernoteWidget(),
             'descriptionE': SummernoteWidget(),
-            'imageQ': forms.ClearableFileInput(attrs={'multiple': True}),
-            'imageM': forms.ClearableFileInput(attrs={'multiple': True}),
-            'imageV': forms.ClearableFileInput(attrs={'multiple': True}),
-            'imageVa': forms.ClearableFileInput(attrs={'multiple': True}),
-            'imageE': forms.ClearableFileInput(attrs={'multiple': True}),
             'label': forms.TextInput(attrs={'disabled': 'true'})
         }
         enctype = 'multipart/form-data'
@@ -178,11 +173,6 @@ class NosSolutionsForm(forms.ModelForm):
             'descriptionE': SummernoteWidget(),
             'descriptionB': SummernoteWidget(),
             'descriptionR': SummernoteWidget(),
-            'imageD': forms.ClearableFileInput(attrs={'multiple': True}),
-            'imageF': forms.ClearableFileInput(attrs={'multiple': True}),
-            'imageE': forms.ClearableFileInput(attrs={'multiple': True}),
-            'imageB': forms.ClearableFileInput(attrs={'multiple': True}),
-            'imageR': forms.ClearableFileInput(attrs={'multiple': True}),
             'label': forms.TextInput(attrs={'disabled': 'true'})
         }
         enctype = 'multipart/form-data'
