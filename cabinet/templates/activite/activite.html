@@ -60,9 +60,9 @@ active
                           <img class="img-fluid px-3 px-sm-4 mt-3 mb-4" style="width: 650px;height:300px;object-fit:cover"
                                src="{{activite.image.url}}" alt="...">
                       {% endif %}
-                      <p style="color:#282830;font-size:18px;font-weight:700" class="text-center">{{activite.titre}}</p>
+                      <p style="color:#282830;font-size:18px;font-weight:700" class="text-center">{{activite.titre|safe}}</p>
                       <p class="text-justify">
-                          {{activite.texte}}
+                          {{activite.texte|safe}}
                       </p>
                   </div>
                   {% endfor %}

@@ -50,10 +50,10 @@ active
                           {% endif %}
                       </div>
                       <p style="color:#282830;font-size:18px;font-weight:700" class="text-justify">
-                          {{article.titre}}
+                          {{article.titre|safe}}
                       </p>
                       <p class="text-justify">
-                          {{article.texte}}
+                          {{article.texte|safe}}
                       </p>
                   </div>
                   {% endfor %}

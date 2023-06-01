@@ -184,11 +184,13 @@ def activite(request):
     activites = Activite.objects.filter(archive=False).order_by('-date')
     activites_count = Activite.objects.filter(archive=False).order_by('-date').count()
     articles_count = Article.objects.filter(archive=False).order_by('-date').count()
+    footer = Footer.objects.filter(label="Footer")
 
     context = {
         'activites': activites,
         'articles_count': articles_count,
         'activites_count': activites_count,
+        "footer": footer
     }
     return render(request, 'activite/activite.html', context)
 
@@ -197,11 +199,13 @@ def article(request):
     activites_count = Activite.objects.filter(archive=False).order_by('-date').count()
     articles_count = Article.objects.filter(archive=False).order_by('-date').count()
     articles = Article.objects.filter(archive=False).order_by('-date')
+    footer = Footer.objects.filter(label="Footer")
 
     context = {
         "articles": articles,
         "articles_count": articles_count,
-        "activites_count": activites_count
+        "activites_count": activites_count,
+        "footer": footer
     }
     return render(request, 'article/article.html', context)
 
@@ -217,6 +221,7 @@ def apropos(request):
 def contacteznous(request):
     activites_count = Activite.objects.filter(archive=False).order_by('-date').count()
     articles_count = Article.objects.filter(archive=False).order_by('-date').count()
+    footer = Footer.objects.filter(label="Footer")
     if request.method == 'POST':
         form = ContactForm(request.POST)
         if form.is_valid():
@@ -229,6 +234,7 @@ def contacteznous(request):
         'form': form,
         'articles_count': articles_count,
         'activites_count': activites_count,
+        "footer": footer
     }
     return render(request, 'contacteznous/contacteznous.html', context)
 
@@ -236,6 +242,7 @@ def contacteznous(request):
 def feedback(request):
     activites_count = Activite.objects.filter(archive=False).order_by('-date').count()
     articles_count = Article.objects.filter(archive=False).order_by('-date').count()
+    footer = Footer.objects.filter(label="Footer")
     return render(request, 'feedback/feedback.html', locals())
 
 

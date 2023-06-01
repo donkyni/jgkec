@@ -17,7 +17,7 @@ class Contact(models.Model):
 
 
 class Article(models.Model):
-    titre = models.CharField(max_length=255, null=True, blank=True, verbose_name="Titre")
+    titre = models.TextField(verbose_name="Titre", null=True, blank=False)
     texte = models.TextField(verbose_name="Texte", null=True, blank=False)
     image = models.ImageField(blank=True, null=True, upload_to="articles/")
     date = models.DateTimeField(null=True, auto_now_add=True, blank=True)
@@ -27,7 +27,7 @@ class Article(models.Model):
 
 class Activite(models.Model):
     image = models.ImageField(blank=True, null=True, upload_to="articles/")
-    titre = models.CharField(max_length=255, null=True, blank=True, verbose_name="Titre")
+    titre = models.TextField(verbose_name="Titre", null=True, blank=False)
     texte = models.TextField(verbose_name="Texte", null=True, blank=False)
     date = models.DateTimeField(null=True, auto_now_add=True, blank=True)
     vues = models.IntegerField(null=True, default=0)

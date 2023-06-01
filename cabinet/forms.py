@@ -1,7 +1,7 @@
 import uuid
 
 from django import forms
-from django_summernote.widgets import SummernoteWidget, SummernoteInplaceWidget
+from django_summernote.widgets import SummernoteWidget
 from cabinet.models import Contact, Activite, Article, BanniereAccueil, Mission, LibelleSolution, Solution, Tel, Footer, \
     Email, Apropos, NosSolutions
 
@@ -20,7 +20,9 @@ class ActiviteForm(forms.ModelForm):
         model = Activite
         fields = ('image', 'titre', 'texte',)
         widgets = {
-            'texte': forms.Textarea(attrs={'cols': 50, 'rows': 10})
+            'titre': SummernoteWidget(),
+            'texte': SummernoteWidget(),
+            'image': forms.ClearableFileInput(attrs={'multiple': True}),
         }
 
 
@@ -29,8 +31,9 @@ class ArticleForm(forms.ModelForm):
         model = Article
         fields = ['titre', 'texte', 'image']
         widgets = {
-            'texte': forms.Textarea(attrs={'cols': 50, 'rows': 10}),
-            'image': forms.ClearableFileInput(attrs={'multiple': True})
+            'titre': SummernoteWidget(),
+            'texte': SummernoteWidget(),
+            'image': forms.ClearableFileInput(attrs={'multiple': True}),
         }
         enctype = 'multipart/form-data'
 
