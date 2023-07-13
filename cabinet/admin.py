@@ -1,7 +1,7 @@
 from django.contrib import admin
 from django_summernote.admin import SummernoteModelAdmin
 from .models import Contact, Article, Activite, Footer, Tel, Solution, Mission, BanniereAccueil, LibelleSolution, Email, \
-    Apropos, NosSolutions
+    Apropos, NosSolutions, HistoriqueActivite
 
 
 # Register your models here.
@@ -35,6 +35,16 @@ class ActiviteAdmin(admin.ModelAdmin):
 
 
 admin.site.register(Activite, ActiviteAdmin)
+
+
+class HistoriqueActiviteAdmin(admin.ModelAdmin):
+    list_display = ('titre', 'date', 'image', 'vues', 'archive')
+    list_filter = ('titre', 'date', 'vues', 'archive')
+    ordering = ('titre', 'date', 'archive')
+    search_fields = ('titre', 'texte', 'date', 'archive')
+
+
+admin.site.register(HistoriqueActivite, HistoriqueActiviteAdmin)
 
 
 class BanniereAccueilAdmin(admin.ModelAdmin):

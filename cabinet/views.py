@@ -10,7 +10,8 @@ from django.template.loader import render_to_string
 
 from cabinet.forms import ContactForm, ArticleForm, ActiviteForm, DeleteMessage, BanniereAccueilForm, MissionForm, \
     FooterForm, AproposForm, NosSolutionsForm
-from cabinet.models import Article, Activite, Contact, BanniereAccueil, Mission, Solution, Footer, Apropos, NosSolutions
+from cabinet.models import Article, Activite, Contact, BanniereAccueil, Mission, Solution, Footer, Apropos, \
+    NosSolutions, HistoriqueActivite
 from django.contrib.auth.models import User
 
 from django.utils import timezone
@@ -182,12 +183,14 @@ def solution(request):
 
 def activite(request):
     activites = Activite.objects.filter(archive=False).order_by('-date')
+    historiques_activites = HistoriqueActivite.objects.filter(archive=True).order_by('-date')
     activites_count = Activite.objects.filter(archive=False).order_by('-date').count()
     articles_count = Article.objects.filter(archive=False).order_by('-date').count()
     footer = Footer.objects.filter(label="Footer")
 
     context = {
         'activites': activites,
+        'historiques_activites': historiques_activites,
         'articles_count': articles_count,
         'activites_count': activites_count,
         "footer": footer
@@ -363,11 +366,19 @@ def deleteactiviteadmin(request, id):
     activite = get_object_or_404(Activite, id=id)
     if request.method == "POST":
         activite.archive = True
+        historique_activite = HistoriqueActivite()
+        historique_activite.image = activite.image
+        historique_activite.titre = activite.titre
+        historique_activite.texte = activite.texte
+        historique_activite.date = activite.date
+        historique_activite.vues = activite.vues
+        historique_activite.archive = True
         activite.save()
+        historique_activite.save()
         data['form_is_valid'] = True
         activites = Activite.objects.filter(archive=False)
         data['activiteadmin'] = render_to_string('activiteadmin/listactiviteadmin.html',
-                                                 {'activites': activites})
+                                                 {'activites': activites, 'historique_activite': historique_activite,})
     else:
         context = {
             'activite': activite,
@@ -410,23 +421,6 @@ def deletemessageadmin(request, id):
 def voirmessageclient(request, id):
     message = get_object_or_404(Contact, id=id)
     return render(request, 'messageadmin/voirmessageclient.html', locals())
-
-
-"""@login_required
-def updatebanniereaccueil(request):
-    banniereaccueil = BanniereAccueil.objects.get(label="BanniereAccueil")
-
-    # BanniereAccueil
-    if request.method == "POST":
-        b_form = BanniereAccueilForm(request.POST, request.FILES, instance=banniereaccueil)
-        if b_form.is_valid():
-            b_form.save()
-            return redirect('updatebanniereaccueil')
-
-    else:
-        b_form = BanniereAccueilForm(instance=banniereaccueil)
-
-    return render(request, 'parametre/accueil.html', locals())"""
 
 
 @login_required
