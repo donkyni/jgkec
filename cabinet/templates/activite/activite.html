@@ -60,9 +60,9 @@ active
                           <img class="img-fluid px-3 px-sm-4 mt-3 mb-4" style="width: 650px;height:300px;object-fit:cover"
                                src="{{activite.image.url}}" alt="...">
                       {% endif %}
-                      <p style="color:#282830;font-size:18px;font-weight:700" class="text-center">{{activite.titre}}</p>
+                      <p style="color:#282830;font-size:18px;font-weight:700" class="text-center">{{activite.titre|safe}}</p>
                       <p class="text-justify">
-                          {{activite.texte}}
+                          {{activite.texte|safe}}
                       </p>
                   </div>
                   {% endfor %}
@@ -70,6 +70,7 @@ active
 
               <br><br><br><br>
 
+              {% for historique in historiques_activites %}
               <div class="row">
                   <div class="col-3"></div>
                   <div class="col-lg-6 col-12">
@@ -77,14 +78,18 @@ active
                           <span style="border-bottom:6px solid #462446">Historique d'activités</span>
                       </p>
                       <br>
-                      <p style="text-align:justify">
-                          {% lorem %}
-                          <br><br>
-                          {% lorem %}
+                      {% if historique.image.url is not None %}
+                          <img class="img-fluid px-3 px-sm-4 mt-3 mb-4" style="width: 650px;height:300px;object-fit:cover"
+                               src="{{historique.image.url}}" alt="...">
+                      {% endif %}
+                      <p style="color:#282830;font-size:18px;font-weight:700" class="text-center">{{historique.titre|safe}}</p>
+                      <p class="text-justify">
+                          {{historique.texte|safe}}
                       </p>
                   </div>
                   <div class="col-3"></div>
               </div>
+              {% endfor %}
           </div>
       </section>
   </main>

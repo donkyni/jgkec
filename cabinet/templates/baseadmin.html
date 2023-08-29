@@ -22,6 +22,15 @@
     <!-- Custom styles for this template-->
     <link href="{% static 'cabinet/admin/css/sb-admin-2.min.css' %}" rel="stylesheet">
     {% block link %}{% endblock %}
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-TSG1DW490G"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-TSG1DW490G');
+    </script>
 
 </head>
 
@@ -72,6 +81,23 @@
                         <a class="collapse-item {% block active-article %}{% endblock %}" href="{% url 'articleadmin' %}">Articles</a>
                         <a class="collapse-item {% block active-activite %}{% endblock %}" href="{% url 'activiteadmin' %}">Activités</a>
                         <a class="collapse-item {% block active-message %}{% endblock %}" href="{% url 'messageadmin' %}">Messages</a>
+                    </div>
+                </div>
+            </li>
+
+            <!-- Nav Item - Pages Collapse Menu -->
+            <li class="nav-item {% block parametre-active %}{% endblock %}">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseParametre"
+                    aria-expanded="true" aria-controls="collapseParametre">
+                    <i class="fas fa-fw fa-folder"></i>
+                    <span>Paramètre</span>
+                </a>
+                <div id="collapseParametre" class="collapse {% block show-parametre %}{% endblock %}" aria-labelledby="headingPages" data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <h6 class="collapse-header">Vue de modification :</h6>
+                        <a class="collapse-item {% block active-parametre-accueil %}{% endblock %}" href="{% url 'updatebanniereaccueil' %}">Accueil</a>
+                        <a class="collapse-item {% block active-parametre-apropos %}{% endblock %}" href="{% url 'updateapropos' %}">A propos</a>
+                        <a class="collapse-item {% block active-parametre-nossolutions %}{% endblock %}" href="{% url 'updatenossolutions' %}">Nos solutions</a>
                     </div>
                 </div>
             </li>

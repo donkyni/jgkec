@@ -16,7 +16,7 @@ Including another URLconf
 from django.conf import settings
 from django.conf.urls.static import static
 from django.contrib import admin
-from django.urls import path
+from django.urls import path, include
 
 from django.urls import re_path as url
 
@@ -24,7 +24,8 @@ from cabinet import views
 
 from cabinet.views import acceuil, contacts, expertise, ingenierie, management, finance, insertion, \
     formation, formule, calendrier, calendrier2, sondage, reprise, etude, solution, activite, article, \
-    apropos, contacteznous, feedback, dashboard, articleadmin, activiteadmin, messageadmin, login_url, logout_url
+    apropos, contacteznous, feedback, dashboard, articleadmin, activiteadmin, messageadmin, login_url, logout_url, \
+    updatebanniereaccueil, updateapropos, updatenossolutions
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -48,19 +49,25 @@ urlpatterns = [
     path('apropos/', apropos, name="apropos"),
     path('contacteznous/', contacteznous, name="contacteznous"),
     path('feedback/', feedback, name="feedback"),
+    # DJANGO SUMMERNOTE URLs
+    path('summernote/', include('django_summernote.urls')),
     # ADMIN URLs
     path('login_url/', login_url, name="login_url"),
     path('logout_url/', logout_url, name="logout_url"),
     path('dashboard/', dashboard, name="dashboard"),
     path('articleadmin/', articleadmin, name="articleadmin"),
-    path(r'^(?P<id>\d+)/modifier-un-article', views.updatearticleadmin, name="updatearticleadmin"),
-    path(r'^(?P<id>\d+)/supprimer-un-article', views.deletearticleadmin, name="deletearticleadmin"),
+    url(r'^(?P<id>\d+)/modifier-un-article$', views.updatearticleadmin, name="updatearticleadmin"),
+    url(r'^(?P<id>\d+)/supprimer-un-article$', views.deletearticleadmin, name="deletearticleadmin"),
     path('activiteadmin/', activiteadmin, name="activiteadmin"),
-    path(r'^(?P<id>\d+)/modifier-une-activite', views.updateactiviteadmin, name="updateactiviteadmin"),
-    path(r'^(?P<id>\d+)/supprimer-une-activite', views.deleteactiviteadmin, name="deleteactiviteadmin"),
+    url(r'^(?P<id>\d+)/modifier-une-activite$', views.updateactiviteadmin, name="updateactiviteadmin"),
+    url(r'^(?P<id>\d+)/supprimer-une-activite$', views.deleteactiviteadmin, name="deleteactiviteadmin"),
     path('messageadmin/', messageadmin, name="messageadmin"),
-    path(r'^(?P<id>\d+)/supprimer-un-message', views.deletemessageadmin, name="deletemessageadmin"),
-    path(r'^(?P<id>\d+)/consulter-le-message', views.voirmessageclient, name="voirmessageclient"),
+    path('messageadmin/', messageadmin, name="messageadmin"),
+    url(r'^(?P<id>\d+)/supprimer-un-message$', views.deletemessageadmin, name="deletemessageadmin"),
+    url(r'^(?P<id>\d+)/consulter-le-message$', views.voirmessageclient, name="voirmessageclient"),
+    path('updatebanniereaccueil/', updatebanniereaccueil, name="updatebanniereaccueil"),
+    path('updateapropos/', updateapropos, name="updateapropos"),
+    path('updatenossolutions/', updatenossolutions, name="updatenossolutions"),
 
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT) \
               + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

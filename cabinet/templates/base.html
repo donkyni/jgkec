@@ -58,6 +58,15 @@
       filter: blur(15px); /* Flou gaussien de 5px */
     }
   </style>
+  <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-TSG1DW490G"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-TSG1DW490G');
+    </script>
 </head>
 
 <body style="font-family: 'Roboto Slab', serif;">
@@ -140,24 +149,17 @@
       <div class="carousel-inner" role="listbox">
 
         <!-- Slide 1 -->
-        <div class="carousel-item active" style="background-image: url({% static 'cabinet/assets/img/6.jpeg' %});">
+        <div class="carousel-item active" style="background-image: url({% if banniereAccueil.image.url is None %}{% static 'cabinet/assets/img/6.jpeg' %}{% elif banniereAccueil.image.url is not None %}{{banniereAccueil.image.url}}{% endif %});">
           <div class="carousel-container">
             <div class="carousel-content animate__animated animate__fadeInUp">
 
-              <h2>Qui sommes-nous ?</h2>
+              <h2>{{ banniereAccueil.titre }}</h2>
 
               <p style="font-weight:500;line-height:30px;text-align:justify">
-                JGK Entreprises & Consulting (JGK-EC) évolue dans le domaine de l'appui-conseil aux organisations de
-                tout genre entreprises, administrations publiques et privées.
-                <br><br> <!-- retour a la ligne -->
-                Nous aidons les organisations à booster leur productivité en renforçant les capacités techniques et
-                managériales de leurs dirigeants. Nous accompagnons également les entreprises dans la réalisation
-                de leurs projets de croissance de l’étude au financement.
-                <br><br> <!-- retour a la ligne -->
-                Notre expertise nous a valu <a target="_blank" style="color:#70a1ff;font-weight:bold" href="https://www.bceao.int/fr/content/dispositif-de-soutien-au-financement-des-pmepmi-liste-des-structures-dappui-et-dencadrement">la reconnaissance de la BCEAO</a> comme structures d'appui et d'encadrement.
+              {{banniereAccueil.libelle|safe}}
               </p>
 
-              <div class="text-center"><a href="{% url 'apropos' %}" class="btn-get-started">Voir plus</a></div>
+              <div class="text-center"><a href="{% url 'apropos' %}" class="btn-get-started">{{ banniereAccueil.voirplus }}</a></div>
             </div>
           </div>
         </div>
@@ -218,21 +220,27 @@
     <div data-aos="fade-up">
       <p style="background-color:#462446;padding-left:25px;">
         <br><br>
-        <span style="font-size:21px;color:#fff">Notre mission :</span>
+        <span style="font-size:21px;color:#fff">{{ mission.titre }}</span>
         <br>
         <span style="font-size:21px;color:#fff;font-style:italic">Améliorer les vies en habilitant les personnes et les organisations.</span>
         <br>
       </p>
-      <p style="padding-right:15px" class="text-right">
+      <div style="padding-right:15px" class="text-right">
         <br>
         <span>
-          <img src="{% static 'cabinet/assets/img/9.jpeg' %}" style="object-fit: cover;width:60%;height:400px;" alt="">
+          <img src="{% if mission.image.url is None %}{% static 'cabinet/assets/img/9.jpeg' %}{% elif mission.image.url is not None %}{{mission.image.url}}{% endif %}" style="object-fit: cover;width:60%;height:400px;" alt="">
           <br><br>
-          <span style="font-size:23px">Booster la <i>productivité</i> de votre équipe avec le <b>programme Diamond.</b></span>
+          <span style="font-size:23px">
+            {{ mission.productivite|safe }}
+          </span>
           <br><br>
-          <a href="{% url 'solution' %}" style="background-color:#462446;border:1px solid #462446;color:#fff;font-size:20px;padding: 0 15px;font-style:italic">En savoir plus</a>
+          <a href="{% url 'solution' %}" style="background-color:#462446;border:1px solid #462446;color:#fff;font-size:20px;padding: 0 15px;font-style:italic">
+            {{ mission.voirplus }}
+          </a>
         </span>
-      </p>
+        <br>
+        <br>
+      </div>
 
     </div>
 
@@ -582,12 +590,18 @@
 
           <div class="col-lg-2 col-md-6 footer-contact">
             <h3>JGK-EC</h3>
+            {% for foot in footer %}
             <p>
-              Route de la CEDEAO, en face du CEG Kossigan<br><br>
-              <strong id="contact">Téléphones: <br></strong> +228 22 25 39 87  <br> +228 96 03 99 72   <br> +228 92 41 95 49
+              {{foot.jgkec}}<br><br>
+              <strong id="contact">Téléphones: <br></strong>
+              {% for tel in foot.tel.all %}
+              {{tel}}<br>
+              {% endfor %}
               <br><br>
-              <strong>Email:</strong> jgkec@yahoo.fr<br>
-              <strong style="opacity:0">Email:</strong> info@jgkec.fr<br>
+              <strong>Email:</strong><br>
+              {% for email in foot.mail.all %}
+              {{email}}<br>
+              {% endfor %}
             </p>
             <br>
             <p>
@@ -596,6 +610,7 @@
                 <i class="fa fa-angle-right"></i>
               </a>
             </p>
+            {% endfor %}
           </div>
 
           <div class="col-lg-2 col-md-6 footer-links">

@@ -1,0 +1,165 @@
+{% extends "baseadmin.html" %}
+{% load static %}
+
+{% block title %}
+Paramètre Accueil
+{% endblock %}
+
+{% block parametre-active %}
+active
+{% endblock %}
+
+{% block show-parametre %}
+show
+{% endblock %}
+
+{% block active-parametre-apropos %}
+active
+{% endblock %}
+
+{% block pagename %}
+Paramètre a propos
+{% endblock %}
+
+{% block currentpage %}
+Paramètre a propos
+{% endblock %}
+
+{% block content %}
+<div class="row">
+    <div class="container-fluid">
+        <form method="POST" action="" enctype="multipart/form-data">
+            {% load crispy_forms_tags %}
+            {% csrf_token %}
+
+            <div class="row">
+                <div class="col-lg-3"></div>
+                <div class="col-lg-6">
+                    <button type="submit" class="btn btn-sm btn-block btn-lg btn-primary" style="font-weight:bold">modifier la page&nbsp;
+                        <i class="fas fa-newspaper"></i>
+                    </button>
+                </div>
+                <div class="col-lg-3"></div>
+            </div>
+            <br>
+
+            <div class="row">
+                <div class="col-lg-3"></div>
+                <div class="col-lg-6">
+                    <div class="card shadow mb-4">
+                        <div class="card-header py-3">
+                            <h6 class="m-0 font-weight-bold text-primary">Formulaire de modification de la section <i>Qui sommes nous ?</i></h6>
+                        </div>
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-lg-12">
+                                    <!-- A propos : Form ---< Qui sommes nous ?  -->
+                                    {{ a_form.titreQ|as_crispy_field }}
+                                    {{ a_form.descriptionQ|as_crispy_field }}
+                                    {{ a_form.imageQ|as_crispy_field }}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3"></div>
+
+                <div class="col-lg-3"></div>
+                <div class="col-lg-6">
+                    <div class="card shadow mb-4">
+                        <div class="card-header py-3">
+                            <h6 class="m-0 font-weight-bold text-primary">Formulaire de modification de la section <i>Notre mission</i></h6>
+                        </div>
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-lg-12">
+                                    <!-- A propos : Form ---< Notre mission -->
+                                    {{ a_form.titreM|as_crispy_field }}
+                                    {{ a_form.descriptionM|as_crispy_field }}
+                                    {{ a_form.imageM|as_crispy_field }}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3"></div>
+
+                <div class="col-lg-3"></div>
+                <div class="col-lg-6">
+                    <div class="card shadow mb-4">
+                        <div class="card-header py-3">
+                            <h6 class="m-0 font-weight-bold text-primary">Formulaire de modification de la section <i>Notre vision</i></h6>
+                        </div>
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-lg-12">
+                                    <!-- A propos : Form ---< Notre vision -->
+                                    {{ a_form.titreV|as_crispy_field }}
+                                    {{ a_form.descriptionV|as_crispy_field }}
+                                    {{ a_form.imageV|as_crispy_field }}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3"></div>
+
+                <div class="col-lg-3"></div>
+                <div class="col-lg-6">
+                    <div class="card shadow mb-4">
+                        <div class="card-header py-3">
+                            <h6 class="m-0 font-weight-bold text-primary">Formulaire de modification de la section <i>Nos valeurs</i></h6>
+                        </div>
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-lg-12">
+                                    <!-- A propos : Form ---< Nos valeurs -->
+                                    {{ a_form.titreVa|as_crispy_field }}
+                                    {{ a_form.descriptionVa|as_crispy_field }}
+                                    {{ a_form.imageVa|as_crispy_field }}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3"></div>
+
+                <div class="col-lg-3"></div>
+                <div class="col-lg-6">
+                    <div class="card shadow mb-4">
+                        <div class="card-header py-3">
+                            <h6 class="m-0 font-weight-bold text-primary">Formulaire de modification de la section <i>Notre expertise</i></h6>
+                        </div>
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-lg-12">
+                                    <!-- A propos : Form ---< Notre expertise -->
+                                    {{ a_form.titreE|as_crispy_field }}
+                                    {{ a_form.descriptionE|as_crispy_field }}
+                                    {{ a_form.imageE|as_crispy_field }}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3"></div>
+            </div>
+
+            <div class="row">
+                <div class="col-lg-3"></div>
+                <div class="col-lg-6">
+                    <button type="submit" class="btn btn-sm btn-block btn-lg btn-primary" style="font-weight:bold">modifier la page&nbsp;
+                        <i class="fas fa-newspaper"></i>
+                    </button>
+                </div>
+                <div class="col-lg-3"></div>
+            </div>
+        </form>
+    </div>
+</div>
+{% endblock %}
+
+{% block javascript %}
+<!-- Page level custom scripts -->
+<script src="{% static 'cabinet/admin/js/demo/datatables-demo.js' %}"></script>
+{% endblock %}

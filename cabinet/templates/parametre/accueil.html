@@ -1,0 +1,100 @@
+{% extends "baseadmin.html" %}
+{% load static %}
+
+{% block title %}
+Paramètre Accueil
+{% endblock %}
+
+{% block parametre-active %}
+active
+{% endblock %}
+
+{% block show-parametre %}
+show
+{% endblock %}
+
+{% block active-parametre-accueil %}
+active
+{% endblock %}
+
+{% block pagename %}
+Paramètre Accueil
+{% endblock %}
+
+{% block currentpage %}
+Paramètre Accueil
+{% endblock %}
+
+{% block content %}
+<div class="row">
+    <div class="container-fluid">
+        <form method="POST" action="" enctype="multipart/form-data">
+            {% load crispy_forms_tags %}
+            {% csrf_token %}
+
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="card shadow mb-4">
+                        <div class="card-header py-3">
+                            <h6 class="m-0 font-weight-bold text-primary">Formulaire de modification de la Bannière d'accueil</h6>
+                        </div>
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-lg-12">
+                                    <!-- BanniereAccueil Form -->
+                                    {{ b_form|crispy }}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-6">
+                    <div class="card shadow mb-4">
+                        <div class="card-header py-3">
+                            <h6 class="m-0 font-weight-bold text-primary">Formulaire de modification Mission</h6>
+                        </div>
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-lg-12">
+                                    <!-- Mission Form -->
+                                    {{ m_form|crispy }}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-6">
+                    <div class="card shadow mb-4">
+                        <div class="card-header py-3">
+                            <h6 class="m-0 font-weight-bold text-primary">Formulaire de modification du pied de page</h6>
+                        </div>
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-lg-12">
+                                    <!-- Mission Form -->
+                                    {{ f_form.jgkec|as_crispy_field }}
+                                    {{ f_form.tel|as_crispy_field }}
+                                    {{ f_form.mail|as_crispy_field }}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <button type="submit" class="btn btn-sm btn-block btn-lg btn-primary" style="font-weight:bold">modifier la page&nbsp;
+                <i class="fas fa-newspaper"></i>
+            </button>
+        </form>
+    </div>
+</div>
+{% endblock %}
+
+{% block javascript %}
+<!-- Page level plugins -->
+
+<!-- Page level custom scripts -->
+<script src="{% static 'cabinet/admin/js/demo/datatables-demo.js' %}"></script>
+{% endblock %}
