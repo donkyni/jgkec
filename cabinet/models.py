@@ -58,7 +58,11 @@ class Mission(models.Model):
     libellemission = models.TextField(verbose_name="Libellé mission", null=True, blank=True)
     image = models.ImageField(blank=True, null=True, upload_to="missions/")
     productivite = models.TextField(verbose_name="Libellé productivite", null=True, blank=True)
+    detailproductivite = models.TextField(verbose_name="Texte sous productivite", null=True, blank=True)
+    notreexpertise = models.TextField(verbose_name="Notre expertise", null=True, blank=True)
     voirplus = models.CharField(max_length=255, null=True, blank=True)
+    solution = models.TextField(verbose_name="Découvrez nos solutions", null=True, blank=True)
+    valeur = models.TextField(verbose_name="Nos valeurs", null=True, blank=True)
     date = models.DateTimeField(auto_now_add=True, null=True)
 
 

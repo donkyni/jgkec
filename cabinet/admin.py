@@ -59,7 +59,8 @@ admin.site.register(BanniereAccueil, BanniereAccueilAdmin)
 
 
 class MissionAdmin(admin.ModelAdmin):
-    list_display = ('titre', 'libellemission', 'image', 'productivite', 'voirplus', 'date')
+    list_display = ('titre', 'libellemission', 'image', 'productivite', 'detailproductivite', 'voirplus',
+                    'notreexpertise', 'solution', 'valeur', 'date')
     list_filter = ('titre', 'libellemission', 'image', 'productivite', 'voirplus', 'date')
     ordering = ('titre', 'libellemission', 'image', 'productivite', 'voirplus', 'date')
     search_fields = ('titre', 'libellemission', 'image', 'productivite', 'voirplus', 'date')

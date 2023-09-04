@@ -62,11 +62,16 @@ class BanniereAccueilForm(forms.ModelForm):
 class MissionForm(forms.ModelForm):
     class Meta:
         model = Mission
-        fields = ['label', 'titre', 'libellemission', 'image', 'productivite', 'voirplus']
+        fields = ['label', 'titre', 'libellemission', 'image', 'productivite', 'detailproductivite', 'voirplus',
+                  'notreexpertise', 'solution', 'valeur']
         widgets = {
             'libellemission': SummernoteWidget(),
 
             'productivite': SummernoteWidget(),
+            'detailproductivite': SummernoteWidget(),
+            'notreexpertise': SummernoteWidget(),
+            'solution': SummernoteWidget(),
+            'valeur': SummernoteWidget(),
             'label': forms.TextInput(attrs={'disabled': 'true'})
         }
         enctype = 'multipart/form-data'

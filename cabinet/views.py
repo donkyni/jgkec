@@ -224,6 +224,7 @@ def apropos(request):
 def contacteznous(request):
     activites_count = Activite.objects.filter(archive=False).order_by('-date').count()
     articles_count = Article.objects.filter(archive=False).order_by('-date').count()
+    mission = Mission.objects.get(label="Mission")
     footer = Footer.objects.filter(label="Footer")
     if request.method == 'POST':
         form = ContactForm(request.POST)
@@ -237,7 +238,8 @@ def contacteznous(request):
         'form': form,
         'articles_count': articles_count,
         'activites_count': activites_count,
-        "footer": footer
+        "footer": footer,
+        "mission": mission,
     }
     return render(request, 'contacteznous/contacteznous.html', context)
 
