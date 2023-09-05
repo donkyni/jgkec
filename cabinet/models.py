@@ -63,6 +63,9 @@ class Mission(models.Model):
     voirplus = models.CharField(max_length=255, null=True, blank=True)
     solution = models.TextField(verbose_name="Découvrez nos solutions", null=True, blank=True)
     valeur = models.TextField(verbose_name="Nos valeurs", null=True, blank=True)
+    mot_du_dg = models.TextField(verbose_name="Mot du directeur", null=True, blank=True)
+    niveau_performance = models.TextField(verbose_name="Niveau et performance de vos équipes", null=True, blank=True)
+    mot_des_clients = models.TextField(verbose_name="Mot des clients", null=True, blank=True)
     date = models.DateTimeField(auto_now_add=True, null=True)
 
 

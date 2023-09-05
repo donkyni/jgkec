@@ -63,7 +63,7 @@ class MissionForm(forms.ModelForm):
     class Meta:
         model = Mission
         fields = ['label', 'titre', 'libellemission', 'image', 'productivite', 'detailproductivite', 'voirplus',
-                  'notreexpertise', 'solution', 'valeur']
+                  'notreexpertise', 'solution', 'mot_du_dg', 'mot_des_clients', 'niveau_performance', 'valeur']
         widgets = {
             'libellemission': SummernoteWidget(),
 
@@ -72,6 +72,9 @@ class MissionForm(forms.ModelForm):
             'notreexpertise': SummernoteWidget(),
             'solution': SummernoteWidget(),
             'valeur': SummernoteWidget(),
+            'mot_du_dg': SummernoteWidget(),
+            'mot_des_clients': SummernoteWidget(),
+            'niveau_performance': SummernoteWidget(),
             'label': forms.TextInput(attrs={'disabled': 'true'})
         }
         enctype = 'multipart/form-data'

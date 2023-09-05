@@ -187,13 +187,15 @@ def activite(request):
     activites_count = Activite.objects.filter(archive=False).order_by('-date').count()
     articles_count = Article.objects.filter(archive=False).order_by('-date').count()
     footer = Footer.objects.filter(label="Footer")
+    mission = Mission.objects.get(label="Mission")
 
     context = {
         'activites': activites,
         'historiques_activites': historiques_activites,
         'articles_count': articles_count,
         'activites_count': activites_count,
-        "footer": footer
+        "footer": footer,
+        "mission": mission,
     }
     return render(request, 'activite/activite.html', context)
 
@@ -203,12 +205,14 @@ def article(request):
     articles_count = Article.objects.filter(archive=False).order_by('-date').count()
     articles = Article.objects.filter(archive=False).order_by('-date')
     footer = Footer.objects.filter(label="Footer")
+    mission = Mission.objects.get(label="Mission")
 
     context = {
         "articles": articles,
         "articles_count": articles_count,
         "activites_count": activites_count,
-        "footer": footer
+        "footer": footer,
+        "mission": mission,
     }
     return render(request, 'article/article.html', context)
 
