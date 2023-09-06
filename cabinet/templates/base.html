@@ -90,7 +90,7 @@
           <li class="{% block active_acceuil %}{% endblock %}"><a href="{% url 'acceuil' %}">Acceuil</a></li>
           <li class="{% block active_nosolutions %}{% endblock %}"><a href="{% url 'solution' %}">Nos solutions</a></li>
           {% if articles_count %}
-          <li class="{% block active_articles %}{% endblock %}"><a href="{% url 'article' %}">Articles</a></li>
+          <!--<li class="{% block active_articles %}{% endblock %}"><a href="{% url 'article' %}">Articles</a></li>-->
           {% endif %}
 
           {% if activites_count %}
@@ -429,22 +429,75 @@
       </div>
     </div>
 
-    <div data-aos="fade-up" style="background-color:#2c2c54 ;padding:1px">
-      <div class="container" style="width:70%;color:white">
-        <p>
-          {{mission.mot_des_clients|safe}}
-        </p>
+    <div data-aos="fade-up" style="background-color:#2c2c54">
+      <div class="container" style="width:100%;color:white">
+        <br><br>
+
+        <div class="card-body">
+          <table id="example1" style="color:#fff" class="table  table-responsive">
+            <tbody>
+              <tr>
+                <td style="font-size:22px">
+                  Dr Aboume T. KOMINA est un grand homme qui est doté de capacités énormes de formateur et d'accompagnateur
+                  dans les domaines du management et du leadership. Il est très éloquent et d'un caractère très humble.
+
+                  J'ai eu la chance de recevoir de lui une formation en leadership et gouvernance d'entreprise au sein
+                  de l'entreprise dont je suis le DAF. Depuis ce temps j'avoue que mes capacités managériales et ma personnalité
+                  se sont améliorées très positivement.
+
+                  Je vous le recommande vivement !
+                </td>
+              </tr>
+              <tr>
+                <td style="font-size:22px;font-style:italic">
+                  Prince ASSOU Yao - Responsable Administratif et financier
+                </td>
+              </tr>
+              <tr>
+                <td style="font-size:22px">
+                  <br>
+                  Nous avons eux le plaisir de travailler avec Dr KOMINA dans I'accompagnement des TPME avec I approche
+                  CEFE dans I laquelle nous sommes tous certifiés Formateur. il faut reconnaitre que Dr KOMINA exprime
+                  une compétences hors norme en matière de facilitation et interaction avec son audience. ceci reste une
+                  qualité indéniable dans de telle approche ou le changement et la transformation intérieure après
+                  la formation reste pour nous la clé de réussite.
+                </td>
+              </tr>
+              <tr>
+                <td style="font-size:22px;font-style:italic">
+                  Bikiliwé MISSA - Conseiller en financement
+                </td>
+              </tr>
+              <tr>
+                <td style="font-size:22px">
+                  <br>
+                  Nous avons eu le plaisir d'être accompagné en développement personnel et relationnel en entreprise
+                  par l'expert Komina. Nous pouvons vous rassurer que cet accompagnement vous permettra de challenger et de voir loin.
+                  Merci mon expert.
+                </td>
+              </tr>
+              <tr>
+                <td style="font-size:22px;font-style:italic">
+                  Kpogli Koffitse - Directeur chez SAM Company
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <!-- /.card-body -->
+
+        <br><br>
       </div>
     </div>
 
     <section data-aos="fade-up" class="text-center">
-      <div style="" class="">
+      <div style="">
         <p>
           <img src="https://media.licdn.com/dms/image/D4D22AQHD_L2Iso-oSQ/feedshare-shrink_2048_1536/0/1693558031712?e=1697068800&v=beta&t=Lke5wRwV1Mlqy8HNvQko2J9sY3vPX3r_xbhJSZZ5AkE"
-               style="object-fit: cover;width:50%;height:550px;" alt="">
+               style="object-fit: cover;width:60%;height:80% " alt="">
         </p>
         <br>
-        <div class="container" style="width:60%">
+        <div class="container col-lg-12 col-12" style="width:100%">
           <div class="text-justify" style="font-size:22px">
             {{mission.mot_du_dg|safe}}
             <br><br>

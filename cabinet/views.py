@@ -177,6 +177,7 @@ def solution(request):
     activites_count = Activite.objects.filter(archive=False).order_by('-date').count()
     articles_count = Article.objects.filter(archive=False).order_by('-date').count()
     nossolutions = NosSolutions.objects.get(label="NosSolutions")
+    mission = Mission.objects.get(label="Mission")
     footer = Footer.objects.filter(label="Footer")
     return render(request, 'solution/solution.html', locals())
 
@@ -222,6 +223,7 @@ def apropos(request):
     articles_count = Article.objects.filter(archive=False).order_by('-date').count()
     propos = Apropos.objects.get(label="Apropos")
     footer = Footer.objects.filter(label="Footer")
+    mission = Mission.objects.get(label="Mission")
     return render(request, 'apropos/apropos.html', locals())
 
 
