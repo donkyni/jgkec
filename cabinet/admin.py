@@ -1,7 +1,8 @@
 from django.contrib import admin
 from django_summernote.admin import SummernoteModelAdmin
 from .models import Contact, Article, Activite, Footer, Tel, Solution, Mission, BanniereAccueil, LibelleSolution, Email, \
-    Apropos, NosSolutions, HistoriqueActivite
+    Apropos, NosSolutions, HistoriqueActivite, Financement, Diamond, Productivite, Valeur, NotreMission, Expertise, \
+    MotDuDG, Performance
 
 
 # Register your models here.
@@ -56,6 +57,86 @@ class BanniereAccueilAdmin(admin.ModelAdmin):
 
 
 admin.site.register(BanniereAccueil, BanniereAccueilAdmin)
+
+
+class MotDuDGAdmin(admin.ModelAdmin):
+    list_display = ('label', 'image', 'titre', 'libelle', 'voirplus', 'date')
+    list_filter = ('image', 'titre', 'libelle', 'voirplus', 'date')
+    ordering = ('image', 'titre', 'libelle', 'voirplus', 'date')
+    search_fields = ('image', 'titre', 'libelle', 'voirplus', 'date')
+
+
+admin.site.register(MotDuDG, MotDuDGAdmin)
+
+
+class ExpertiseAdmin(admin.ModelAdmin):
+    list_display = ('libelle', 'date')
+    list_filter = ('libelle', 'date')
+    ordering = ('libelle', 'date')
+    search_fields = ('libelle', 'date')
+
+
+admin.site.register(Expertise, ExpertiseAdmin)
+
+
+class NotreMissionAdmin(admin.ModelAdmin):
+    list_display = ('label', 'titre', 'libelle', 'voirplus', 'date')
+    list_filter = ('titre', 'libelle', 'voirplus', 'date')
+    ordering = ('titre', 'libelle', 'voirplus', 'date')
+    search_fields = ('titre', 'libelle', 'voirplus', 'date')
+
+
+admin.site.register(NotreMission, NotreMissionAdmin)
+
+
+class ValeurAdmin(admin.ModelAdmin):
+    list_display = ('titre', 'libelle', 'voirplus', 'date')
+    list_filter = ('titre', 'libelle', 'voirplus', 'date')
+    ordering = ('titre', 'libelle', 'voirplus', 'date')
+    search_fields = ('titre', 'libelle', 'voirplus', 'date')
+
+
+admin.site.register(Valeur, ValeurAdmin)
+
+
+class ProductiviteAdmin(admin.ModelAdmin):
+    list_display = ('titre', 'libelle', 'voirplus', 'date')
+    list_filter = ('titre', 'libelle', 'voirplus', 'date')
+    ordering = ('titre', 'libelle', 'voirplus', 'date')
+    search_fields = ('titre', 'libelle', 'voirplus', 'date')
+
+
+admin.site.register(Productivite, ProductiviteAdmin)
+
+
+class DiamondAdmin(admin.ModelAdmin):
+    list_display = ('titre', 'libelle', 'voirplus', 'date')
+    list_filter = ('titre', 'libelle', 'voirplus', 'date')
+    ordering = ('titre', 'libelle', 'voirplus', 'date')
+    search_fields = ('titre', 'libelle', 'voirplus', 'date')
+
+
+admin.site.register(Diamond, DiamondAdmin)
+
+
+class FinancementAdmin(admin.ModelAdmin):
+    list_display = ('titre', 'libelle', 'voirplus', 'date')
+    list_filter = ('titre', 'libelle', 'voirplus', 'date')
+    ordering = ('titre', 'libelle', 'voirplus', 'date')
+    search_fields = ('titre', 'libelle', 'voirplus', 'date')
+
+
+admin.site.register(Financement, FinancementAdmin)
+
+
+class PerformanceAdmin(admin.ModelAdmin):
+    list_display = ('libelle', 'voirplus', 'date')
+    list_filter = ('libelle', 'voirplus', 'date')
+    ordering = ('libelle', 'voirplus', 'date')
+    search_fields = ('libelle', 'voirplus', 'date')
+
+
+admin.site.register(Performance, PerformanceAdmin)
 
 
 class MissionAdmin(admin.ModelAdmin):

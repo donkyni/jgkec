@@ -9,9 +9,11 @@ from django.shortcuts import render, redirect, get_object_or_404
 from django.template.loader import render_to_string
 
 from cabinet.forms import ContactForm, ArticleForm, ActiviteForm, DeleteMessage, BanniereAccueilForm, MissionForm, \
-    FooterForm, AproposForm, NosSolutionsForm
+    FooterForm, AproposForm, NosSolutionsForm, PerformanceForm, MotDuDGForm, ExpertiseForm, ValeurForm, \
+    NotreMissionForm, ProductiviteForm, DiamondForm, FinancementForm
 from cabinet.models import Article, Activite, Contact, BanniereAccueil, Mission, Solution, Footer, Apropos, \
-    NosSolutions, HistoriqueActivite
+    NosSolutions, HistoriqueActivite, Performance, MotDuDG, Expertise, Valeur, NotreMission, Productivite, Diamond, \
+    Financement
 from django.contrib.auth.models import User
 
 from django.utils import timezone
@@ -84,6 +86,16 @@ def acceuil(request):
     articles_count = Article.objects.filter(archive=False).order_by('-date').count()
     banniereAccueil = BanniereAccueil.objects.get(label="BanniereAccueil")
     mission = Mission.objects.get(label="Mission")
+
+    notremission = NotreMission.objects.get(label="NotreMission")
+    valeur = Valeur.objects.get(label="Valeur")
+    productivite = Productivite.objects.get(label="Productivite")
+    diamond = Diamond.objects.get(label="Diamond")
+    financement = Financement.objects.get(label="Financement")
+    expertise = Expertise.objects.get(label="Expertise")
+    motdudg = MotDuDG.objects.get(label="MotDuDG")
+    performance = Performance.objects.get(label="Performance")
+
     footer = Footer.objects.filter(label="Footer")
     return render(request, 'acceuil.html', locals())
 
@@ -386,7 +398,7 @@ def deleteactiviteadmin(request, id):
         data['form_is_valid'] = True
         activites = Activite.objects.filter(archive=False)
         data['activiteadmin'] = render_to_string('activiteadmin/listactiviteadmin.html',
-                                                 {'activites': activites, 'historique_activite': historique_activite,})
+                                                 {'activites': activites, 'historique_activite': historique_activite, })
     else:
         context = {
             'activite': activite,
@@ -434,40 +446,58 @@ def voirmessageclient(request, id):
 @login_required
 def updatebanniereaccueil(request):
     banniereaccueil = BanniereAccueil.objects.get(label="BanniereAccueil")
-    mission = Mission.objects.get(label="Mission")
+    notremission = NotreMission.objects.get(label="NotreMission")
+    valeur = Valeur.objects.get(label="Valeur")
+    productivite = Productivite.objects.get(label="Productivite")
+    diamond = Diamond.objects.get(label="Diamond")
+    financement = Financement.objects.get(label="Financement")
+    expertise = Expertise.objects.get(label="Expertise")
+    motdudg = MotDuDG.objects.get(label="MotDuDG")
+    performance = Performance.objects.get(label="Performance")
     footer = Footer.objects.get(label="Footer")
 
     """ BanniereAccueil """
 
     if request.method == "POST":
-        b_form = BanniereAccueilForm(request.POST,
-                                     request.FILES,
-                                     instance=banniereaccueil,
-                                     prefix='banniere')
-        m_form = MissionForm(request.POST,
-                             request.FILES,
-                             instance=mission,
-                             prefix='mission')
-        f_form = FooterForm(request.POST,
-                            instance=footer,
-                            prefix='footer')
+        b_form = BanniereAccueilForm(request.POST, request.FILES, instance=banniereaccueil, prefix='banniere')
+        nm_form = NotreMissionForm(request.POST, instance=notremission, prefix='notremission')
+        v_form = ValeurForm(request.POST, instance=valeur, prefix='valeur')
+        pr_form = ProductiviteForm(request.POST, instance=productivite, prefix='productivite')
+        d_form = DiamondForm(request.POST, instance=diamond, prefix='diamond')
+        fi_form = FinancementForm(request.POST, instance=financement, prefix='financement')
+        e_form = ExpertiseForm(request.POST, instance=expertise, prefix='expertise')
+        mdd_form = MotDuDGForm(request.POST, request.FILES, instance=motdudg, prefix='motdudg')
+        p_form = PerformanceForm(request.POST, instance=performance, prefix='performance')
+        f_form = FooterForm(request.POST, instance=footer, prefix='footer')
 
-        if b_form.is_valid() and m_form.is_valid() and f_form.is_valid():
+        if b_form.is_valid() and nm_form.is_valid() and v_form.is_valid() and pr_form.is_valid() and d_form.is_valid() \
+                and fi_form.is_valid() and e_form.is_valid() and mdd_form.is_valid() and p_form.is_valid() \
+                and f_form.is_valid():
             b_form.save()
-            m_form.save()
+            nm_form.save()
+            v_form.save()
+            pr_form.save()
+            d_form.save()
+            fi_form.save()
+            e_form.save()
+            mdd_form.save()
+            p_form.save()
             f_form.save()
             return redirect('updatebanniereaccueil')
 
     else:
-        b_form = BanniereAccueilForm(prefix='banniere',
-                                     instance=banniereaccueil)
-        m_form = MissionForm(prefix='mission',
-                             instance=mission)
-        f_form = FooterForm(prefix='footer',
-                             instance=footer)
+        b_form = BanniereAccueilForm(prefix='banniere', instance=banniereaccueil)
+        nm_form = NotreMissionForm(prefix='notremission', instance=notremission)
+        v_form = ValeurForm(prefix='valeur', instance=valeur)
+        pr_form = ProductiviteForm(prefix='productivite', instance=productivite)
+        d_form = DiamondForm(prefix='diamond', instance=diamond)
+        fi_form = FinancementForm(prefix='financement', instance=financement)
+        e_form = ExpertiseForm(prefix='expertise', instance=expertise)
+        mdd_form = MotDuDGForm(prefix='motdudg', instance=motdudg)
+        p_form = PerformanceForm(prefix='performance', instance=performance)
+        f_form = FooterForm(prefix='footer', instance=footer)
 
-    return render(request, 'parametre/accueil.html',
-                  {'b_form': b_form, 'm_form': m_form, 'f_form': f_form})
+    return render(request, 'parametre/accueil.html', locals())
 
 
 def updateapropos(request):

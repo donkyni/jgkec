@@ -227,26 +227,22 @@
             <br>
             <svg xmlns="http://www.w3.org/2000/svg" height="6em" viewBox="0 0 512 512" style="display: block; margin: 0 auto;"><path fill="white" d="M152.1 38.2c9.9 8.9 10.7 24 1.8 33.9l-72 80c-4.4 4.9-10.6 7.8-17.2 7.9s-12.9-2.4-17.6-7L7 113C-2.3 103.6-2.3 88.4 7 79s24.6-9.4 33.9 0l22.1 22.1 55.1-61.2c8.9-9.9 24-10.7 33.9-1.8zm0 160c9.9 8.9 10.7 24 1.8 33.9l-72 80c-4.4 4.9-10.6 7.8-17.2 7.9s-12.9-2.4-17.6-7L7 273c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0l22.1 22.1 55.1-61.2c8.9-9.9 24-10.7 33.9-1.8zM224 96c0-17.7 14.3-32 32-32H480c17.7 0 32 14.3 32 32s-14.3 32-32 32H256c-17.7 0-32-14.3-32-32zm0 160c0-17.7 14.3-32 32-32H480c17.7 0 32 14.3 32 32s-14.3 32-32 32H256c-17.7 0-32-14.3-32-32zM160 416c0-17.7 14.3-32 32-32H480c17.7 0 32 14.3 32 32s-14.3 32-32 32H192c-17.7 0-32-14.3-32-32zM48 368a48 48 0 1 1 0 96 48 48 0 1 1 0-96z"/></svg>
             <div class="card-body" style="color:#fff">
-              <h5 class="card-title text-center" style="font-size:25px">
+              <h5 class="card-title text-center" style="color:white;font-size:25px">
                 <br>
-                Notre mission</h5>
+                {{notremission.titre|safe}}</h5>
                 <br>
-              <p class="card-text">Améliorer les vies en habilitant les personnes et les organisations.</p>
+              <p class="card-text">{{notremission.libelle|safe}}</p>
             </div>
             <br>
             <svg xmlns="http://www.w3.org/2000/svg" height="6em" viewBox="0 0 640 512" style="display: block; margin: 0 auto;"><path fill="white" d="M320 0a128 128 0 1 1 0 256A128 128 0 1 1 320 0zM40 64c22.1 0 40 17.9 40 40v40 80 40.2c0 17 6.7 33.3 18.7 45.3l51.1 51.1c8.3 8.3 21.3 9.6 31 3.1c12.9-8.6 14.7-26.9 3.7-37.8l-15.2-15.2-32-32c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l32 32 15.2 15.2 0 0 25.3 25.3c21 21 32.8 49.5 32.8 79.2V464c0 26.5-21.5 48-48 48H173.3c-17 0-33.3-6.7-45.3-18.7L28.1 393.4C10.1 375.4 0 351 0 325.5V224 160 104C0 81.9 17.9 64 40 64zm560 0c22.1 0 40 17.9 40 40v56 64V325.5c0 25.5-10.1 49.9-28.1 67.9L512 493.3c-12 12-28.3 18.7-45.3 18.7H400c-26.5 0-48-21.5-48-48V385.1c0-29.7 11.8-58.2 32.8-79.2l25.3-25.3 0 0 15.2-15.2 32-32c12.5-12.5 32.8-12.5 45.3 0s12.5 32.8 0 45.3l-32 32-15.2 15.2c-11 11-9.2 29.2 3.7 37.8c9.7 6.5 22.7 5.2 31-3.1l51.1-51.1c12-12 18.7-28.3 18.7-45.3V224 144 104c0-22.1 17.9-40 40-40z"/></svg>
             <div class="card-body" style="color:#fff">
-              <h5 class="card-title text-center" style="font-size:25px">Nos valeurs</h5>
+              <h5 class="card-title text-center" style="font-size:25px">{{valeur.titre|safe}}</h5>
               <p class="card-text">
-                <ul>
-              <li><span style="font-style:italic; font-weight:bold">L’intégrité :</span> qui nous oblige à servir et à rechercher ce qu’il y a de mieux pour nos clients.</li>
-              <li><span style="font-style:italic; font-weight:bold">La bienveillance :</span> qui contribue à l’instauration d’un climat de confiance et à l’amélioration de nos interactions.</li>
-              <li><span style="font-style:italic; font-weight:bold">Le professionnalisme :</span> qui nous permet de garantir la qualité de nos services pour la satisfaction de nos clients.</li>
-                </ul>
+                {{valeur.libelle|safe}}
               </p>
             </div>
             <div class="card-footer text-center">
-              <a href="{% url 'contacteznous' %}" class="btn btn-lg btn-primary" style="border: 1px solid #462446; background-color: #462446">Prendre un rendez-vous</a>
+              <a href="{% url 'contacteznous' %}" class="btn btn-lg btn-primary" style="border: 1px solid #462446; background-color: #462446">{{valeur.voirplus}}</a>
             </div>
           </div>
         </div>
@@ -257,20 +253,14 @@
             <div class="card-body" style="color:#fff">
               <h5 class="card-title text-center" style="font-size:25px">
                 <br>
-                En vue d'augmenter la performance et la productivité de vos équipes</h5>
+                {{productivite.titre|safe}}</h5>
                 <br>
               <p class="card-text">
-                Nous aidons les petites et les grandes entreprises ainsi que les autres types d’organisations à accroître leurs résultats et leurs profits à travers :
-                <br><br>
-                <ul>
-                  <li>Le renforcement des capacités techniques et managériales de leurs dirigeants ;</li>
-                  <li>L’évaluation de la viabilité ainsi que de la faisabilité commerciale et technique de leurs projets ;</li>
-                  <li>La facilitation d’accès aux ressources financières adaptées à la nature de leur projet.</li>
-                </ul>
+                {{productivite.libelle|safe}}
               </p>
             </div>
             <div class="card-footer text-center">
-              <a href="{% url 'contacteznous' %}" class="btn btn-lg btn-primary" style="border: 1px solid #462446; background-color: #462446">Prendre un rendez-vous</a>
+              <a href="{% url 'contacteznous' %}" class="btn btn-lg btn-primary" style="border: 1px solid #462446; background-color: #462446">{{productivite.voirplus}}</a>
             </div>
           </div>
         </div>
@@ -281,21 +271,14 @@
             <div class="card-body" style="color:#fff">
               <h5 class="card-title text-center" style="font-size:25px">
                 <br>
-                Programme DIAMOND</h5>
+                {{diamond.titre|safe}}</h5>
                 <br>
               <p class="card-text">
-                Notre programme Diamond a pour but de renforcer le leadership et les capacités managériales de ses bénéficiaires.
-                <br><br>
-                Il se déroule en trois phases essentielles :
-                <ul>
-                  <li><b>Le diagnostic</b> : pour identifier vos objectifs, clarifier vos forces et vos faiblesses et établir un plan d’accompagnement à votre profit.</li>
-                  <li><b>La formation</b> : pour vous équiper des compétences et des outils nécessaires à l’atteinte de vos objectifs.</li>
-                  <li><b>Le suivi post-formation</b> : pour assurer la mise en pratique des compétences acquises et vous apporter le soutien utile à l’atteinte de vos objectifs.</li>
-                </ul>
+                {{diamond.libelle|safe}}
               </p>
             </div>
             <div class="card-footer text-center">
-              <a href="{% url 'contacteznous' %}" class="btn btn-lg btn-primary" style="border: 1px solid #462446; background-color: #462446">Prendre un rendez-vous</a>
+              <a href="{% url 'contacteznous' %}" class="btn btn-lg btn-primary" style="border: 1px solid #462446; background-color: #462446">{{diamond.voirplus}}</a>
             </div>
           </div>
         </div>
@@ -304,19 +287,15 @@
             <br>
             <svg xmlns="http://www.w3.org/2000/svg" height="6em" viewBox="0 0 640 512" style="display: block; margin: 0 auto;"><path fill="white" d="M320 0a128 128 0 1 1 0 256A128 128 0 1 1 320 0zM40 64c22.1 0 40 17.9 40 40v40 80 40.2c0 17 6.7 33.3 18.7 45.3l51.1 51.1c8.3 8.3 21.3 9.6 31 3.1c12.9-8.6 14.7-26.9 3.7-37.8l-15.2-15.2-32-32c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l32 32 15.2 15.2 0 0 25.3 25.3c21 21 32.8 49.5 32.8 79.2V464c0 26.5-21.5 48-48 48H173.3c-17 0-33.3-6.7-45.3-18.7L28.1 393.4C10.1 375.4 0 351 0 325.5V224 160 104C0 81.9 17.9 64 40 64zm560 0c22.1 0 40 17.9 40 40v56 64V325.5c0 25.5-10.1 49.9-28.1 67.9L512 493.3c-12 12-28.3 18.7-45.3 18.7H400c-26.5 0-48-21.5-48-48V385.1c0-29.7 11.8-58.2 32.8-79.2l25.3-25.3 0 0 15.2-15.2 32-32c12.5-12.5 32.8-12.5 45.3 0s12.5 32.8 0 45.3l-32 32-15.2 15.2c-11 11-9.2 29.2 3.7 37.8c9.7 6.5 22.7 5.2 31-3.1l51.1-51.1c12-12 18.7-28.3 18.7-45.3V224 144 104c0-22.1 17.9-40 40-40z"/></svg>
             <div class="card-body" style="color:#fff">
-              <h5 class="card-title text-center" style="font-size:25px">Facilitation d'accès au financement</h5>
+              <h5 class="card-title text-center" style="font-size:25px">
+                <br>{{financement.titre|safe}}</h5>
               <p class="card-text">
-                Le financement est indispensable au développement des entreprises. C’est pour cela que nous vous proposons différents services pour vous permettre d’y accéder plus facilement :
-                <br><br>
-                <ul>
-              <li><span style="font-style:italic; font-weight:bold">Étude de marché :</span> pour confronter votre idée aux réalités de votre secteur et réduire les risques d’échec.</li>
-              <li><span style="font-style:italic; font-weight:bold">Etablissement du business plan :</span> pour faciliter le pilotage de votre projet entrepreneurial et la mobilisation des ressources financières requises pour sa mise en œuvre.</li>
-              <li><span style="font-style:italic; font-weight:bold">La recherche de financement :</span> Grâce à nos partenariats et à notre expérience en la matière, nous vous aidons à concrétiser votre projet.</li>
-                </ul>
+                {{financement.libelle|safe}}
               </p>
+              <br><br>
             </div>
             <div class="card-footer text-center">
-              <a href="{% url 'contacteznous' %}" class="btn btn-lg btn-primary" style="border: 1px solid #462446; background-color: #462446">Prendre un rendez-vous</a>
+              <a href="{% url 'contacteznous' %}" class="btn btn-lg btn-primary" style="border: 1px solid #462446; background-color: #462446">{{financement.voirplus}}</a>
             </div>
           </div>
         </div>
@@ -328,7 +307,9 @@
       <br><br>
       <div style="background-color:#f1f2f6;padding:1px">
         <br><br>
-        <span style="font-size:28px;color:#2d3436;font-weight:bold;font-style:italic">{{mission.notreexpertise|safe}}</span>
+        <span style="font-size:28px;color:#2d3436;font-weight:bold;font-style:italic">
+          {{expertise.libelle|safe}}
+        </span>
         <br><br>
       </div>
 
@@ -497,7 +478,7 @@
     <div data-aos="fade-up" class="text-center">
       <div>
         <br><br>
-        <p class="container" style="font-size:40px;font-weight:bold;text-align:left;text-decoration:underline">Mot du Directeur</p>
+        <p class="container" style="font-size:40px;font-weight:bold;text-align:left;text-decoration:underline">{{motdudg.titre|safe}}</p>
         <br>
         <p>
           <img src="https://media.licdn.com/dms/image/D4D22AQHD_L2Iso-oSQ/feedshare-shrink_2048_1536/0/1693558031712?e=1697068800&v=beta&t=Lke5wRwV1Mlqy8HNvQko2J9sY3vPX3r_xbhJSZZ5AkE"
@@ -506,12 +487,12 @@
         <br>
         <div class="container col-lg-12 col-12" style="width:100%">
           <div class="text-justify" style="font-size:22px">
-            {{mission.mot_du_dg|safe}}
-            <br><br>
+            {{motdudg.libelle|safe}}
+            <br>
           </div>
         </div>
         <a href="{% url 'contacteznous' %}">
-          <span class="btn btn-dark btn-lg mx-auto" style="border: 1px solid #462646; background-color: #462646;font-size:28px">{{mission.voirplus}}</span>
+          <span class="btn btn-dark btn-lg mx-auto" style="border: 1px solid #462646; background-color: #462646;font-size:28px">{{motdudg.voirplus}}</span>
         </a>
         <br><br><br><br>
       </div>
@@ -520,10 +501,10 @@
     <div data-aos="fade-up" class="text-center">
       <div style="background-color:#f1f2f6;padding:1px">
         <br><br>
-        <span style="font-size:30px;color:#2d3436;">{{ mission.niveau_performance|safe }}</span>
-        <br><br>
+        <span style="font-size:40px;font-weight:600;color:#2d3436;">{{performance.libelle|safe}}</span>
+        <br>
         <a href="{% url 'contacteznous' %}">
-          <span class="btn btn-dark btn-lg mx-auto" style="border: 1px solid #462646; background-color: #462646;font-size:28px">{{mission.voirplus}}</span>
+          <span class="btn btn-dark btn-lg mx-auto" style="border: 1px solid #462646; background-color: #462646;font-size:28px">{{performance.voirplus}}</span>
         </a>
         <br><br><br><br>
       </div>

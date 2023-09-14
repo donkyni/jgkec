@@ -52,6 +52,68 @@ class BanniereAccueil(models.Model):
     date = models.DateTimeField(auto_now_add=True, null=True)
 
 
+class Performance(models.Model):
+    label = models.CharField(max_length=255, null=True, blank=True, default="Performance")
+    libelle = models.TextField(verbose_name="Libellé Performance", null=True, blank=True)
+    voirplus = models.CharField(max_length=255, null=True, blank=True)
+    date = models.DateTimeField(auto_now_add=True, null=True)
+
+
+class MotDuDG(models.Model):
+    label = models.CharField(max_length=255, null=True, blank=True, default="Expertise")
+    image = models.ImageField(blank=True, null=True, upload_to="motdudg/")
+    titre = models.TextField(verbose_name="Titre mot du DG", null=True, blank=True)
+    libelle = models.TextField(verbose_name="Libellé mot du DG", null=True, blank=True)
+    voirplus = models.CharField(max_length=255, null=True, blank=True)
+    date = models.DateTimeField(auto_now_add=True, null=True)
+
+
+class Expertise(models.Model):
+    label = models.CharField(max_length=255, null=True, blank=True, default="Expertise")
+    libelle = models.TextField(verbose_name="Libellé Expertise", null=True, blank=True)
+    date = models.DateTimeField(auto_now_add=True, null=True)
+
+
+class NotreMission(models.Model):
+    label = models.CharField(max_length=255, null=True, blank=True, default="NotreMission")
+    titre = models.TextField(verbose_name="Titre mission", null=True, blank=True)
+    libelle = models.TextField(verbose_name="Libellé mission", null=True, blank=True)
+    voirplus = models.CharField(max_length=255, null=True, blank=True)
+    date = models.DateTimeField(auto_now_add=True, null=True)
+
+
+class Valeur(models.Model):
+    label = models.CharField(max_length=255, null=True, blank=True, default="Valeur")
+    titre = models.TextField(verbose_name="Titre Valeur", null=True, blank=True)
+    libelle = models.TextField(verbose_name="Libellé Valeur", null=True, blank=True)
+    voirplus = models.CharField(max_length=255, null=True, blank=True)
+    date = models.DateTimeField(auto_now_add=True, null=True)
+
+
+class Productivite(models.Model):
+    label = models.CharField(max_length=255, null=True, blank=True, default="Productivite")
+    titre = models.TextField(verbose_name="Titre productivité", null=True, blank=True)
+    libelle = models.TextField(verbose_name="Libellé productivité", null=True, blank=True)
+    voirplus = models.CharField(max_length=255, null=True, blank=True)
+    date = models.DateTimeField(auto_now_add=True, null=True)
+
+
+class Diamond(models.Model):
+    label = models.CharField(max_length=255, null=True, blank=True, default="Diamond")
+    titre = models.TextField(verbose_name="Titre Diamond", null=True, blank=True)
+    libelle = models.TextField(verbose_name="Libellé Diamond", null=True, blank=True)
+    voirplus = models.CharField(max_length=255, null=True, blank=True)
+    date = models.DateTimeField(auto_now_add=True, null=True)
+
+
+class Financement(models.Model):
+    label = models.CharField(max_length=255, null=True, blank=True, default="Financement")
+    titre = models.TextField(verbose_name="Titre Financement", null=True, blank=True)
+    libelle = models.TextField(verbose_name="Libellé Financement", null=True, blank=True)
+    voirplus = models.CharField(max_length=255, null=True, blank=True)
+    date = models.DateTimeField(auto_now_add=True, null=True)
+
+
 class Mission(models.Model):
     label = models.CharField(max_length=255, null=True, blank=True, default="Mission")
     titre = models.CharField(max_length=255, null=True, blank=True)

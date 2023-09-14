@@ -3,7 +3,10 @@ import uuid
 from django import forms
 from django_summernote.widgets import SummernoteWidget
 from cabinet.models import Contact, Activite, Article, BanniereAccueil, Mission, LibelleSolution, Solution, Tel, Footer, \
-    Email, Apropos, NosSolutions
+    Email, Apropos, NosSolutions, MotDuDG, Financement, Diamond, Productivite, Valeur, NotreMission, Expertise, \
+    Performance
+
+from django_summernote.fields import SummernoteTextField
 
 
 class ContactForm(forms.ModelForm):
@@ -54,6 +57,131 @@ class BanniereAccueilForm(forms.ModelForm):
         widgets = {
 
             'label': forms.TextInput(attrs={'disabled': 'true'}),
+            'libelle': SummernoteWidget(),
+        }
+        enctype = 'multipart/form-data'
+
+
+class PerformanceForm(forms.ModelForm):
+    class Meta:
+        model = Performance
+
+        libelle = SummernoteTextField()
+
+        fields = ['label', 'libelle', 'voirplus']
+        widgets = {
+
+            'label': forms.TextInput(attrs={'disabled': 'true'}),
+            'libelle': SummernoteWidget(),
+        }
+
+
+class ExpertiseForm(forms.ModelForm):
+    class Meta:
+        model = Expertise
+
+        libelle = SummernoteTextField()
+
+        fields = ['label', 'libelle']
+        widgets = {
+
+            'label': forms.TextInput(attrs={'disabled': 'true'}),
+            'libelle': SummernoteWidget(),
+        }
+
+
+class NotreMissionForm(forms.ModelForm):
+    class Meta:
+        model = NotreMission
+
+        titre = SummernoteTextField()
+        libelle = SummernoteTextField()
+
+        fields = ['label', 'titre', 'libelle', 'voirplus']
+        widgets = {
+
+            'label': forms.TextInput(attrs={'disabled': 'true'}),
+            'titre': SummernoteWidget(),
+            'libelle': SummernoteWidget(),
+        }
+
+
+class ValeurForm(forms.ModelForm):
+    class Meta:
+        model = Valeur
+
+        titre = SummernoteTextField()
+        libelle = SummernoteTextField()
+
+        fields = ['label', 'titre', 'libelle', 'voirplus']
+        widgets = {
+
+            'label': forms.TextInput(attrs={'disabled': 'true'}),
+            'titre': SummernoteWidget(),
+            'libelle': SummernoteWidget(),
+        }
+
+
+class ProductiviteForm(forms.ModelForm):
+    class Meta:
+        model = Productivite
+
+        titre = SummernoteTextField()
+        libelle = SummernoteTextField()
+
+        fields = ['label', 'titre', 'libelle', 'voirplus']
+        widgets = {
+
+            'label': forms.TextInput(attrs={'disabled': 'true'}),
+            'titre': SummernoteWidget(),
+            'libelle': SummernoteWidget(),
+        }
+
+
+class DiamondForm(forms.ModelForm):
+    class Meta:
+        model = Diamond
+
+        titre = SummernoteTextField()
+        libelle = SummernoteTextField()
+
+        fields = ['label', 'titre', 'libelle', 'voirplus']
+        widgets = {
+
+            'label': forms.TextInput(attrs={'disabled': 'true'}),
+            'titre': SummernoteWidget(),
+            'libelle': SummernoteWidget(),
+        }
+
+
+class FinancementForm(forms.ModelForm):
+    class Meta:
+        model = Financement
+
+        titre = SummernoteTextField()
+        libelle = SummernoteTextField()
+
+        fields = ['label', 'titre', 'libelle', 'voirplus']
+        widgets = {
+
+            'label': forms.TextInput(attrs={'disabled': 'true'}),
+            'titre': SummernoteWidget(),
+            'libelle': SummernoteWidget(),
+        }
+
+
+class MotDuDGForm(forms.ModelForm):
+    class Meta:
+        model = MotDuDG
+
+        titre = SummernoteTextField()
+        libelle = SummernoteTextField()
+
+        fields = ['label', 'image', 'titre', 'libelle', 'voirplus']
+        widgets = {
+
+            'label': forms.TextInput(attrs={'disabled': 'true'}),
+            'titre': SummernoteWidget(),
             'libelle': SummernoteWidget(),
         }
         enctype = 'multipart/form-data'
