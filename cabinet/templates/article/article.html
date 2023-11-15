@@ -39,24 +39,48 @@ active
 
       <section>
           <div class="container" data-aos="fade-up">
-              <div class="row mr-3 mb-3 justify-content-evenly">
-                  {% for article in articles %}
-                  <div class="col-lg-6 col-12 ">
-                      <div class="text-center">
-                          {% if article.image.url is not None %}
-                          <img class="img-fluid px-3 px-sm-4 mt-3 mb-4" style="width: 650px;height:300px;object-fit:cover"
-                               src="{{article.image.url}}" alt="...">
-                          {% endif %}
-                      </div>
-                      <p style="color:#282830;font-size:18px;font-weight:700" class="text-justify">
-                          {{article.titre|safe}}
-                      </p>
-                      <p class="text-justify">
-                          {{article.texte|safe}}
-                      </p>
+            <div class="card mb-3" style="max-width: 540px;">
+                <div class="row g-0">
+                    <div class="col-md-5">
+                      <img src="https://images.unsplash.com/photo-1682687219612-b12805df750d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1887&q=80" class="img-fluid rounded-start" alt="...">
+                    </div>
+                <div class="col-md-7">
+                  <div class="card-body">
+                    <h5 class="card-title">Card title</h5>
+                    <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                    <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
                   </div>
-                  {% endfor %}
-              </div>
+                </div>
+                </div>
+            </div>
+            <div class="card mb-3" style="max-width: 540px;">
+                <div class="row g-0">
+                    <div class="col-md-4">
+                      <img src="https://images.unsplash.com/photo-1682687219612-b12805df750d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1887&q=80" class="img-fluid rounded-start" alt="...">
+                    </div>
+                <div class="col-md-8">
+                  <div class="card-body">
+                    <h5 class="card-title">Card title</h5>
+                    <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                    <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+                  </div>
+                </div>
+                </div>
+            </div>
+            <div class="card mb-3" style="max-width: 540px;">
+                <div class="row g-0">
+                    <div class="col-md-4">
+                      <img src="https://images.unsplash.com/photo-1682687219612-b12805df750d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1887&q=80" class="img-fluid rounded-start" alt="...">
+                    </div>
+                <div class="col-md-8">
+                  <div class="card-body">
+                    <h5 class="card-title">Card title</h5>
+                    <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                    <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+                  </div>
+                </div>
+                </div>
+            </div>
           </div>
       </section>
   </main>
