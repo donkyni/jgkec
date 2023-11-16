@@ -1,39 +1,28 @@
 {% for message in messages %}
-{% if message.lu %}
 <tr>
-  <td class="text-left" style="font-size:18px">
+  <td class="text-left" style="font-size:20px">
     {{message.nom}} {{message.prenom}}
     <br>
-    <span class="badge badge-sm badge-secondary"><a href="{% url 'voirmessageclient' message.id %}" style="color:#fff">Cliquez pour voir le message ></a></span>
+    <!--
+    <span class="badge badge-sm badge-secondary">
+      <a href="{% url 'voirmessageclient' message.id %}" style="color:#fff">Cliquez pour voir le message ></a>
+    </span>
+    -->
   </td>
-  <td class="text-left" style="font-size:17px"><span class="badge badge-sm badge-secondary">{{message.fonction}}</span></td>
-  <td class="text-left" style="font-size:17px"><span class="badge badge-sm badge-secondary">{{message.objet}}</span></td>
-  <td class="text-left" style="font-size:18px"><span class="badge badge-sm badge-secondary">{{message.date}}</span></td>
+  <td class="text-left" style="font-size:20px"><span class="badge badge-sm badge-secondary">{{message.mail}}</span></td>
+  <td class="text-left" style="font-size:20px"><span class="badge badge-sm badge-secondary">{{message.telephone}}</span></td>
+  <td class="text-left" style="font-size:20px"><span class="badge badge-sm badge-secondary">{{message.pays}}</span></td>
+  <td class="text-left" style="font-size:20px"><span class="badge badge-sm badge-secondary">{{message.date}}</span></td>
+
+  <!--
   <td>
     <button disabled class="btn btn-secondary btn-sm show-form-delete" data-url="{% url 'deletemessageadmin' message.id %}">
       Ce message a été lu
       <i class="fas fa-check"></i>
     </button>
   </td>
+  -->
 </tr>
-{% elif not message.lu %}
-<tr>
-  <td class="text-left" style="font-size:18px">
-    {{message.nom}} {{message.prenom}}
-    <br>
-    <span class="badge badge-sm badge-success"><a href="{% url 'voirmessageclient' message.id %}" style="color:#fff">Cliquez pour voir le message ></a></span>
-  </td>
-  <td class="text-left" style="font-size:17px"><span class="badge badge-sm badge-success">{{message.fonction}}</span></td>
-  <td class="text-left" style="font-size:17px"><span class="badge badge-sm badge-success">{{message.objet}}</span></td>
-  <td class="text-left" style="font-size:18px"><span class="badge badge-sm badge-success">{{message.date}}</span></td>
-  <td>
-    <button class="btn btn-success btn-sm show-form-delete" data-url="{% url 'deletemessageadmin' message.id %}">
-      Marquer comme lu
-      <i class="fas fa-check"></i>
-    </button>
-  </td>
-</tr>
-{% endif %}
 {% empty %}
 <tr>
   <td colspan="6" style="background:lightblue;text-align:center;font-weight:700">Aucun message n'est disponible pour le moment !</td>

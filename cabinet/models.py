@@ -3,6 +3,16 @@ import uuid
 from django.db import models
 
 
+class Message(models.Model):
+    nom = models.CharField(max_length=255, null=True, verbose_name="Nom")
+    prenom = models.CharField(max_length=255, null=True, blank=True, verbose_name="Prénom")
+    mail = models.EmailField(null=True, verbose_name="Adresse email")
+    telephone = models.CharField(verbose_name="Numéro de téléphone", max_length=15, null=True, default="(+000) 12345678")
+    pays = models.CharField(max_length=255, null=True, verbose_name="Pays")
+    date = models.DateTimeField(null=True, auto_now_add=True, blank=True)
+    archive = models.BooleanField(default=False)
+
+
 class Contact(models.Model):
     collapse = models.UUIDField(default=uuid.uuid4, editable=False)
     prenom = models.CharField(max_length=255, null=True, blank=True, verbose_name="Prénom")

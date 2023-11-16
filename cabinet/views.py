@@ -10,10 +10,10 @@ from django.template.loader import render_to_string
 
 from cabinet.forms import ContactForm, ArticleForm, ActiviteForm, DeleteMessage, BanniereAccueilForm, MissionForm, \
     FooterForm, AproposForm, NosSolutionsForm, PerformanceForm, MotDuDGForm, ExpertiseForm, ValeurForm, \
-    NotreMissionForm, ProductiviteForm, DiamondForm, FinancementForm
+    NotreMissionForm, ProductiviteForm, DiamondForm, FinancementForm, MessageForm
 from cabinet.models import Article, Activite, Contact, BanniereAccueil, Mission, Solution, Footer, Apropos, \
     NosSolutions, HistoriqueActivite, Performance, MotDuDG, Expertise, Valeur, NotreMission, Productivite, Diamond, \
-    Financement
+    Financement, Message
 from django.contrib.auth.models import User
 
 from django.utils import timezone
@@ -244,6 +244,8 @@ def contacteznous(request):
     articles_count = Article.objects.filter(archive=False).order_by('-date').count()
     mission = Mission.objects.get(label="Mission")
     footer = Footer.objects.filter(label="Footer")
+
+    """
     if request.method == 'POST':
         form = ContactForm(request.POST)
         if form.is_valid():
@@ -251,6 +253,15 @@ def contacteznous(request):
             return redirect('contacteznous')
     else:
         form = ContactForm()
+    """
+
+    if request.method == 'POST':
+        form = MessageForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('contacteznous')
+    else:
+        form = MessageForm()
 
     context = {
         'form': form,
@@ -273,14 +284,15 @@ def feedback(request):
 def dashboard(request):
     count_articles = Article.objects.filter(archive=False).count()
     count_activites = Activite.objects.filter(archive=False).count()
-    count_contacts = Contact.objects.filter(archive=False).count()
+    # count_contacts = Contact.objects.filter(archive=False).count()
+    count_message = Message.objects.filter(archive=False).count()
+    trois_derniers_message = Message.objects.filter(archive=False).order_by('-date')[:3]
     admin_count = User.objects.filter(is_staff=True, is_superuser=True).count()
-    trois_derniers_contacts = Contact.objects.filter(lu=False).order_by('-date')[:3]
     latest_articles = Article.objects.filter(archive=False).order_by('-date')[:1]
     latest_activites = Activite.objects.filter(archive=False).order_by('-date')[:1]
 
     # Ajouter la durée pour chaque contact
-    for contact in trois_derniers_contacts:
+    for contact in trois_derniers_message:
         contact.time_diff = time_diff(contact.date)
 
     return render(request, 'dashboard.html', locals())
@@ -410,7 +422,7 @@ def deleteactiviteadmin(request, id):
 
 @login_required
 def messageadmin(request):
-    messages = Contact.objects.filter(archive=False).order_by('lu')
+    messages = Message.objects.filter(archive=False).order_by('-id')
     return render(request, 'messageadmin/messageadmin.html', locals())
 
 

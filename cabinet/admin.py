@@ -2,10 +2,20 @@ from django.contrib import admin
 from django_summernote.admin import SummernoteModelAdmin
 from .models import Contact, Article, Activite, Footer, Tel, Solution, Mission, BanniereAccueil, LibelleSolution, Email, \
     Apropos, NosSolutions, HistoriqueActivite, Financement, Diamond, Productivite, Valeur, NotreMission, Expertise, \
-    MotDuDG, Performance
+    MotDuDG, Performance, Message
 
 
 # Register your models here.
+
+
+class MessageAdmin(admin.ModelAdmin):
+    list_display = ('nom', 'prenom', 'mail', 'telephone', 'pays', 'date', 'archive',)
+    list_filter = ('nom', 'mail', 'telephone', 'pays', 'date', 'archive')
+    ordering = ('nom', 'mail', 'pays', 'date')
+    search_fields = ('nom', 'mail', 'pays', 'date')
+
+
+admin.site.register(Message, MessageAdmin)
 
 
 class ContactAdmin(admin.ModelAdmin):

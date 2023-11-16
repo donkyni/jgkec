@@ -4,9 +4,18 @@ from django import forms
 from django_summernote.widgets import SummernoteWidget
 from cabinet.models import Contact, Activite, Article, BanniereAccueil, Mission, LibelleSolution, Solution, Tel, Footer, \
     Email, Apropos, NosSolutions, MotDuDG, Financement, Diamond, Productivite, Valeur, NotreMission, Expertise, \
-    Performance
+    Performance, Message
 
 from django_summernote.fields import SummernoteTextField
+
+
+class MessageForm(forms.ModelForm):
+    class Meta:
+        model = Message
+        fields = ['nom', 'prenom', 'mail', 'telephone', 'pays']
+        widgets = {
+            'message': forms.EmailInput()
+        }
 
 
 class ContactForm(forms.ModelForm):

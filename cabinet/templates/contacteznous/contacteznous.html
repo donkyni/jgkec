@@ -38,15 +38,14 @@ active
                                   {% csrf_token %}
 
                                   <div class="form-group" style="color:#fff">
-                                      {{ form.prenom|as_crispy_field }}
                                       {{ form.nom|as_crispy_field }}
-                                      {{ form.fonction|as_crispy_field }}
-                                      {{ form.objet|as_crispy_field }}
-                                      {{ form.message|as_crispy_field }}
+                                      {{ form.prenom|as_crispy_field }}
+                                      {{ form.mail|as_crispy_field }}
                                       {{ form.telephone|as_crispy_field }}
+                                      {{ form.pays|as_crispy_field }}
                                   </div>
                                   <div class="social-auth-links text-center mb-3">
-                                    <input class="btn btn-block btn-info" type="submit" value="Envoyer votre message >" style="font-weight:500">
+                                    <input class="btn btn-block btn-info" type="submit" value="Envoyer >" style="font-weight:500">
                                   </div>
                               </form>
                           </div>

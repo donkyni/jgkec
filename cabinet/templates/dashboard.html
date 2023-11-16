@@ -61,7 +61,7 @@ Tableau de board
                         </div>
                         <div class="row no-gutters align-items-center">
                             <div class="col-auto">
-                                <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">{{count_contacts}}</div>
+                                <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">{{count_message}}</div>
                             </div>
                             <!--<div class="col">
                                 <div class="progress progress-sm mr-2">
@@ -101,22 +101,22 @@ Tableau de board
 
 <div class="row">
     <div class="col-lg-6">
-        {% for contact in trois_derniers_contacts %}
+        {% for contact in trois_derniers_message %}
         <!-- Collapsable Card Example -->
         <div class="card shadow mb-4">
             <!-- Card Header - Accordion -->
-            <a href="{% url 'voirmessageclient' contact.id %}" class="d-block card-header py-3" data-toggle="ollapse"
+            <a href="javascript:void(0)" class="d-block card-header py-3" data-toggle="ollapse"
                 role="button" aria-expanded="true" aria-controls="{{contact.collapse}}">
                 <h6 class="m-0 font-weight-bold text-primary">
-                    <span style="text-decoration: underline">Client</span> | {{contact.prenom}} {{contact.nom}}
+                    <span style="text-decoration: underline">Client</span> | {{contact.nom}} {{contact.prenom}}
                 </h6>
             </a>
             <!-- Card Content - Collapse -->
             <div class="collapse show" id="{{contact.collapse}}">
                 <div class="card-body">
-                    <h6><span style="text-decoration: underline">Objet :</span> {{contact.objet}}</h6>
+                    <h6><span style="text-decoration: underline">Adresse email :</span> {{contact.mail}}</h6>
                     <p>
-                        {{contact.message}}
+                        {{contact.telephone}} / {{contact.pays}}
                         <br>
                     </p>
                     <div style="text-align:right">
