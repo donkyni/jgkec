@@ -32,12 +32,13 @@ active
                       <div class="row">
                           <div class="col-1"></div>
                           <div class="col-10">
-                              <p style="color:#fff;font-size:25px;">Laissez-nous un message</p>
+                              <p style="color:#fff;font-size:25px;">Quelle est la raison de votre contact ?</p>
                               {% load crispy_forms_tags %}
                               <form class="form-horizontal" method="POST">
                                   {% csrf_token %}
 
                                   <div class="form-group" style="color:#fff">
+                                      {{ form.motif|as_crispy_field }}
                                       {{ form.nom|as_crispy_field }}
                                       {{ form.prenom|as_crispy_field }}
                                       {{ form.mail|as_crispy_field }}

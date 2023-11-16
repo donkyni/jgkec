@@ -1,5 +1,6 @@
 {% for message in messages %}
 <tr>
+  <td class="text-left" style="font-size:20px">{{message.motif}}</td>
   <td class="text-left" style="font-size:20px">
     {{message.nom}} {{message.prenom}}
     <br>
@@ -9,10 +10,10 @@
     </span>
     -->
   </td>
-  <td class="text-left" style="font-size:20px"><span class="badge badge-sm badge-secondary">{{message.mail}}</span></td>
-  <td class="text-left" style="font-size:20px"><span class="badge badge-sm badge-secondary">{{message.telephone}}</span></td>
-  <td class="text-left" style="font-size:20px"><span class="badge badge-sm badge-secondary">{{message.pays}}</span></td>
-  <td class="text-left" style="font-size:20px"><span class="badge badge-sm badge-secondary">{{message.date}}</span></td>
+  <td class="text-left" style="font-size:20px">{{message.mail}}</td>
+  <td class="text-left" style="font-size:20px">{{message.telephone}}</td>
+  <td class="text-left" style="font-size:20px">{{message.pays}}</td>
+  <td class="text-left" style="font-size:20px">{{message.date}}</td>
 
   <!--
   <td>

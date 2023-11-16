@@ -4,10 +4,18 @@ from django.db import models
 
 
 class Message(models.Model):
+    MOTIFS = (
+        (u"Avoir d'avantage d’information sur le programme Elevator", u"Avoir d'avantage d’information sur le programme"
+                                                                      u"Elevator"),
+        (u"M’inscrire au programme Elevator", u"M’inscrire au programme Elevator")
+    )
+    motif = models.CharField(choices=MOTIFS, max_length=1000, null=True,
+                             help_text="Quelle est la raison de votre contact")
     nom = models.CharField(max_length=255, null=True, verbose_name="Nom")
     prenom = models.CharField(max_length=255, null=True, blank=True, verbose_name="Prénom")
     mail = models.EmailField(null=True, verbose_name="Adresse email")
-    telephone = models.CharField(verbose_name="Numéro de téléphone", max_length=15, null=True, default="(+000) 12345678")
+    telephone = models.CharField(verbose_name="Numéro de téléphone", max_length=15, null=True,
+                                 default="(+000) 12345678")
     pays = models.CharField(max_length=255, null=True, verbose_name="Pays")
     date = models.DateTimeField(null=True, auto_now_add=True, blank=True)
     archive = models.BooleanField(default=False)
@@ -191,6 +199,7 @@ class Footer(models.Model):
     mail = models.ManyToManyField(Email, null=True, blank=True,
                                   help_text="Pour selectionner plusieurs, appuyer sur la touche ctrl")
     date = models.DateTimeField(auto_now_add=True, null=True)
+
 
 # ############### PAGE APROPOS ##################
 
