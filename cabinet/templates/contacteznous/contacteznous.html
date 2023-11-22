@@ -42,8 +42,9 @@ active
                                       {{ form.nom|as_crispy_field }}
                                       {{ form.prenom|as_crispy_field }}
                                       {{ form.mail|as_crispy_field }}
-                                      {{ form.telephone|as_crispy_field }}
                                       {{ form.pays|as_crispy_field }}
+                                      {{ form.code_pays|as_crispy_field }}
+                                      {{ form.telephone|as_crispy_field }}
                                   </div>
                                   <div class="social-auth-links text-center mb-3">
                                     <input class="btn btn-block btn-info" type="submit" value="Envoyer >" style="font-weight:500">
@@ -102,4 +103,29 @@ active
           </div>
       </section>
   </main>
+{% endblock %}
+
+{% block javascript %}
+<!-- Ajoutez jQuery -->
+<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+
+<script>
+$(document).ready(function(){
+  // Détecte le changement dans le menu déroulant pays
+  $('#id_pays').change(function(){
+    // Récupère la valeur sélectionnée
+    var selectedCountry = $(this).val();
+
+    // Utilisez une correspondance de pays pour obtenir le code_pays
+    var countryCodes = {
+      'France': '+33',
+      'Afghanistan': '+93',
+      // Ajoutez d'autres pays et codes au besoin
+    };
+
+    // Met à jour le champ code_pays avec le code du pays correspondant
+    $('#id_code_pays').val(countryCodes[selectedCountry]);
+  });
+});
+</script>
 {% endblock %}

@@ -12,10 +12,12 @@ from django_summernote.fields import SummernoteTextField
 class MessageForm(forms.ModelForm):
     class Meta:
         model = Message
-        fields = ['motif', 'nom', 'prenom', 'mail', 'telephone', 'pays']
+        fields = ['motif', 'nom', 'prenom', 'mail', 'pays', 'code_pays', 'telephone']
         widgets = {
             'motif': forms.Select(),
-            'message': forms.EmailInput()
+            'mail': forms.EmailInput(),
+            'pays': forms.Select(attrs={'id': 'id_pays'}),
+            'code_pays': forms.Select(attrs={'id': 'id_code_pays'}),
         }
 
 

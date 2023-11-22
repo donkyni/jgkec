@@ -9,10 +9,10 @@ from .models import Contact, Article, Activite, Footer, Tel, Solution, Mission, 
 
 
 class MessageAdmin(admin.ModelAdmin):
-    list_display = ('motif', 'nom', 'prenom', 'mail', 'telephone', 'pays', 'date', 'archive',)
-    list_filter = ('motif', 'nom', 'mail', 'telephone', 'pays', 'date', 'archive')
-    ordering = ('motif', 'nom', 'mail', 'pays', 'date')
-    search_fields = ('motif', 'nom', 'mail', 'pays', 'date')
+    list_display = ('motif', 'nom', 'prenom', 'mail', 'pays', 'code_pays', 'telephone', 'date', 'archive',)
+    list_filter = ('motif', 'nom', 'mail', 'pays', 'code_pays', 'telephone', 'date', 'archive')
+    ordering = ('motif', 'nom', 'mail', 'pays', 'code_pays', 'date')
+    search_fields = ('motif', 'nom', 'mail', 'pays', 'code_pays', 'date')
 
 
 admin.site.register(Message, MessageAdmin)

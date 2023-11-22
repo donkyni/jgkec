@@ -14,9 +14,10 @@ class Message(models.Model):
     nom = models.CharField(max_length=255, null=True, verbose_name="Nom")
     prenom = models.CharField(max_length=255, null=True, blank=True, verbose_name="Prénom")
     mail = models.EmailField(null=True, verbose_name="Adresse email")
+    pays = models.CharField(max_length=255, null=True, verbose_name="Pays")
+    code_pays = models.CharField(max_length=255, null=True, verbose_name="Code du Pays")
     telephone = models.CharField(verbose_name="Numéro de téléphone", max_length=15, null=True,
                                  default="(+000) 12345678")
-    pays = models.CharField(max_length=255, null=True, verbose_name="Pays")
     date = models.DateTimeField(null=True, auto_now_add=True, blank=True)
     archive = models.BooleanField(default=False)
 
