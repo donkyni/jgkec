@@ -14,10 +14,10 @@ active
       <div class="container">
 
         <div class="d-flex justify-content-between align-items-center">
-          <h2>Contactez nous</h2>
+          <h2>Elevator</h2>
           <ol>
             <li><a href="{% url 'acceuil' %}">Acceuil</a></li>
-              <li><a href="{% url 'sondage' %}">Contactez nous</a></li>
+              <li><a href="{% url 'sondage' %}">Elevator</a></li>
           </ol>
         </div>
 
@@ -32,17 +32,30 @@ active
                       <div class="row">
                           <div class="col-1"></div>
                           <div class="col-10">
-                              <p style="color:#fff;font-size:25px;">Quelle est la raison de votre contact ?</p>
+                              <p style="color:#fff;font-size:25px;">S'inscrire au programme Elevator</p>
                               {% load crispy_forms_tags %}
                               <form class="form-horizontal" method="POST">
                                   {% csrf_token %}
 
                                   <div class="form-group" style="color:#fff">
-                                      {{ form.nom|as_crispy_field }}
-                                      {{ form.prenom|as_crispy_field }}
-                                      {{ form.mail|as_crispy_field }}
-                                      {{ form.telephone|as_crispy_field }}
-                                      {{ form.pays|as_crispy_field }}
+                                      {{ e_form.prenom|as_crispy_field }}
+                                      {{ e_form.nom|as_crispy_field }}
+                                      {{ e_form.datenaiss|as_crispy_field }}
+                                      {{ e_form.pays|as_crispy_field }}
+                                      {{ e_form.mail|as_crispy_field }}
+                                      {{ e_form.telephone|as_crispy_field }}
+
+                                      {{ e_form.titreposte|as_crispy_field }}
+                                      {{ e_form.entreprise|as_crispy_field }}
+                                      {{ e_form.secteur|as_crispy_field }}
+                                      {{ e_form.experience|as_crispy_field }}
+
+                                      {{ e_form.detail|as_crispy_field }}
+                                      {{ e_form.pourquoi|as_crispy_field }}
+                                      {{ e_form.objectifs|as_crispy_field }}
+
+                                      {{ e_form.confirmation|as_crispy_field }}
+                                      {{ e_form.terme|as_crispy_field }}
                                   </div>
                                   <div class="social-auth-links text-center mb-3">
                                     <input class="btn btn-block btn-info" type="submit" value="Envoyer >" style="font-weight:500">
@@ -55,7 +68,7 @@ active
                   <div class="col-lg-5 col-12 bordered" style="margin:25px 0px;padding-left:30px;border-left: 15px solid #fff;">
                       <p style="color:#fff;font-size:30px;">Nos coordonnées</p>
                       <p style="color:#fff">
-                          <i style="font-size:30px" class="fa fa-phone"></i> &nbsp; <span style="font-size:20px">+228 22 25 39 87 / +228 92 41 95 49</span>
+                          <i style="font-size:30px" class="fa fa-phone"></i> &nbsp; <span style="font-size:20px">+228 93 81 82 82 / 90 87 75 56</span>
                       </p>
                       <p style="color:#fff">
                           <a href="https://wa.me/22896039972?text=Je%20suis%20interessé%20par%20votre%20programme"
@@ -102,3 +115,7 @@ active
       </section>
   </main>
 {% endblock %}
+
+
+{% load crispy_forms_tags %}
+{{e_form|crispy }}

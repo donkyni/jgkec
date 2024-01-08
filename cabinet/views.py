@@ -10,7 +10,7 @@ from django.template.loader import render_to_string
 
 from cabinet.forms import ContactForm, ArticleForm, ActiviteForm, DeleteMessage, BanniereAccueilForm, MissionForm, \
     FooterForm, AproposForm, NosSolutionsForm, PerformanceForm, MotDuDGForm, ExpertiseForm, ValeurForm, \
-    NotreMissionForm, ProductiviteForm, DiamondForm, FinancementForm, MessageForm
+    NotreMissionForm, ProductiviteForm, DiamondForm, FinancementForm, MessageForm, ElevatorForm
 from cabinet.models import Article, Activite, Contact, BanniereAccueil, Mission, Solution, Footer, Apropos, \
     NosSolutions, HistoriqueActivite, Performance, MotDuDG, Expertise, Valeur, NotreMission, Productivite, Diamond, \
     Financement, Message
@@ -271,6 +271,30 @@ def contacteznous(request):
         "mission": mission,
     }
     return render(request, 'contacteznous/contacteznous.html', context)
+
+
+def elevator(request):
+    activites_count = Activite.objects.filter(archive=False).order_by('-date').count()
+    articles_count = Article.objects.filter(archive=False).order_by('-date').count()
+    mission = Mission.objects.get(label="Mission")
+    footer = Footer.objects.filter(label="Footer")
+
+    if request.method == 'POST':
+        e_form = ElevatorForm(request.POST)
+        if e_form.is_valid():
+            e_form.save()
+            return redirect('contacteznous')
+    else:
+        e_form = ElevatorForm()
+
+    context = {
+        'e_form': e_form,
+        'articles_count': articles_count,
+        'activites_count': activites_count,
+        "footer": footer,
+        "mission": mission,
+    }
+    return render(request, 'contacteznous/elevator.html', context)
 
 
 def feedback(request):

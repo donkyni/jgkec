@@ -4,20 +4,23 @@ from django import forms
 from django_summernote.widgets import SummernoteWidget
 from cabinet.models import Contact, Activite, Article, BanniereAccueil, Mission, LibelleSolution, Solution, Tel, Footer, \
     Email, Apropos, NosSolutions, MotDuDG, Financement, Diamond, Productivite, Valeur, NotreMission, Expertise, \
-    Performance, Message
+    Performance, Message, Elevator
 
 from django_summernote.fields import SummernoteTextField
+
+
+class ElevatorForm(forms.ModelForm):
+    class Meta:
+        model = Elevator
+        fields = '__all__'
 
 
 class MessageForm(forms.ModelForm):
     class Meta:
         model = Message
-        fields = ['motif', 'nom', 'prenom', 'mail', 'pays', 'code_pays', 'telephone']
+        fields = ['nom', 'prenom', 'mail', 'telephone', 'pays']
         widgets = {
-            'motif': forms.Select(),
-            'mail': forms.EmailInput(),
-            'pays': forms.Select(attrs={'id': 'id_pays'}),
-            'code_pays': forms.Select(attrs={'id': 'id_code_pays'}),
+            'message': forms.EmailInput()
         }
 
 

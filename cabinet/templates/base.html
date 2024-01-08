@@ -268,7 +268,7 @@
               </p>
             </div>
             <div class="card-footer text-center">
-              <a href="https://calendly.com/kominac2000/zoom-meeting" target="_blank" class="btn btn-lg btn-primary" style="border: 1px solid #462446; background-color: #462446">{{valeur.voirplus}}</a>
+              <!--<a href="https://calendly.com/kominac2000/zoom-meeting" target="_blank" class="btn btn-lg btn-primary" style="border: 1px solid #462446; background-color: #462446">{{valeur.voirplus}}</a>-->
             </div>
           </div>
         </div>
@@ -288,12 +288,13 @@
               </p>
             </div>
             <div class="card-footer text-center">
-              <a href="{% url 'contacteznous' %}"
+              <a href="{% url 'elevator' %}"
                  class="btn btn-lg btn-primary"
                  style="color:#fff;
                  border: 1px solid #462446;
                  background-color: #462446">
-                Contactez un membre de l’équipe de JGK-EC
+                <!--Contactez un membre de l’équipe de JGK-EC-->
+                M’inscrire au programme Elevator
               </a>
             </div>
           </div>
@@ -312,7 +313,7 @@
               </p>
             </div>
             <div class="card-footer text-center">
-              <a href="https://calendly.com/kominac2000/zoom-meeting" target="_blank" class="btn btn-lg btn-primary" style="border: 1px solid #462446; background-color: #462446">{{diamond.voirplus}}</a>
+              <!--<a href="https://calendly.com/kominac2000/zoom-meeting" target="_blank" class="btn btn-lg btn-primary" style="border: 1px solid #462446; background-color: #462446">{{diamond.voirplus}}</a>-->
             </div>
           </div>
         </div>
@@ -329,7 +330,7 @@
               <br><br>
             </div>
             <div class="card-footer text-center">
-              <a href="https://calendly.com/kominac2000/zoom-meeting" target="_blank" class="btn btn-lg btn-primary" style="border: 1px solid #462446; background-color: #462446">{{financement.voirplus}}</a>
+              <!--<a href="https://calendly.com/kominac2000/zoom-meeting" target="_blank" class="btn btn-lg btn-primary" style="border: 1px solid #462446; background-color: #462446">{{financement.voirplus}}</a>-->
             </div>
           </div>
         </div>
@@ -525,8 +526,8 @@
             <br>
           </div>
         </div>
-        <a href="https://calendly.com/kominac2000/zoom-meeting" target="_blank">
-          <span class="btn btn-dark btn-lg mx-auto" style="border: 1px solid #462646; background-color: #462646;font-size:28px">{{motdudg.voirplus}}</span>
+        <!--<a href="https://calendly.com/kominac2000/zoom-meeting" target="_blank">
+          <span class="btn btn-dark btn-lg mx-auto" style="border: 1px solid #462646; background-color: #462646;font-size:28px">{{motdudg.voirplus}}</span>-->
         </a>
         <br><br><br><br>
       </div>
@@ -746,6 +747,7 @@
 
   <a href="#" class="back-to-top"><i class="icofont-simple-up"></i></a>
 
+  {% block javascript %}{% endblock %}
   <!-- Vendor JS Files -->
   <script src="{% static 'cabinet/assets/vendor/jquery/jquery.min.js' %}"></script>
   <script src="{% static 'cabinet/assets/vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
@@ -763,8 +765,6 @@
 
   <!-- Template Main JS File -->
   <script src="{% static 'cabinet/assets/js/main.js' %}"></script>
-
-  {% block javascript %}{% endblock %}
 </body>
 
 </html>

@@ -2,17 +2,27 @@ from django.contrib import admin
 from django_summernote.admin import SummernoteModelAdmin
 from .models import Contact, Article, Activite, Footer, Tel, Solution, Mission, BanniereAccueil, LibelleSolution, Email, \
     Apropos, NosSolutions, HistoriqueActivite, Financement, Diamond, Productivite, Valeur, NotreMission, Expertise, \
-    MotDuDG, Performance, Message
+    MotDuDG, Performance, Message, Elevator
 
 
 # Register your models here.
 
 
+class ElevatorAdmin(admin.ModelAdmin):
+    list_display = ('prenom', 'nom', 'datenaiss', 'pays', 'mail', 'telephone', 'archive',)
+    list_filter = ('nom', 'pays', 'telephone', 'archive',)
+    ordering = ('nom', 'pays', 'telephone', 'archive',)
+    search_fields = ('nom', 'pays', 'telephone')
+
+
+admin.site.register(Elevator, ElevatorAdmin)
+
+
 class MessageAdmin(admin.ModelAdmin):
-    list_display = ('motif', 'nom', 'prenom', 'mail', 'pays', 'code_pays', 'telephone', 'date', 'archive',)
-    list_filter = ('motif', 'nom', 'mail', 'pays', 'code_pays', 'telephone', 'date', 'archive')
-    ordering = ('motif', 'nom', 'mail', 'pays', 'code_pays', 'date')
-    search_fields = ('motif', 'nom', 'mail', 'pays', 'code_pays', 'date')
+    list_display = ('nom', 'prenom', 'mail', 'telephone', 'pays', 'date', 'archive',)
+    list_filter = ('nom', 'mail', 'telephone', 'pays', 'date', 'archive')
+    ordering = ('nom', 'mail', 'pays', 'date')
+    search_fields = ('nom', 'mail', 'pays', 'date')
 
 
 admin.site.register(Message, MessageAdmin)

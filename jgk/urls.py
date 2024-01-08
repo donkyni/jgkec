@@ -25,7 +25,7 @@ from cabinet import views
 from cabinet.views import acceuil, contacts, expertise, ingenierie, management, finance, insertion, \
     formation, formule, calendrier, calendrier2, sondage, reprise, etude, solution, activite, article, \
     apropos, contacteznous, feedback, dashboard, articleadmin, activiteadmin, messageadmin, login_url, logout_url, \
-    updatebanniereaccueil, updateapropos, updatenossolutions
+    updatebanniereaccueil, updateapropos, updatenossolutions, elevator
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -62,6 +62,7 @@ urlpatterns = [
     url(r'^(?P<id>\d+)/modifier-une-activite$', views.updateactiviteadmin, name="updateactiviteadmin"),
     url(r'^(?P<id>\d+)/supprimer-une-activite$', views.deleteactiviteadmin, name="deleteactiviteadmin"),
     path('messageadmin$', messageadmin, name="messageadmin"),
+    path('elevator$', elevator, name="elevator"),
     url(r'^(?P<id>\d+)/supprimer-un-message$', views.deletemessageadmin, name="deletemessageadmin"),
     url(r'^(?P<id>\d+)/consulter-le-message$', views.voirmessageclient, name="voirmessageclient"),
     path('updatebanniereaccueil/', updatebanniereaccueil, name="updatebanniereaccueil"),

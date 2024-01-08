@@ -3,21 +3,56 @@ import uuid
 from django.db import models
 
 
-class Message(models.Model):
-    MOTIFS = (
-        (u"Avoir d'avantage d’information sur le programme Elevator", u"Avoir d'avantage d’information sur le programme"
-                                                                      u"Elevator"),
-        (u"M’inscrire au programme Elevator", u"M’inscrire au programme Elevator")
+class Elevator(models.Model):
+    DETAIL = (
+        (u"Réseaux sociaux", u"Réseaux sociaux"),
+        (u"Site web JGK-EC", u"Site web JGK-EC"),
+        (u"Bouche-à-oreille", u"Bouche-à-oreille"),
+        (u"Autre (veuillez préciser)", u"Autre"),
     )
-    motif = models.CharField(choices=MOTIFS, max_length=1000, null=True,
-                             help_text="Quelle est la raison de votre contact")
+
+    # informations personnelles
+    prenom = models.CharField(max_length=255, null=True, blank=True, verbose_name="Prénom")
+    nom = models.CharField(max_length=255, null=True, verbose_name="Nom")
+    datenaiss = models.DateField(null=True, blank=True, verbose_name="Date de naissance")
+    pays = models.CharField(max_length=255, null=True, verbose_name="Pays")
+    mail = models.EmailField(null=True, verbose_name="Adresse email")
+    telephone = models.CharField(verbose_name="Numéro de téléphone", max_length=15, null=True,
+                                 default="(+000) 12345678")
+
+    # informations professionnelles
+    titreposte = models.CharField(verbose_name="Titre du poste", max_length=255, null=True)
+    entreprise = models.CharField(verbose_name="Nom de l'entreprise/organisation", max_length=255, null=True)
+    secteur = models.CharField(verbose_name="Secteur d'activité", max_length=255, null=True)
+    experience = models.CharField(verbose_name="Nombre d'année d'expérience professionnelle", max_length=255, null=True)
+
+    # informations sur le programme
+    detail = models.CharField(
+        choices=DETAIL,
+        verbose_name="Comment avez-vous entendu parler du Programme Elevator ?",
+        null=True,
+        max_length=255)
+    pourquoi = models.TextField(null=True, verbose_name="Pourquoi souhaitez-vous rejoindre le Programme Elevator ?")
+    objectifs = models.TextField(null=True, verbose_name="Quels sont vos objectifs professionnels ?")
+
+    # engagement du participant
+    confirmation = models.BooleanField(null=True,
+                                       verbose_name="Veuillez confirmer votre disponibilité pour les sessions en "
+                                                    "soirée.")
+    terme = models.BooleanField(null=True,
+                                verbose_name="Acceptez-vous les termes et conditions du Programme Elevator ?")
+
+    date = models.DateTimeField(null=True, auto_now_add=True, blank=True)
+    archive = models.BooleanField(default=False)
+
+
+class Message(models.Model):
     nom = models.CharField(max_length=255, null=True, verbose_name="Nom")
     prenom = models.CharField(max_length=255, null=True, blank=True, verbose_name="Prénom")
     mail = models.EmailField(null=True, verbose_name="Adresse email")
-    pays = models.CharField(    max_length=255, null=True, verbose_name="Pays")
-    code_pays = models.CharField(max_length=255, null=True, verbose_name="Code du Pays")
     telephone = models.CharField(verbose_name="Numéro de téléphone", max_length=15, null=True,
                                  default="(+000) 12345678")
+    pays = models.CharField(max_length=255, null=True, verbose_name="Pays")
     date = models.DateTimeField(null=True, auto_now_add=True, blank=True)
     archive = models.BooleanField(default=False)
 
