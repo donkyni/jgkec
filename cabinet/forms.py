@@ -13,6 +13,10 @@ class ElevatorForm(forms.ModelForm):
     class Meta:
         model = Elevator
         fields = '__all__'
+        widgets = {
+            'confirmation': forms.CheckboxInput(attrs={'class': 'form-check-input'}),
+            'terme': forms.CheckboxInput(attrs={'class': 'form-check-input'})
+        }
 
 
 class MessageForm(forms.ModelForm):
@@ -192,12 +196,13 @@ class MotDuDGForm(forms.ModelForm):
         titre = SummernoteTextField()
         libelle = SummernoteTextField()
 
-        fields = ['label', 'image', 'titre', 'libelle', 'voirplus']
+        fields = ['label', 'image', 'titre', 'libelle', 'terme', 'voirplus']
         widgets = {
 
             'label': forms.TextInput(attrs={'disabled': 'true'}),
             'titre': SummernoteWidget(),
             'libelle': SummernoteWidget(),
+            'terme': SummernoteWidget(),
         }
         enctype = 'multipart/form-data'
 

@@ -283,7 +283,7 @@ def elevator(request):
         e_form = ElevatorForm(request.POST)
         if e_form.is_valid():
             e_form.save()
-            return redirect('contacteznous')
+            return redirect('aftersubmit')
     else:
         e_form = ElevatorForm()
 
@@ -295,6 +295,23 @@ def elevator(request):
         "mission": mission,
     }
     return render(request, 'contacteznous/elevator.html', context)
+
+
+def termes(request):
+    motdudg = MotDuDG.objects.get(label="MotDuDG")
+    activites_count = Activite.objects.filter(archive=False).order_by('-date').count()
+    articles_count = Article.objects.filter(archive=False).order_by('-date').count()
+    mission = Mission.objects.get(label="Mission")
+    footer = Footer.objects.filter(label="Footer")
+    return render(request, 'contacteznous/termes.html', locals())
+
+
+def aftersubmit(request):
+    activites_count = Activite.objects.filter(archive=False).order_by('-date').count()
+    articles_count = Article.objects.filter(archive=False).order_by('-date').count()
+    mission = Mission.objects.get(label="Mission")
+    footer = Footer.objects.filter(label="Footer")
+    return render(request, 'contacteznous/aftersubmit.html', locals())
 
 
 def feedback(request):

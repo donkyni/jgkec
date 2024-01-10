@@ -36,10 +36,10 @@ class Elevator(models.Model):
     objectifs = models.TextField(null=True, verbose_name="Quels sont vos objectifs professionnels ?")
 
     # engagement du participant
-    confirmation = models.BooleanField(null=True,
+    confirmation = models.BooleanField(null=True, blank=False,
                                        verbose_name="Veuillez confirmer votre disponibilité pour les sessions en "
                                                     "soirée.")
-    terme = models.BooleanField(null=True,
+    terme = models.BooleanField(null=True, blank=False,
                                 verbose_name="Acceptez-vous les termes et conditions du Programme Elevator ?")
 
     date = models.DateTimeField(null=True, auto_now_add=True, blank=True)
@@ -118,6 +118,7 @@ class MotDuDG(models.Model):
     image = models.ImageField(blank=True, null=True, upload_to="motdudg/")
     titre = models.TextField(verbose_name="Titre mot du DG", null=True, blank=True)
     libelle = models.TextField(verbose_name="Libellé mot du DG", null=True, blank=True)
+    terme = models.TextField(verbose_name="Termes et conditions", null=True, blank=True)
     voirplus = models.CharField(max_length=255, null=True, blank=True)
     date = models.DateTimeField(auto_now_add=True, null=True)
 

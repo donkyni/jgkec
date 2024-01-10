@@ -13,7 +13,7 @@ active
     <section id="breadcrumbs" style="background-color:#462446" class="breadcrumbs">
       <div class="container">
 
-        <div class="d-flex justify-content-between align-items-center">
+        <div class="d-flex justify-content-between align-items-center pt-3">
           <h2>Elevator</h2>
           <ol>
             <li><a href="{% url 'acceuil' %}">Acceuil</a></li>
@@ -32,7 +32,8 @@ active
                       <div class="row">
                           <div class="col-1"></div>
                           <div class="col-10">
-                              <p style="color:#fff;font-size:25px;">S'inscrire au programme Elevator</p>
+                              <p style="color:#fff;font-size:35px;font-weight:700;text-align:center">S'inscrire au programme Elevator</p>
+                              <br>
                               {% load crispy_forms_tags %}
                               <form class="form-horizontal" method="POST">
                                   {% csrf_token %}
@@ -56,58 +57,16 @@ active
 
                                       {{ e_form.confirmation|as_crispy_field }}
                                       {{ e_form.terme|as_crispy_field }}
+                                      <div style="text-align:center;">
+                                          <a href="{% url 'termes' %}" style="color:#31A3FF;text-decoration:underline">Termes et conditions du Programme Elevator ?</a>
+                                      </div>
                                   </div>
                                   <div class="social-auth-links text-center mb-3">
-                                    <input class="btn btn-block btn-info" type="submit" value="Envoyer >" style="font-weight:500">
+                                    <input class="btn btn-block btn-info" type="submit" value="Soumettre ma candidature >" style="font-weight:500">
                                   </div>
                               </form>
                           </div>
                           <div class="col-1"></div>
-                      </div>
-                  </div>
-                  <div class="col-lg-5 col-12 bordered" style="margin:25px 0px;padding-left:30px;border-left: 15px solid #fff;">
-                      <p style="color:#fff;font-size:30px;">Nos coordonnées</p>
-                      <p style="color:#fff">
-                          <i style="font-size:30px" class="fa fa-phone"></i> &nbsp; <span style="font-size:20px">+228 93 81 82 82 / 90 87 75 56</span>
-                      </p>
-                      <p style="color:#fff">
-                          <a href="https://wa.me/22896039972?text=Je%20suis%20interessé%20par%20votre%20programme"
-                             target="_blank" style="color:#fff;" title="Cliquez pour lancer la conversation">
-                              <i style="font-size:30px" class="fa fa-whatsapp"></i> &nbsp; <span style="font-size:22px">Discuter sur WhatsApp</span>
-                          </a>
-                      </p>
-                      <form action="mailto:info@jgkec.fr">
-                          <i style="font-size:25px;color:#fff" class="fa fa-envelope"></i> &nbsp; <input type="submit" value="Envoyez nous un courriel">
-                      </form>
-                      <p style="color:#fff;padding-top:10px">
-                          <a style="color:white;font-size:20px" target="_blank" href="https://www.google.com/maps/search/?api=1&query=6.235168,1.183029">
-                              <svg style="height:25px;width:25px;"
-                                   xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512">
-                                  <path d="M215.7 499.2C267 435 384 279.4 384 192C384 86 298 0 192 0S0 86 0 192c0 87.4 117 243 168.3 307.2c12.3 15.3 35.1 15.3 47.4 0zM192 128a64 64 0 1 1 0 128 64 64 0 1 1 0-128z" fill="#FFFFFF"/></svg>
-                              &nbsp;&nbsp;Voir sur Google Maps
-                          </a>
-                      </p>
-                      <br><br>
-                      <hr style="margin:20px 20px;height:5px;width:80%;background-color:#3498db;">
-                      <br><br><br>
-                      <p style="color:#fff;font-size:18px;">Nous suivre sur les réseaux sociaux</p>
-                      <div class="row d-flex text-center">
-                          <div class="col-1"></div>
-                          <div class="col-3">
-                              <p style="color:#3F48CC;">
-                                  <a target='_blank' href="https://www.facebook.com/JGKEC.page?mibextid=ZbWKwL">
-                                      <i style="width:60px;height:60px;font-size:60px;background-color:white;padding:2px;border-radius:5px" class="fa fa-facebook"></i>
-                                  </a>
-                              </p>
-                          </div>
-                          <div class="col-3">
-                              <p style="color:#fff">
-                                  <a target='_blank' href="https://www.linkedin.com/company/jgk-ec/">
-                                      <i style="width:60px;height:60px;font-size:60px;background-color:#fff;padding:2px;border-radius:5px" class="fa fa-linkedin"></i>
-                                  </a>
-                              </p>
-                          </div>
-                          <div class="col-5"></div>
                       </div>
                   </div>
               </div>
@@ -115,7 +74,3 @@ active
       </section>
   </main>
 {% endblock %}
-
-
-{% load crispy_forms_tags %}
-{{e_form|crispy }}
